@@ -1,0 +1,12 @@
+.Layout__block {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.Layout__content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}

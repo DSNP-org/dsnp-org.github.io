@@ -50,6 +50,7 @@
     "gatsby-plugin-manifest": "2.12.1",
     "gatsby-plugin-offline": "3.10.2",
     "gatsby-plugin-react-helmet": "3.10.0",
+    "gatsby-plugin-sass": "^4.4.0",
     "gatsby-plugin-sharp": "2.14.3",
     "gatsby-source-filesystem": "2.11.1",
     "gatsby-source-ghost": "4.2.3",
@@ -57,6 +58,7 @@
     "lodash": "4.17.21",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-helmet": "6.1.0"
+    "react-helmet": "6.1.0",
+    "sass": "^1.32.12"
   }
 }
