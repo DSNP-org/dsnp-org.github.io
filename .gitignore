@@ -78,3 +78,9 @@ yarn-error.log
 
 # Local Netlify folder
 .netlify
+
+# Generated css
+App.css.map
+App.css
+*.css
+*.css.map
