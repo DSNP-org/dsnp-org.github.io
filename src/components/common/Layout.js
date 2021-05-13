@@ -8,7 +8,7 @@ import { Navigation } from '.'
 import config from '../../utils/siteConfig'
 
 // Styles
-import '../../styles/app.css'
+import '../../styles/App.css'
 
 /**
 * Main layout component
@@ -71,7 +71,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     </header>
 
                     <main className="site-main">
-                        {/* All the main content gets inserted here, index.js, post.js */}
+                        {/* All the main content gets inserted here, newIndex.js, post.js */}
                         {children}
                     </main>
 
