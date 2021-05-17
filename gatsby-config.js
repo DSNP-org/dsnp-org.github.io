@@ -87,6 +87,14 @@ module.exports = {
                             node {
                                 title
                                 description
+                                navigation {
+                                    label
+                                    url
+                                }
+                                secondary_navigation {
+                                    label
+                                    url
+                                }
                             }
                         }
                     }
@@ -104,6 +112,14 @@ module.exports = {
                             node {
                                 title
                                 description
+                                navigation {
+                                    label
+                                    url
+                                }
+                                secondary_navigation {
+                                    label
+                                    url
+                                }
                             }
                         }
                     }
