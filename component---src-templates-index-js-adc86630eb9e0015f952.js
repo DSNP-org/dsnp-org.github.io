@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{TRom:function(e,a,n){"use strict";n.r(a);var t=n("q1tI"),c=n.n(t),i=n("1Qp6"),o=n("wCQ3");a.default=function(e){var a=e.location;return c.a.createElement(c.a.Fragment,null,c.a.createElement(o.a,{location:a}),c.a.createElement(i.a,{isHome:!0},c.a.createElement("div",{className:"container"},"This is the index!")))}}}]);
+//# sourceMappingURL=component---src-templates-index-js-adc86630eb9e0015f952.js.map
