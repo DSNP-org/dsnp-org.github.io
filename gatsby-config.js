@@ -176,6 +176,7 @@ module.exports = {
                         }
                     }
                 }`,
+                output: `/dsnp-sitemap.xml`,
                 mapping: {
                     allGhostPost: {
                         sitemap: `posts`,
