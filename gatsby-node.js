@@ -63,6 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const tagsTemplate = path.resolve(`./src/templates/tag.js`)
     const authorTemplate = path.resolve(`./src/templates/author.js`)
     const pageTemplate = path.resolve(`./src/templates/page.js`)
+    const blogPageTemplate = path.resolve(`./src/templates/page-blog.js`)
     const postTemplate = path.resolve(`./src/templates/post.js`)
 
     // Create tag pages
@@ -113,14 +114,18 @@ exports.createPages = async ({ graphql, actions }) => {
 
     // Create pages
     pages.forEach(({ node }) => {
-        console.log(node)
         // This part here defines, that our pages will use
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`
 
+        let thisPageTemplate = pageTemplate
+        if (node.slug === `blog`) {
+            thisPageTemplate = blogPageTemplate
+        }
+
         createPage({
             path: node.url,
-            component: pageTemplate,
+            component: thisPageTemplate,
             context: {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
