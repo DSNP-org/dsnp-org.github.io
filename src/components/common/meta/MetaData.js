@@ -106,6 +106,14 @@ const MetaDataQuery = props => (
                         node {
                             title
                             description
+                            navigation {
+                                label
+                                url
+                            }
+                            secondary_navigation {
+                                label
+                                url
+                            }
                         }
                     }
                 }
