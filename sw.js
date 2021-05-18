@@ -27,17 +27,17 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-50fe5165d94cf43a0fa2.js"
+    "url": "webpack-runtime-9f09999c206d6a921e71.js"
   },
   {
     "url": "framework-b60dcc5637db30fd3ccb.js"
   },
   {
-    "url": "app-05f74cbd88244debac19.js"
+    "url": "app-e87ba2e55cc966735b6a.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "2029fe4aecb61a6121b53f9984e1e823"
+    "revision": "95baf253a5dd5d7870433cbde87fd02b"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-ad6431e4664bcf916d19.js"
@@ -48,7 +48,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "02fc6b4e09b95e8cac5ffe08fbeb0817"
+    "revision": "909d2e2d736449bf391c89ca3f51f768"
   },
   {
     "url": "polyfill-404a8fe84b9b126210e7.js"
@@ -142,12 +142,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/blog`), ``)
+  pathname = pathname.replace(new RegExp(`^/dsnp-web`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/blog/app-05f74cbd88244debac19.js`))) {
+  if (!resources || !(await caches.match(`/dsnp-web/app-e87ba2e55cc966735b6a.js`))) {
     return await fetch(event.request)
   }
 
@@ -160,7 +160,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/blog/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/dsnp-web/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
