@@ -1,10 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-
+import { Parallax } from 'react-scroll-parallax'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import ContentCard from "../components/common/ContentCard"
+import { ParallaxProvider } from 'react-scroll-parallax'
+import ClickDrag from "../images/ClickDrag.svg"
+import Blob1 from "../images/blob-1.svg"
+import Blob2 from "../images/blob-2.svg"
+import Blob3 from "../images/blob-3.svg"
 
 /**
 * Main index page (home page)
@@ -39,15 +44,21 @@ const Index = ({ data, location }) => {
     }
 
     return (
-        <>
+        <ParallaxProvider>
             <MetaData location={location}/>
             <Layout isHome={true}>
+                {/*<Parallax y={[-40, 20]} tagOuter="figure"><img className="Index__blob2" src={Blob2} /></Parallax>*/}
+                {/*<Parallax y={[-80, 20]} tagOuter="figure"><img className="Index__blob3" src={Blob3} /></Parallax>*/}
                 <div className="container">
-                    {cards.map((cardData, index) => <ContentCard cardData={cardData} key={index}/>)}
+                    <div className="ContentCard__blockTitle">The Unfinished Ecosystem</div>
+                    <div className="ContentCard__block">
+                        <img src={ClickDrag} alt="click-drag" className="ContentCard__clickDrag" />
+                        {cards.map((cardData, index) => <ContentCard cardData={cardData} key={index} index={index + 1}/>)}
+                    </div>
                     { Array.prototype.map.call(siteContent.childNodes, (element, index) => getSiteContent(element, index))}
                 </div>
             </Layout>
-        </>
+        </ParallaxProvider>
     )
 }
 

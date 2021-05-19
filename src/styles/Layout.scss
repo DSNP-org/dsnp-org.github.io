@@ -1,17 +1,17 @@
 .site-banner {
     max-width: 80%;
-    margin: 0 auto;
-    padding: 5vw 0;
+    padding: 4vw 0;
     text-align: left;
 }
 
 .site-banner-title {
     margin: 0;
     padding: 0;
-    color: #fff;
+    color: $navy;
     font-size: 6.5rem;
     line-height: 1.1em;
     width: 80%;
+    @include serif-font;
 }
 
 .site-banner-desc {
@@ -19,6 +19,15 @@
     padding: 0;
     font-size: 2.4rem;
     line-height: 1.3em;
+    color: $navy;
     opacity: 0.7;
     width: 70%;
+}
+
+.Layout__arrowButton {
+    transform: rotate(135deg);
+    height: 75px;
+    width: 75px;
+    margin-top: 15px;
+    margin-left: -12px;
 }

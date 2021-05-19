@@ -3,12 +3,17 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 
 import { Navigation } from '.'
 
 // Styles
 import '../../styles/App.css'
 import '../../App.css'
+import Blob1 from "../../images/blob-1.svg"
+import Blob3 from "../../images/blob-3.svg"
+import UpArrow from "../../images/up-arrow-btn.svg"
+import Dots from "../../images/dots.svg"
 
 /**
 * Main layout component
@@ -23,7 +28,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const homePage = data.allGhostPage.edges[0].node
 
     return (
-        <>
+        <ParallaxProvider>
             <Helmet>
                 <html lang={site.lang} />
                 <style type="text/css">{`${site.codeinjection_styles}`}</style>
@@ -35,6 +40,11 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 <div className="viewport-top">
                     {/* The main header section on top of the screen */}
                     <header className="site-head" style={{ ...site.cover_image && { backgroundImage: `url(${site.cover_image})` } }}>
+                        <div className="Header__parallax">
+                            <Parallax y={[100, -50]} tagOuter="figure"><img className="Index__blob1" src={Blob1} /></Parallax>
+                            <Parallax x={[50, 0]} tagOuter="figure"><img className="Index__blob3" src={Blob3} /></Parallax>
+                        </div>
+                        <Parallax y={[30, -10]}><img src={Dots} alt="dots"/></Parallax>
                         <div className="container">
                             <div className="site-mast">
                                 <div className="site-mast-left">
@@ -58,13 +68,14 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 <div className="site-banner">
                                     <h1 className="site-banner-title">{homePage.title}</h1>
                                     <p className="site-banner-desc">{site.description}</p>
+                                    <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
                                 </div> :
                                 null
                             }
                         </div>
                     </header>
 
-                    <main className="site-main">
+                    <main className={isHome ? `site-main site-main-home` : `site-main`}>
                         {/* All the main content gets inserted here, newIndex.js, post.js */}
                         {children}
                     </main>
@@ -87,7 +98,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 </div>
             </div>
 
-        </>
+        </ParallaxProvider>
     )
 }
 

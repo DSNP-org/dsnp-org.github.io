@@ -364,6 +364,7 @@ ul,
 ol,
 dl,
 blockquote {
+    font-size: 18px;
     margin: 0 0 1.5em 0;
 }
 
@@ -528,6 +529,9 @@ h6 {
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 4vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .content {
@@ -661,35 +665,17 @@ h6 {
 /* Header
 /* ---------------------------------------------------------- */
 
-.site-head {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #fff;
-    background: var(--color-base);
-    background-position: center;
-    background-size: cover;
-}
-
-.site-logo {
-    height: 25px;
-}
-
-.site-mast {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.site-mast-right {
-    display: flex;
-    align-items: center;
-}
-
 /* Main
 /* ---------------------------------------------------------- */
 
 .site-main {
+    margin-top: -350px;
     padding: 4vw 0;
+}
+
+.site-main-home {
+    margin-top: 0;
+    padding: 2vw 0;
 }
 
 /* Index

@@ -1,0 +1,49 @@
+.ContentCard__block {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.ContentCard__blockTitle {
+    @include large-emphasized-font;
+    @include serif-font;
+    margin: 0 0 30px 15px;
+}
+
+.ContentCard__item {
+    display: flex;
+    flex-direction: column;
+    width: 275px;
+    height: auto;
+    padding: 15px;
+    margin: 0 15px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+}
+
+.ContentCard__cardNumber {
+    text-align: right;
+    color: $text-light-gray;
+    @include serif-font;
+    @include emphasized-font;
+}
+
+.ContentCard__title {
+    color: $blue;
+    @include minor-title;
+}
+
+.ContentCard__text {
+    @include serif-font;
+    flex-grow: 1;
+}
+
+.ContentCard__button {
+    align-self: flex-end;
+}
+
+.ContentCard__clickDrag {
+    height: 100px;
+    width: auto;
+    align-self: center;
+}
