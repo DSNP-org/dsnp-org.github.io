@@ -1,7 +1,14 @@
 .ContentCard__block {
     display: flex;
     flex-direction: row;
-    position: relative;
+    padding: 10px 10px 10px 0;
+    cursor: pointer;
+    margin-left: calc((100vw - 1120px)/2 + 4vw);
+    width: calc(100vw - (100vw - 1120px)/2);
+
+    @media (max-width: 1119px) {
+        margin-left: 4vw;
+    }
 }
 
 .ContentCard__blockTitle {
@@ -13,7 +20,7 @@
 .ContentCard__item {
     display: flex;
     flex-direction: column;
-    width: 275px;
+    min-width: 275px;
     height: auto;
     padding: 15px;
     margin: 0 15px;

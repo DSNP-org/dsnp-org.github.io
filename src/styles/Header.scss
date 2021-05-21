@@ -6,35 +6,28 @@
 .site-head {
     padding-top: 20px;
     padding-bottom: 20px;
-    color: #fff;
-    background: $bg-gray;
-    background-position: center;
-    background-size: cover;
 }
 
 .Header__parallax {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 0 -16vw;
+
+    @media (max-width: 700px) {
+        margin: 0 -95vw;
+    }
 }
 
 .site-logo {
-    height: 25px;
+    height: 50px;
+    padding-left: 20px;
 }
 
 .site-mast {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-top: -700px;
-
-    @media (max-width: 950px) {
-        margin-top: -650px;
-    }
-
-    @media (max-width: 840px) {
-        margin-top: -600px;
-    }
+    margin-bottom: -50px;
 }
 
 .site-mast-right {

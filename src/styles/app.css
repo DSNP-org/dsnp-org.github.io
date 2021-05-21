@@ -525,15 +525,6 @@ h6 {
     min-height: 100vh;
 }
 
-.container {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 4vw;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
 .content {
     margin: 0 auto;
     font-size: 2rem;
@@ -664,20 +655,8 @@ h6 {
 
 /* Header
 /* ---------------------------------------------------------- */
-
 /* Main
 /* ---------------------------------------------------------- */
-
-.site-main {
-    margin-top: -350px;
-    padding: 4vw 0;
-}
-
-.site-main-home {
-    margin-top: 0;
-    padding: 2vw 0;
-}
-
 /* Index
 /* ---------------------------------------------------------- */
 

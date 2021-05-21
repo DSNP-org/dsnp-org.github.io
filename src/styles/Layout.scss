@@ -1,6 +1,6 @@
 .site-banner {
     max-width: 80%;
-    padding: 4vw 0;
+    padding: 3vw 0;
     text-align: left;
 }
 
@@ -30,4 +30,36 @@
     width: 75px;
     margin-top: 15px;
     margin-left: -12px;
+}
+
+.content-container {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 4vw
+}
+
+.body-block {
+    padding: 3em 0;
+}
+
+.site-main {
+    padding: 3vw 0;
+}
+
+.site-main-home {
+    margin-top: 0;
+    padding: 0;
+}
+
+.viewport-top {
+    overflow: hidden;
 }

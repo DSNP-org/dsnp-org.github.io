@@ -11,9 +11,12 @@ import { Navigation } from '.'
 import '../../styles/App.css'
 import '../../App.css'
 import Blob1 from "../../images/blob-1.svg"
+import Blob2 from "../../images/blob-2.svg"
 import Blob3 from "../../images/blob-3.svg"
 import UpArrow from "../../images/up-arrow-btn.svg"
 import Dots from "../../images/dots.svg"
+import MultiNode from "../../images/multi-node.svg"
+import SingleNode from "../../images/single-node.svg"
 
 /**
 * Main layout component
@@ -39,47 +42,60 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
 
                 <div className="viewport-top">
                     {/* The main header section on top of the screen */}
-                    <header className="site-head" style={{ ...site.cover_image && { backgroundImage: `url(${site.cover_image})` } }}>
-                        <div className="Header__parallax">
-                            <Parallax y={[100, -50]} tagOuter="figure"><img className="Index__blob1" src={Blob1} /></Parallax>
-                            <Parallax x={[50, 0]} tagOuter="figure"><img className="Index__blob3" src={Blob3} /></Parallax>
-                        </div>
-                        <Parallax y={[30, -10]}><img src={Dots} alt="dots"/></Parallax>
-                        <div className="container">
+                    <div className="Header__parallax">
+                        <Parallax y={[0, 0]} tagOuter="figure"><img className="Index__blob1" src={Blob1} /></Parallax>
+                        <Parallax x={[-30, 30]} tagOuter="figure"><img className="Index__blob3" src={Blob3} /></Parallax>
+                    </div>
+                    <div className="Header__parallax">
+                        <Parallax y={[-5, -200]}><img src={Dots} alt="dots"/></Parallax>
+                        <Parallax y={[20, 200]}><img src={Dots} alt="dots"/></Parallax>
+                    </div>
+                    <div className="Header__parallax">
+                        <Parallax y={[-40, 0]} styleOuter={{ position: `absolute`, left: -300 }}><img className="Index__blob2" src={Blob2} /></Parallax>
+                    </div>
+                    {isHome &&
+                    <div className="Header__parallax">
+                        <Parallax y={[-25, -30]} x={[-30, 0]}><img src={SingleNode} alt="single-node"/></Parallax>
+                        <Parallax y={[-65, 60]}><img src={MultiNode} alt="multi-node"/></Parallax>
+                    </div>
+                    }
+                    <div className="Header__parallax">
+                        <Parallax y={[0, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
+                    </div>
+
+                    <div className="content-container">
+                        <header className="site-head">
                             <div className="site-mast">
-                                <div className="site-mast-left">
-                                    <Link to="/">
-                                        {site.logo ?
-                                            <img className="site-logo" src={site.logo} alt={site.title} />
-                                            : <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
-                                        }
-                                    </Link>
-                                </div>
-                                <div className="site-mast-right">
-                                    <nav className="site-nav">
-                                        <div className="site-nav-top">
-                                            {/* The navigation items as setup in Ghost */}
-                                            <Navigation data={site.navigation} navClass="site-nav-item" />
-                                        </div>
-                                    </nav>
-                                </div>
+                                <Link to="/">
+                                    {site.logo ?
+                                        <img className="site-logo" src={site.logo} alt={site.title} />
+                                        : <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
+                                    }
+                                </Link>
                             </div>
-                            { isHome ?
-                                <div className="site-banner">
-                                    <h1 className="site-banner-title">{homePage.title}</h1>
-                                    <p className="site-banner-desc">{site.description}</p>
-                                    <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
-                                </div> :
-                                null
-                            }
-                        </div>
-                    </header>
+                            <div className="container">
+                                <nav className="site-nav">
+                                    <div className="site-nav-top">
+                                        {/* The navigation items as setup in Ghost */}
+                                        <Navigation data={site.navigation} navClass="site-nav-item" />
+                                    </div>
+                                </nav>
+                                { isHome ?
+                                    <div className="site-banner">
+                                        <h1 className="site-banner-title">{homePage.title}</h1>
+                                        <p className="site-banner-desc">{site.description}</p>
+                                        <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
+                                    </div> :
+                                    null
+                                }
+                            </div>
+                        </header>
 
-                    <main className={isHome ? `site-main site-main-home` : `site-main`}>
-                        {/* All the main content gets inserted here, newIndex.js, post.js */}
-                        {children}
-                    </main>
-
+                        <main className={isHome ? `site-main site-main-home` : `site-main`}>
+                            {/* All the main content gets inserted here, newIndex.js, post.js */}
+                            {children}
+                        </main>
+                    </div>
                 </div>
 
                 <div className="viewport-bottom">
