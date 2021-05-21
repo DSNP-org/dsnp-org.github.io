@@ -29,7 +29,6 @@ import SingleNode from "../../images/single-node.svg"
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const site = data.allGhostSettings.edges[0].node
     const homePage = data.allGhostPage.edges[0].node
-
     return (
         <ParallaxProvider>
             <Helmet>
@@ -39,30 +38,8 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
             </Helmet>
 
             <div className="viewport">
-
                 <div className="viewport-top">
                     {/* The main header section on top of the screen */}
-                    <div className="Header__parallax">
-                        <Parallax y={[0, 0]} tagOuter="figure"><img className="Index__blob1" src={Blob1} /></Parallax>
-                        <Parallax x={[-30, 30]} tagOuter="figure"><img className="Index__blob3" src={Blob3} /></Parallax>
-                    </div>
-                    <div className="Header__parallax">
-                        <Parallax y={[-5, -200]}><img src={Dots} alt="dots"/></Parallax>
-                        <Parallax y={[20, 200]}><img src={Dots} alt="dots"/></Parallax>
-                    </div>
-                    <div className="Header__parallax">
-                        <Parallax y={[-40, 0]} styleOuter={{ position: `absolute`, left: -300 }}><img className="Index__blob2" src={Blob2} /></Parallax>
-                    </div>
-                    {isHome &&
-                    <div className="Header__parallax">
-                        <Parallax y={[-25, -30]} x={[-30, 0]}><img src={SingleNode} alt="single-node"/></Parallax>
-                        <Parallax y={[-65, 60]}><img src={MultiNode} alt="multi-node"/></Parallax>
-                    </div>
-                    }
-                    <div className="Header__parallax">
-                        <Parallax y={[0, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
-                    </div>
-
                     <div className="content-container">
                         <header className="site-head">
                             <div className="site-mast">
@@ -97,23 +74,43 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                         </main>
                     </div>
                 </div>
-
-                <div className="viewport-bottom">
-                    {/* The footer at the very bottom of the screen */}
-                    <footer className="site-foot">
-                        <div className="site-foot-nav container">
-                            <div className="site-foot-nav-left">
-                                <Link to="/">{site.title}</Link> © 2021
-                            </div>
-                            <div className="site-foot-nav-right">
-                                <Navigation data={site.secondary_navigation} navClass="site-foot-nav-item" />
-                            </div>
-                        </div>
-                    </footer>
-
+                <div className="Parallax__block">
+                    <div className="Header__parallax">
+                        <Parallax y={[0, 0]} tagOuter="figure"><img className="Index__blob1" src={Blob1} /></Parallax>
+                        <Parallax x={[-30, 30]} tagOuter="figure"><img className="Index__blob3" src={Blob3} /></Parallax>
+                    </div>
+                    <div className="Header__parallax">
+                        <Parallax y={[-5, -200]}><img src={Dots} alt="dots"/></Parallax>
+                        <Parallax y={[20, 200]}><img src={Dots} alt="dots"/></Parallax>
+                    </div>
+                    <div className="Header__parallax">
+                        <Parallax y={[-40, 0]} styleOuter={{ position: `absolute`, left: -300 }}><img className="Index__blob2" src={Blob2} /></Parallax>
+                    </div>
+                    {isHome &&
+                    <div className="Header__parallax">
+                        <Parallax y={[-25, -30]} x={[-30, 0]}><img src={SingleNode} alt="single-node"/></Parallax>
+                        <Parallax y={[-65, 60]}><img src={MultiNode} alt="multi-node"/></Parallax>
+                    </div>
+                    }
+                    <div className="Header__parallax">
+                        <Parallax y={[0, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
+                    </div>
                 </div>
             </div>
+            <div className="viewport-bottom">
+                {/* The footer at the very bottom of the screen */}
+                <footer className="site-foot">
+                    <div className="site-foot-nav container">
+                        <div className="site-foot-nav-left">
+                            <Link to="/">{site.title}</Link> © 2021
+                        </div>
+                        <div className="site-foot-nav-right">
+                            <Navigation data={site.secondary_navigation} navClass="site-foot-nav-item" />
+                        </div>
+                    </div>
+                </footer>
 
+            </div>
         </ParallaxProvider>
     )
 }
