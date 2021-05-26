@@ -8,13 +8,15 @@
 
     @media (max-width: 1119px) {
         margin-left: 4vw;
+        width: 95vw;
     }
 }
 
 .ContentCard__blockTitle {
     @include large-emphasized-font;
     @include serif-font;
-    margin: 0 0 30px 15px;
+    margin: 0;
+    line-height: 1;
 }
 
 .ContentCard__item {

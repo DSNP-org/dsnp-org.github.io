@@ -4,6 +4,9 @@ import { Helmet } from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
+import AOS from "aos"
+import "aos/dist/aos.css"
+AOS.init()
 
 import { Navigation } from '.'
 
@@ -59,7 +62,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 </nav>
                                 { isHome ?
                                     <div className="site-banner">
-                                        <h1 className="site-banner-title">{homePage.title}</h1>
+                                        <h1 className="site-banner-title" data-aos="fade-right" data-aos-duration="1400">{homePage.title}</h1>
                                         <p className="site-banner-desc">{site.description}</p>
                                         <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
                                     </div> :
