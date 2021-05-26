@@ -3,12 +3,25 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
+import AOS from "aos"
+import "aos/dist/aos.css"
+if (typeof document !== `undefined`) {
+    AOS.init()
+}
 
 import { Navigation } from '.'
-import config from '../../utils/siteConfig'
 
 // Styles
 import '../../styles/App.css'
+import '../../App.css'
+import Blob1 from "../../images/blob-1.svg"
+import Blob2 from "../../images/blob-2.svg"
+import Blob3 from "../../images/blob-3.svg"
+import UpArrow from "../../images/up-arrow-btn.svg"
+import Dots from "../../images/dots.svg"
+import MultiNode from "../../images/multi-node.svg"
+import SingleNode from "../../images/single-node.svg"
 
 /**
 * Main layout component
@@ -20,11 +33,9 @@ import '../../styles/App.css'
 */
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const site = data.allGhostSettings.edges[0].node
-    const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
-    const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
-
+    const homePage = data.allGhostPage.edges[0].node
     return (
-        <>
+        <ParallaxProvider>
             <Helmet>
                 <html lang={site.lang} />
                 <style type="text/css">{`${site.codeinjection_styles}`}</style>
@@ -32,65 +43,80 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
             </Helmet>
 
             <div className="viewport">
-
                 <div className="viewport-top">
                     {/* The main header section on top of the screen */}
-                    <header className="site-head" style={{ ...site.cover_image && { backgroundImage: `url(${site.cover_image})` } }}>
-                        <div className="container">
+                    <div className="content-container">
+                        <header className="site-head">
                             <div className="site-mast">
-                                <div className="site-mast-left">
-                                    <Link to="/">
-                                        {site.logo ?
-                                            <img className="site-logo" src={site.logo} alt={site.title} />
-                                            : <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
-                                        }
-                                    </Link>
-                                </div>
-                                <div className="site-mast-right">
-                                    { site.twitter && <a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/twitter.svg" alt="Twitter" /></a>}
-                                    { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/facebook.svg" alt="Facebook" /></a>}
-                                    <a className="site-nav-item" href={ `https://feedly.com/i/subscription/feed/${config.siteUrl}/rss/` } target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></a>
-                                </div>
+                                <Link to="/">
+                                    {site.logo ?
+                                        <img className="site-logo" src={site.logo} alt={site.title} />
+                                        : <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
+                                    }
+                                </Link>
                             </div>
-                            { isHome ?
-                                <div className="site-banner">
-                                    <h1 className="site-banner-title">{site.title}</h1>
-                                    <p className="site-banner-desc">{site.description}</p>
-                                </div> :
-                                null}
-                            <nav className="site-nav">
-                                <div className="site-nav-left">
-                                    {/* The navigation items as setup in Ghost */}
-                                    <Navigation data={site.navigation} navClass="site-nav-item" />
-                                </div>
-                            </nav>
-                        </div>
-                    </header>
+                            <div className="container">
+                                <nav className="site-nav">
+                                    <div className="site-nav-top">
+                                        {/* The navigation items as setup in Ghost */}
+                                        <Navigation data={site.navigation} navClass="site-nav-item" />
+                                    </div>
+                                </nav>
+                                { isHome ?
+                                    <div className="site-banner">
+                                        <h1 className="site-banner-title" data-aos="fade-right" data-aos-duration="1400">{homePage.title}</h1>
+                                        <p className="site-banner-desc">{site.description}</p>
+                                        <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
+                                    </div> :
+                                    null
+                                }
+                            </div>
+                        </header>
 
-                    <main className="site-main">
-                        {/* All the main content gets inserted here, newIndex.js, post.js */}
-                        {children}
-                    </main>
-
+                        <main className={isHome ? `site-main site-main-home` : `site-main`}>
+                            {/* All the main content gets inserted here, newIndex.js, post.js */}
+                            {children}
+                        </main>
+                    </div>
                 </div>
-
-                <div className="viewport-bottom">
-                    {/* The footer at the very bottom of the screen */}
-                    <footer className="site-foot">
-                        <div className="site-foot-nav container">
-                            <div className="site-foot-nav-left">
-                                <Link to="/">{site.title}</Link> © 2021
-                            </div>
-                            <div className="site-foot-nav-right">
-                                <Navigation data={site.secondary_navigation} navClass="site-foot-nav-item" />
-                            </div>
-                        </div>
-                    </footer>
-
+                <div className="Parallax__block">
+                    <div className="Header__parallax">
+                        <Parallax y={[0, 0]} tagOuter="figure"><img className="Index__blob1" src={Blob1} /></Parallax>
+                        <Parallax x={[-30, 30]} tagOuter="figure"><img className="Index__blob3" src={Blob3} /></Parallax>
+                    </div>
+                    <div className="Header__parallax">
+                        <Parallax y={[-5, -200]}><img src={Dots} alt="dots"/></Parallax>
+                        <Parallax y={[20, 200]}><img src={Dots} alt="dots"/></Parallax>
+                    </div>
+                    <div className="Header__parallax">
+                        <Parallax y={[-40, 0]} styleOuter={{ position: `absolute`, left: -300 }}><img className="Index__blob2" src={Blob2} /></Parallax>
+                    </div>
+                    {isHome &&
+                    <div className="Header__parallax">
+                        <Parallax y={[-25, -30]} x={[-30, 0]}><img src={SingleNode} alt="single-node"/></Parallax>
+                        <Parallax y={[-65, 60]}><img src={MultiNode} alt="multi-node"/></Parallax>
+                    </div>
+                    }
+                    <div className="Header__parallax">
+                        <Parallax y={[0, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
+                    </div>
                 </div>
             </div>
+            <div className="viewport-bottom">
+                {/* The footer at the very bottom of the screen */}
+                <footer className="site-foot">
+                    <div className="site-foot-nav container">
+                        <div className="site-foot-nav-left">
+                            <Link to="/">{site.title}</Link> © 2021
+                        </div>
+                        <div className="site-foot-nav-right">
+                            <Navigation data={site.secondary_navigation} navClass="site-foot-nav-item" />
+                        </div>
+                    </div>
+                </footer>
 
-        </>
+            </div>
+        </ParallaxProvider>
     )
 }
 
@@ -101,6 +127,7 @@ DefaultLayout.propTypes = {
     data: PropTypes.shape({
         file: PropTypes.object,
         allGhostSettings: PropTypes.object.isRequired,
+        allGhostPage: PropTypes.object.isRequired,
     }).isRequired,
 }
 
@@ -119,6 +146,14 @@ const DefaultLayoutSettingsQuery = props => (
                     childImageSharp {
                         fixed(width: 30, height: 30) {
                             ...GatsbyImageSharpFixed
+                        }
+                    }
+                }
+                allGhostPage(filter: {slug: {eq: "home"}}) {
+                    edges {
+                        node {
+                            title
+                            html
                         }
                     }
                 }

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64.414" height="64.414" viewBox="0 0 64.414 64.414">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_1818" data-name="Path 1818" d="M1.546,0,0,1.546,6.183,7.729,0,13.912l1.546,1.546L7.729,9.275,9.275,7.729,7.729,6.183Z" transform="translate(0 0)" fill="#23617b" clip-rule="evenodd"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_198" data-name="Rectangle 198" width="20.978" height="27.603" fill="#23617b"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <path id="Path_1817" data-name="Path 1817" d="M0,16.562H9.937V0H0Z" fill="#23617b"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1204" data-name="Group 1204" transform="translate(-471.586 -1067.586)">
+    <circle id="Ellipse_382" data-name="Ellipse 382" cx="22.774" cy="22.774" r="22.774" transform="translate(503.793 1132) rotate(-135)" fill="#f6695d"/>
+    <g id="Group_1176" data-name="Group 1176" transform="translate(490.666 1101.794) rotate(-45)">
+      <g id="Group_49" data-name="Group 49" transform="translate(12.12 0)" clip-path="url(#clip-path)">
+        <g id="Group_48" data-name="Group 48" transform="translate(-6.073 -6.073)" style="isolation: isolate">
+          <g id="Group_47" data-name="Group 47" clip-path="url(#clip-path-2)">
+            <g id="Group_46" data-name="Group 46" transform="translate(5.521 5.521)" clip-path="url(#clip-path-3)">
+              <path id="Path_1816" data-name="Path 1816" d="M0,26.5V0H20.316V26.5Z" transform="translate(-4.969 -4.969)" fill="#23617b"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <rect id="Rectangle_199" data-name="Rectangle 199" width="19.426" height="2.534" transform="translate(0 6.462)" fill="#23617b"/>
+    </g>
+  </g>
+</svg>

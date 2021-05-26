@@ -1,0 +1,18 @@
+@mixin serif-font {
+    font-family: PlayfairDisplay;
+}
+
+@mixin large-emphasized-font {
+    font-size: 36px;
+    font-weight: $bold;
+}
+
+@mixin emphasized-font {
+    font-size: 26px;
+    font-weight: $bold;
+}
+
+@mixin minor-title {
+    font-size: 22px;
+    font-weight: $bold;
+}

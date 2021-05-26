@@ -21,7 +21,7 @@ const PageBlog = ({ data, location, pageContext }) => {
             <MetaData location={location} />
             <Layout>
                 <div className="container">
-                    <h1 className="content-title">Blog</h1>
+                    <h1 className="content-title" data-aos="fade-right" data-aos-duration="1400">Blog</h1>
                     <section className="post-feed">
                         {posts.map(({ node }) => (
                             // The tag below includes the markup for each post - components/common/PostCard.js
@@ -54,7 +54,8 @@ export const pageQuery = graphql`
     allGhostPost(
         sort: { order: DESC, fields: [published_at] },
         limit: $limit,
-        skip: $skip
+        skip: $skip,
+        filter: {tags: {elemMatch: {name: {eq: "#BlogPost"}}}}
     ) {
       edges {
         node {

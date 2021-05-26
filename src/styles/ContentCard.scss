@@ -1,0 +1,58 @@
+.ContentCard__block {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px 10px 0;
+    cursor: pointer;
+    margin-left: calc((100vw - 1120px)/2 + 4vw);
+    width: calc(96vw - (100vw - 1120px)/2);
+
+    @media (max-width: 1119px) {
+        margin-left: 4vw;
+        width: 95vw;
+    }
+}
+
+.ContentCard__blockTitle {
+    @include large-emphasized-font;
+    @include serif-font;
+    margin: 0;
+    line-height: 1;
+}
+
+.ContentCard__item {
+    display: flex;
+    flex-direction: column;
+    min-width: 275px;
+    height: auto;
+    padding: 15px;
+    margin: 0 15px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+}
+
+.ContentCard__cardNumber {
+    text-align: right;
+    color: $text-light-gray;
+    @include serif-font;
+    @include emphasized-font;
+}
+
+.ContentCard__title {
+    color: $blue;
+    @include minor-title;
+}
+
+.ContentCard__text {
+    @include serif-font;
+    flex-grow: 1;
+}
+
+.ContentCard__button {
+    align-self: flex-end;
+}
+
+.ContentCard__clickDrag {
+    height: 100px;
+    width: auto;
+    align-self: center;
+}

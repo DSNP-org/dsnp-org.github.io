@@ -1,4 +1,42 @@
+.Parallax__block {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+}
+
 .Header__block {
     display: flex;
     justify-content: space-between;
+}
+
+.site-head {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.Header__parallax {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 -16vw;
+
+    @media (max-width: 700px) {
+        margin: 0 -95vw;
+    }
+}
+
+.site-logo {
+    height: 50px;
+    padding-left: 20px;
+}
+
+.site-mast {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -50px;
+}
+
+.site-mast-right {
+    display: flex;
+    align-items: center;
 }

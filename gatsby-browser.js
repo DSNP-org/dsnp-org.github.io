@@ -10,11 +10,11 @@
  *
  */
 var trustAllScripts = function () {
-    var scriptNodes = document.querySelectorAll('.load-external-scripts script');
+    var scriptNodes = typeof document !== `undefined` ? document.querySelectorAll('.load-external-scripts script'): null;
 
     for (var i = 0; i < scriptNodes.length; i += 1) {
         var node = scriptNodes[i];
-        var s = document.createElement('script');
+        var s = typeof document !== `undefined` ? document.createElement('script') : null;
         s.type = node.type || 'text/javascript';
 
         if (node.attributes.src) {
@@ -23,7 +23,7 @@ var trustAllScripts = function () {
             s.innerHTML = node.innerHTML;
         }
 
-        document.getElementsByTagName('head')[0].appendChild(s);
+        typeof document !== `undefined` ? document.getElementsByTagName('head')[0].appendChild(s) : null;
     }
 };
 

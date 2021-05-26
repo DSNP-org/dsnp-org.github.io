@@ -1,0 +1,26 @@
+.cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+.cursor--small {
+    width: 10px;
+    height: 10px;
+    left: -5px;
+    top: -5px;
+    border-radius: 50%;
+    z-index: 11000;
+    background: $blue;
+}
+.cursor--canvas {
+    width: 100vw;
+    height: 100vh;
+    z-index: 12000;
+}
+
+.Index__blockCustomCursor,
+.Index__blockCustomCursor a,
+.Index__blockCustomCursor .ContentCard__block {
+    cursor: none;
+}
