@@ -22,8 +22,12 @@ const Index = ({ data, location }) => {
     const site = data.allGhostPage.edges[0].node
     const cards = data.allGhostPost.nodes
 
-    let parser = new DOMParser()
-    const siteContent = parser.parseFromString(site.html, `text/html`).body
+    let siteContent = null
+
+    if (typeof window !== `undefined`) {
+        let parser = new DOMParser()
+        siteContent = parser.parseFromString(site.html, `text/html`).body
+    }
 
     const generateKey = pre => `${ pre }_${ new Date().getTime() }`
 
@@ -181,7 +185,7 @@ const Index = ({ data, location }) => {
                             <div className="ContentCard__blockTitle" data-aos="fade-right" data-aos-duration="1400">
                                 Our Partners
                             </div>
-                            { Array.prototype.map.call(siteContent.childNodes, (element, index) => getSiteContent(element, index))}
+                            {siteContent && Array.prototype.map.call(siteContent.childNodes, (element, index) => getSiteContent(element, index))}
                         </div>
                     </div>
                 </Layout>

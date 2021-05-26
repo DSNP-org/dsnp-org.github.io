@@ -14,7 +14,7 @@ import { Link } from 'gatsby'
 */
 const Navigation = ({ data, navClass }) => {
     const getClassName = (navItem) => {
-        const currentPage = window.location.pathname
+        const currentPage = typeof window !== `undefined` ? window.location.pathname : null
         if (currentPage === navItem.url && navClass === `site-nav-item`) {
             return `${navClass} selectedNavItem`
         }

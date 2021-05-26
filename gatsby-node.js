@@ -19,6 +19,10 @@ exports.onCreateWebpackConfig = ({
                         test: /canvas/,
                         use: loaders.null(),
                     },
+                    {
+                        test: /paper/,
+                        use: loaders.null(),
+                    },
                 ],
             },
         })
