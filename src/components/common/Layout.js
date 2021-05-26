@@ -6,7 +6,9 @@ import Img from 'gatsby-image'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import AOS from "aos"
 import "aos/dist/aos.css"
-AOS.init()
+if (typeof document !== `undefined`) {
+    AOS.init()
+}
 
 import { Navigation } from '.'
 
@@ -38,6 +40,12 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 <html lang={site.lang} />
                 <style type="text/css">{`${site.codeinjection_styles}`}</style>
                 <body className={bodyClass} />
+                script={[
+                    {
+                        src: `https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.2/paper-full.min.js`,
+                        type: `text/javascript`,
+                    },
+                ]}
             </Helmet>
 
             <div className="viewport">

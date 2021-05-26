@@ -49,13 +49,15 @@ const Index = ({ data, location }) => {
     const cursorIconSettings = () => {
         let clientX = -100
         let clientY = -100
-        const innerCursor = document.querySelector(`.cursor--small`)
+        const innerCursor = typeof document !== `undefined` ? document.querySelector(`.cursor--small`) : null
 
         // add listener to track the current mouse position
-        document.addEventListener(`mousemove`, (e) => {
-            clientX = e.clientX
-            clientY = e.clientY
-        })
+        if (typeof document !== `undefined`) {
+            document.addEventListener(`mousemove`, (e) => {
+                clientX = e.clientX
+                clientY = e.clientY
+            })
+        }
 
         // transform the innerCursor to the current mouse position
         // use requestAnimationFrame() for smooth performance
@@ -68,7 +70,7 @@ const Index = ({ data, location }) => {
         let lastX = 0
         let lastY = 0
         let group
-        const canvas = document.querySelector(`.cursor--canvas`)
+        const canvas = typeof document !== `undefined` ? document.querySelector(`.cursor--canvas`) : null
         paper.setup(canvas)
 
         const myPathLeft = new paper.Path()
@@ -130,7 +132,7 @@ const Index = ({ data, location }) => {
             }
 
             // add event listeners to all items
-            const linkItems = document.querySelectorAll(`.hoverLink`)
+            const linkItems = typeof document !== `undefined` ? document.querySelectorAll(`.hoverLink`) : null
             linkItems.forEach((item) => {
                 item.addEventListener(`mouseenter`, handleMouseEnter)
                 item.addEventListener(`mouseleave`, (e) => {
