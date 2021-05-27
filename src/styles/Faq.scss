@@ -1,0 +1,13 @@
+.question {
+    cursor: pointer;
+    background-color: $text-light-gray;
+    padding: 1em;
+}
+
+.answer {
+    display: none;
+}
+
+.answer.visible {
+    display: block;
+}

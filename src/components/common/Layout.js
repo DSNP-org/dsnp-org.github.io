@@ -65,7 +65,9 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 { isHome ?
                                     <div className="site-banner">
                                         <h1 className="site-banner-title" data-aos="fade-right" data-aos-duration="1400">{homePage.title}</h1>
-                                        <p className="site-banner-desc">{site.description}</p>
+                                        <p className="site-banner-desc">
+                                            DSNP.org is an independent non-profit organization, focused on the Decentralized Social Network Protocol (DSNP). The organization fits within the umbrella of Project Liberty [link: https://www.projectliberty.io/#/about] as the provider of one core component (the social graph protocol) that connects the many different technologies that make up a decentralized social network. Both DSNP.org and Project Liberty have been launched out of Unfinished Labs [link: https://www.unfinishedlabs.io/] as part of their efforts to build public infrastructure for the web that puts citizens at the center of an innovative, inclusive web economy.
+                                        </p>
                                         <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
                                     </div> :
                                     null
