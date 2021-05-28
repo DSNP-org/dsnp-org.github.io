@@ -6,6 +6,7 @@ import { generateKey } from "../../utils/keyGenerator"
 const FaqPostCard = ({ faqCards }) => (
     <Collapsible>
         {faqCards.map(faqCard => <Panel
+            className="FaqPostCard__item"
             header={
                 <div className="FaqPostCard__question">{faqCard.title}</div>}
             key={generateKey(faqCard.title)}

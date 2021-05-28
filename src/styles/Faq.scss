@@ -1,22 +1,6 @@
-.FaqPostCard__item {
-    margin: 5px 0;
+.FaqPostCard__question {
+    cursor: pointer;
+    background-color: $text-light-gray;
+    padding: 1em;
+    margin-top: 5px;
 }
-//
-//.FaqPostCard__question {
-//    cursor: pointer;
-//    background-color: $text-light-gray;
-//    padding: 1em;
-//    margin: 0;
-//}
-//
-//.FaqPostCard__answer {
-//    transform: scaleY(0);
-//    transform-origin: top;
-//    height: 0;
-//    transition: transform 0.25s ease;
-//}
-//
-//.FaqPostCard__answer.visible {
-//    transform: scaleY(1);
-//    height: auto;
-//}
