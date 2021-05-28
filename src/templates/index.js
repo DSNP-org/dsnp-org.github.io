@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import ContentCard from "../components/common/ContentCard"
+import ContentCard from "../components/common/IndexPostCard"
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import ClickDrag from "../images/ClickDrag.svg"
 import ScrollContainer from 'react-indiana-drag-scroll'
 import * as paper from 'paper'
+import { generateKey } from "../utils/keyGenerator"
 
 /**
 * Main index page (home page)
@@ -28,8 +29,6 @@ const Index = ({ data, location }) => {
         let parser = new DOMParser()
         siteContent = parser.parseFromString(site.html, `text/html`).body
     }
-
-    const generateKey = pre => `${ pre }_${ new Date().getTime() }`
 
     const getSiteContent = (element, index) => {
         if (element.tagName === `P`) {
@@ -209,7 +208,7 @@ export default Index
 // This page query loads all posts sorted descending by published date
 // The `limit` and `skip` values are used for pagination
 export const pageQuery = graphql`
-  query GhostPageQuery {
+  query GhostIndexQuery {
     allGhostPage(filter: {slug: {eq: "home"}}) {
         edges {
             node {
@@ -219,10 +218,10 @@ export const pageQuery = graphql`
         }
     }
     allGhostPost(filter: {tags: {elemMatch: {name: {eq: "#HomePage"}}}}) {
-    nodes {
-      plaintext
-      title
-    }
-  }
+        nodes {
+          plaintext
+          title
+        }
+      }
   }
 `
