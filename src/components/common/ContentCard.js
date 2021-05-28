@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import UpArrow from "../../images/up-arrow-btn.svg"
 
-const IndexPostCard = ({ cardData, index }) => {
+const PostCard = ({ cardData, index }) => {
     const cardNumber = index < 10 ? `0${index}` : index
     return <div className="ContentCard__item" >
         <div className="ContentCard__cardNumber">{cardNumber}</div>
@@ -14,9 +14,9 @@ const IndexPostCard = ({ cardData, index }) => {
     </div>
 }
 
-IndexPostCard.propTypes = {
+PostCard.propTypes = {
     cardData: PropTypes.any,
     index: PropTypes.number,
 }
 
-export default IndexPostCard
+export default PostCard
