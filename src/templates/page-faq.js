@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-
+import { Collapsible, Panel } from "cinch-collapsible"
 import { Layout, Pagination } from '../components/common'
 import { MetaData } from '../components/common/meta'
+import { generateKey } from "../utils/keyGenerator"
+import FaqPostCard from "../components/common/FaqPostCard"
 
 /**
  * FAQ page
@@ -14,25 +16,17 @@ import { MetaData } from '../components/common/meta'
 
 const PageFaq = ({ data, location, pageContext }) => {
     const page = data.ghostPage
-
-    useEffect(() => {
-        if (typeof document !== `undefined`) {
-            let faqItem = document.getElementsByClassName(`faq__item`)
-            for (const item of faqItem){
-                item.firstElementChild.addEventListener(`click`, () => {
-                    item.lastElementChild.classList.toggle(`visible`)
-                })
-            }
-        }
-    }, [page])
+    const faqCards = data.allGhostPost.nodes
 
     return (
         <>
             <MetaData location={location} />
             <Layout>
                 <div className="container">
-                    <h1 className="content-title" data-aos="fade-right" data-aos-duration="1400">FAQ</h1>
-                    <section dangerouslySetInnerHTML={{ __html: page.html }}/>
+                    <h1 className="content-title" data-aos="fade-right" data-aos-duration="1400">{page.title}</h1>
+                    <FaqPostCard
+                        faqCards={faqCards}
+                    />
                     <Pagination pageContext={pageContext} />
                 </div>
             </Layout>
@@ -43,6 +37,7 @@ const PageFaq = ({ data, location, pageContext }) => {
 PageFaq.propTypes = {
     data: PropTypes.shape({
         ghostPage: PropTypes.object.isRequired,
+        allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
     location: PropTypes.shape({
         pathname: PropTypes.string.isRequired,
@@ -55,9 +50,15 @@ export default PageFaq
 // This page query loads all posts sorted descending by published date
 // The `limit` and `skip` values are used for pagination
 export const faqQuery = graphql`
-    query allGhostPage($slug: String!) {
+    query GhostFaqQuery($slug: String!) {
         ghostPage(slug: { eq: $slug }) {
             ...GhostPageFields
+        }
+        allGhostPost(filter: {tags: {elemMatch: {name: {eq: "#FAQ"}}}}) {
+            nodes {
+              plaintext
+              title
+            }
         }
     }
 `
