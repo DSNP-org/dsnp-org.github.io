@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Collapsible, Panel } from "cinch-collapsible"
 import { Layout, Pagination } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { generateKey } from "../utils/keyGenerator"
 import FaqPostCard from "../components/common/FaqPostCard"
 
 /**
