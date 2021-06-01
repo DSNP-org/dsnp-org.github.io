@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { Panel, Collapsible } from "cinch-collapsible"
+import Collapsible from 'react-collapsible'
 
 const FaqPostCard = ({ faqCards }) => {
     const [openQuestions, setOpenQuestions] = React.useState([])
@@ -14,22 +14,22 @@ const FaqPostCard = ({ faqCards }) => {
         }
     }
 
-    useEffect(() => {},[openQuestions])
-
-    return <Collapsible>
-        {faqCards.map(faqCard => <Panel
-            className="FaqPostCard__item"
-            key={faqCard.id}
-            id={faqCard.id}
-            header={
-                <div className="FaqPostCard__questionBlock" onClick={() => toggleDisplayAnswers(faqCard.id)}>
-                    <h2 className="FaqPostCard__question">{faqCard.title}</h2>
-                    <div className={`FaqPostCard__dropdownIcon ${openQuestions.includes(faqCard.id) ? `isOpen` : `isClosed`}`}>❯</div>
-                </div>}
-        >
-            <div className="FaqPostCard__answer">{faqCard.plaintext}</div>
-        </Panel>)}
-    </Collapsible>
+    return (
+        <>
+            {faqCards.map(faqCard => <Collapsible
+                className="FaqPostCard__item"
+                key={faqCard.id}
+                id={faqCard.id}
+                trigger={
+                    <div className="FaqPostCard__questionBlock" onClick={() => toggleDisplayAnswers(faqCard.id)}>
+                        <h2 className="FaqPostCard__question">{faqCard.title}</h2>
+                        <div className={`FaqPostCard__dropdownIcon ${openQuestions.includes(faqCard.id) ? `isOpen` : `isClosed`}`}>❯</div>
+                    </div>}
+            >
+                <div className="FaqPostCard__answer">{faqCard.plaintext}</div>
+            </Collapsible>)}
+        </>
+    )
 }
 
 FaqPostCard.propTypes = {

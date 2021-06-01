@@ -23,10 +23,6 @@ exports.onCreateWebpackConfig = ({
                         test: /paper/,
                         use: loaders.null(),
                     },
-                    {
-                        test: /cinch-collapsible/,
-                        use: loaders.null(),
-                    },
                 ],
             },
         })
