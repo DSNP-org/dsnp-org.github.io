@@ -56,6 +56,7 @@ export const faqQuery = graphql`
             nodes {
               plaintext
               title
+              id
             }
         }
     }

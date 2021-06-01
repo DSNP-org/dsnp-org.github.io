@@ -24,7 +24,6 @@ const PageBlog = ({ data, location, pageContext }) => {
                     <h1 className="content-title" data-aos="fade-right" data-aos-duration="1400">Blog</h1>
                     <section className="post-feed">
                         {posts.map(({ node }) => (
-                            // The tag below includes the markup for each post - components/common/PostCard.js
                             <PostCard key={node.id} post={node} />
                         ))}
                     </section>

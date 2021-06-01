@@ -1,6 +1,31 @@
-.FaqPostCard__question {
+.FaqPostCard__questionBlock {
     cursor: pointer;
     background-color: $text-light-gray;
     padding: 1em;
     margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.FaqPostCard__question {
+    margin: 0
+}
+
+.FaqPostCard__dropdownIcon {
+    font-size: 24px;
+}
+
+.FaqPostCard__dropdownIcon.isClosed {
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+}
+
+.FaqPostCard__dropdownIcon.isOpen {
+    transform: rotate(-90deg);
+    transition: transform 0.3s;
+}
+
+.FaqPostCard__answer {
+    text-align: left;
 }

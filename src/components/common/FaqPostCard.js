@@ -1,32 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Panel, Collapsible } from "cinch-collapsible"
-import { generateKey } from "../../utils/keyGenerator"
 
-const FaqPostCard = ({ faqCards }) => (
-    <Collapsible>
+const FaqPostCard = ({ faqCards }) => {
+    const [openQuestions, setOpenQuestions] = React.useState([])
+
+    const toggleDisplayAnswers = (id) => {
+        if (openQuestions.includes(id)) {
+            const filterOpenQuestions = openQuestions.filter(item => item !== id)
+            setOpenQuestions(filterOpenQuestions)
+        } else {
+            setOpenQuestions([...openQuestions, id])
+        }
+    }
+
+    useEffect(() => {},[openQuestions])
+
+    return <Collapsible>
         {faqCards.map(faqCard => <Panel
             className="FaqPostCard__item"
+            key={faqCard.id}
+            id={faqCard.id}
             header={
-                <div className="FaqPostCard__question">{faqCard.title}</div>}
-            key={generateKey(faqCard.title)}
+                <div className="FaqPostCard__questionBlock" onClick={() => toggleDisplayAnswers(faqCard.id)}>
+                    <h2 className="FaqPostCard__question">{faqCard.title}</h2>
+                    <div className={`FaqPostCard__dropdownIcon ${openQuestions.includes(faqCard.id) ? `isOpen` : `isClosed`}`}>❯</div>
+                </div>}
         >
             <div className="FaqPostCard__answer">{faqCard.plaintext}</div>
         </Panel>)}
     </Collapsible>
-)
-
-// const [isAnswerShowing, setIsAnswerShowing] = useState(false)
-// const [answerClassName, setAnswerClassName] = useState(`FaqPostCard__answer visible`)
-// const toggleShowQuestion = () => {
-//     const showAnswer = !isAnswerShowing
-//     setIsAnswerShowing(!isAnswerShowing)
-//     if (showAnswer) {
-//         setAnswerClassName(`FaqPostCard__answer visible`)
-//     } else {
-//         setAnswerClassName(`FaqPostCard__answer`)
-//     }
-// }
+}
 
 FaqPostCard.propTypes = {
     faqCards: PropTypes.any,

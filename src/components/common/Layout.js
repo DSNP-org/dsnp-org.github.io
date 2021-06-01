@@ -15,13 +15,13 @@ import { Navigation } from '.'
 // Styles
 import '../../styles/App.css'
 import '../../App.css'
-import Blob1 from "../../images/blob-1.svg"
-import Blob2 from "../../images/blob-2.svg"
-import Blob3 from "../../images/blob-3.svg"
+import Blob1 from "../../images/parallax/blob-1.svg"
+import Blob2 from "../../images/parallax/blob-2.svg"
+import Blob3 from "../../images/parallax/blob-3.svg"
 import UpArrow from "../../images/up-arrow-btn.svg"
-import Dots from "../../images/dots.svg"
-import MultiNode from "../../images/multi-node.svg"
-import SingleNode from "../../images/single-node.svg"
+import Dots from "../../images/parallax/dots.svg"
+import MultiNode from "../../images/parallax/multi-node.svg"
+import SingleNode from "../../images/parallax/single-node.svg"
 
 /**
 * Main layout component
