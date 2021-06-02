@@ -13,7 +13,7 @@ if (typeof document !== `undefined`) {
 import { Navigation } from '.'
 
 // Styles
-import '../../styles/App.css'
+import '../../styles/app.css'
 import '../../App.css'
 import Blob1 from "../../images/parallax/blob-1.svg"
 import Blob2 from "../../images/parallax/blob-2.svg"
