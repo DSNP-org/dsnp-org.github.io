@@ -22,7 +22,7 @@ const Index = ({ data, location }) => {
     const [isCustomCursor, setIsCustomCursor] = useState(false)
     const [isHoveringLink, setIsHoveringLink] = useState(false)
 
-    const site = data.allGhostPage.edges[0]?.node
+    const site = data.allGhostPage.edges[0].node
     console.log(site)
     const cards = data.allGhostPost.nodes
 

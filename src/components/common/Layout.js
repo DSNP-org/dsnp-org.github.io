@@ -64,12 +64,8 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 </nav>
                                 { isHome ?
                                     <div className="site-banner">
-                                        <h1 className="site-banner-title" data-aos="fade-right" data-aos-duration="1400">{homePage?.title}</h1>
-                                        <p className="site-banner-desc">
-                                            <section
-                                                dangerouslySetInnerHTML={{ __html: homePage.html }}
-                                            />
-                                        </p>
+                                        <h1 className="site-banner-title" data-aos="fade-right" data-aos-duration="1400">{homePage.title}</h1>
+                                        <section className="site-banner-desc" dangerouslySetInnerHTML={{ __html: homePage.html }} />
                                         <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
                                     </div> :
                                     null
