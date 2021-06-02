@@ -8,6 +8,8 @@ import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import ClickDrag from "../images/ClickDrag.svg"
 import ScrollContainer from 'react-indiana-drag-scroll'
 import * as paper from 'paper'
+import AliceCarousel from 'react-alice-carousel'
+import 'react-alice-carousel/lib/alice-carousel.css'
 import { generateKey } from "../utils/keyGenerator"
 
 /**
@@ -20,33 +22,15 @@ const Index = ({ data, location }) => {
     const [isCustomCursor, setIsCustomCursor] = useState(false)
     const [isHoveringLink, setIsHoveringLink] = useState(false)
 
-    const site = data.allGhostPage.edges[0].node
+    const site = data.allGhostPage.edges[0]?.node
+    console.log(site)
     const cards = data.allGhostPost.nodes
 
-    let siteContent = null
-
-    if (typeof window !== `undefined`) {
-        let parser = new DOMParser()
-        siteContent = parser.parseFromString(site.html, `text/html`).body
-    }
-
-    const getSiteContent = (element, index) => {
-        if (element.tagName === `P`) {
-            return <p key={generateKey(index)}>
-                {element.innerText}
-            </p>
-        } else if (element.tagName === `H2`) {
-            return <h2 key={generateKey(index)}>
-                {element.innerText}
-            </h2>
-        } else if (element.tagName === `H3`) {
-            return <h3 key={generateKey(index)}>
-                {element.innerText}
-            </h3>
-        } else if (element.innerText !== undefined) {
-            return <div key={generateKey(index)}>{element.innerText}</div>
-        }
-        return <div key={generateKey(index)}></div>
+    const aboutCards = cards.filter(card => card.tags[0].name === `#HomePage`)
+    const partnersCards = cards.filter(card => card.tags[0].name === `#HomePagePartners`)
+    const partnersCardsContainer = typeof document !== `undefined` ? document.createElement(`div`) : null
+    if (partnersCardsContainer) {
+        partnersCardsContainer.innerHTML = partnersCards[0].html
     }
 
     const cursorIconSettings = () => {
@@ -102,7 +86,7 @@ const Index = ({ data, location }) => {
 
             // the draw loop of Paper.js
             // (60fps with requestAnimationFrame under the hood)
-            paper.view.onFrame = (event) => {
+            paper.view.onFrame = () => {
                 // using linear interpolation, the circle will move 0.2 (20%)
                 // of the distance between its current position and the mouse
                 // coordinates per Frame
@@ -138,14 +122,22 @@ const Index = ({ data, location }) => {
             const linkItems = typeof document !== `undefined` ? document.querySelectorAll(`.hoverLink`) : null
             linkItems.forEach((item) => {
                 item.addEventListener(`mouseenter`, handleMouseEnter)
-                item.addEventListener(`mouseleave`, (e) => {
-                    console.log(`hello everyone ${e}`)
-                })
+                item.addEventListener(`mouseleave`, handleMouseLeave)
             })
         }
 
         initHovers()
     }
+
+    const responsive = {
+        0: { items: 1.5 },
+        600: { items: 2.5 },
+        1000: { items: 3.5 },
+        1400: { items: 4.5 },
+        2000: { items: 5 },
+    }
+
+    const items = partnersCardsContainer ? [...partnersCardsContainer.children].map((cardData, index) => <section data-value={`${ index + 1 }`} key={index} dangerouslySetInnerHTML={{ __html: cardData.innerHTML }}/>) : null
 
     useEffect(() => {
         if (isCustomCursor) {
@@ -175,7 +167,7 @@ const Index = ({ data, location }) => {
                         <Parallax>
                             <ScrollContainer className="ContentCard__block" >
                                 <img src={ClickDrag} alt="click-drag" className="ContentCard__clickDrag" />
-                                {cards.map((cardData, index) => <ContentCard cardData={cardData} key={generateKey(cardData.title)} index={index + 1}/>)}
+                                {aboutCards.map((cardData, index) => <ContentCard cardData={cardData} key={generateKey(cardData.title)} index={index + 1}/>)}
                             </ScrollContainer>
                         </Parallax>
                     </div>
@@ -184,8 +176,17 @@ const Index = ({ data, location }) => {
                             <div className="ContentCard__blockTitle" data-aos="fade-right" data-aos-duration="1400">
                                 Our Partners
                             </div>
-                            {siteContent && Array.prototype.map.call(siteContent.childNodes, (element, index) => getSiteContent(element, index))}
                         </div>
+                    </div>
+                    <div className="Index__partnersLogosBlock">
+                        {items && <AliceCarousel
+                            items={items}
+                            responsive={responsive}
+                            autoPlayInterval={2000}
+                            autoPlay={true}
+                            fadeOutAnimation={true}
+                            disableAutoPlayOnAction={true}
+                        />}
                     </div>
                 </Layout>
             </div>
@@ -217,11 +218,15 @@ export const pageQuery = graphql`
             }
         }
     }
-    allGhostPost(filter: {tags: {elemMatch: {name: {eq: "#HomePage"}}}}) {
+    allGhostPost(filter: {tags: {elemMatch: {name: {in: ["#HomePage", "#HomePagePartners"]}}}}) {
         nodes {
-          plaintext
           title
+          html
+          id
+          tags {
+            name
+          }
         }
-      }
+    }
   }
 `

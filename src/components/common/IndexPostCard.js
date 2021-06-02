@@ -8,7 +8,10 @@ const IndexPostCard = ({ cardData, index }) => {
         <div className="ContentCard__item" >
             <div className="ContentCard__cardNumber">{cardNumber}</div>
             <h3 className="ContentCard__title">{cardData.title}</h3>
-            <p className="ContentCard__text">{cardData.plaintext}</p>
+            <div
+                className="ContentCard__text"
+                dangerouslySetInnerHTML={{ __html: cardData.html }}
+            />
             <div className="hoverLink">
                 <img className="ContentCard__button" src={UpArrow} alt="up-arrow-button"/>
             </div>

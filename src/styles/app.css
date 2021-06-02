@@ -155,7 +155,7 @@ table {
     border-collapse: collapse;
 }
 img {
-    max-width: 100%;
+    max-width: auto;
 }
 html {
     box-sizing: border-box;

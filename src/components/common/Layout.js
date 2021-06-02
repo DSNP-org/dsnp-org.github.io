@@ -13,7 +13,7 @@ if (typeof document !== `undefined`) {
 import { Navigation } from '.'
 
 // Styles
-import '../../styles/App.css'
+import '../../styles/app.css'
 import '../../App.css'
 import Blob1 from "../../images/parallax/blob-1.svg"
 import Blob2 from "../../images/parallax/blob-2.svg"
@@ -32,8 +32,8 @@ import SingleNode from "../../images/parallax/single-node.svg"
 *
 */
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
-    const site = data.allGhostSettings.edges[0].node
-    const homePage = data.allGhostPage.edges[0].node
+    const site = data.allGhostSettings.edges[0]?.node
+    const homePage = data.allGhostPage.edges[0]?.node
     return (
         <ParallaxProvider>
             <Helmet>
@@ -64,9 +64,11 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 </nav>
                                 { isHome ?
                                     <div className="site-banner">
-                                        <h1 className="site-banner-title" data-aos="fade-right" data-aos-duration="1400">{homePage.title}</h1>
+                                        <h1 className="site-banner-title" data-aos="fade-right" data-aos-duration="1400">{homePage?.title}</h1>
                                         <p className="site-banner-desc">
-                                            DSNP.org is an independent non-profit organization, focused on the Decentralized Social Network Protocol (DSNP). The organization fits within the umbrella of Project Liberty [link: https://www.projectliberty.io/#/about] as the provider of one core component (the social graph protocol) that connects the many different technologies that make up a decentralized social network. Both DSNP.org and Project Liberty have been launched out of Unfinished Labs [link: https://www.unfinishedlabs.io/] as part of their efforts to build public infrastructure for the web that puts citizens at the center of an innovative, inclusive web economy.
+                                            <section
+                                                dangerouslySetInnerHTML={{ __html: homePage.html }}
+                                            />
                                         </p>
                                         <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
                                     </div> :
