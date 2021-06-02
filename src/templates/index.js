@@ -165,10 +165,6 @@ const Index = ({ data, location }) => {
                         </Parallax>
                     </div>
                     <div className="container">
-                        {/*<div className="body-block">*/}
-                        {/*    <h2 className="ContentCard__blockTitle">{relationToUnfinished[0].title}</h2>*/}
-                        {/*    <section className="site-banner-desc" dangerouslySetInnerHTML={{ __html: relationToUnfinished[0].html }} />*/}
-                        {/*</div>*/}
                         <div className="body-block">
                             <div className="ContentCard__blockTitle" data-aos="fade-right" data-aos-duration="1400">
                                 Our Partners
