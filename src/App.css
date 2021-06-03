@@ -356,4 +356,19 @@
   text-align: left;
 }
 
+.PageAbout__navBlock > * {
+  margin: 0 10px;
+}
+
+.PageAbout__fullHeightSection {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.PageAbout__whoWeAreBlock {
+  background-color: #142f3f;
+  color: #f8f8f7 !important;
+}
+
 /*# sourceMappingURL=App.css.map */

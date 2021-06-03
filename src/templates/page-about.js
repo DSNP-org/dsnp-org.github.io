@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-
-import { Layout, PostCard, Pagination } from '../components/common'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import { Layout, Mission, Pagination, WhoWeAre } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
 /**
@@ -15,18 +15,23 @@ import { MetaData } from '../components/common/meta'
  */
 const PageAbout = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges
-
+    const missionPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageMission`))
+    const whoWeArePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageWhoWeAre`))
     return (
         <>
             <MetaData location={location} />
-
             <Layout>
-                <div className="container">
-                    <h1 className="content-title" data-aos="fade-right" data-aos-duration="1400">About</h1>
-                    <section className="post-feed">
-                        {posts.map(({ node }) => (
-                            <PostCard key={node.id} post={node} />
-                        ))}
+                <nav className="PageAbout__navBlock container">
+                    <AnchorLink href="#mission">Mission</AnchorLink>
+                    <AnchorLink href="#whoWeAre">Who We Are</AnchorLink>
+                    <AnchorLink href="#governance">Governance</AnchorLink>
+                    <AnchorLink href="#ethos">Ethos</AnchorLink>
+                </nav>
+                <div className="PageAbout__block">
+                    <h1 className="container content-title" data-aos="fade-right" data-aos-duration="1400">About</h1>
+                    <section>
+                        <Mission missionCards={missionPosts} />
+                        <WhoWeAre whoWeAreCards={whoWeArePosts} />
                     </section>
                     <Pagination pageContext={pageContext} />
                 </div>
@@ -55,7 +60,7 @@ export const pageQuery = graphql`
         sort: { order: DESC, fields: [published_at] },
         limit: $limit,
         skip: $skip,
-        filter: {tags: {elemMatch: {name: {eq: "#BlogPost"}}}}
+        filter: {tags: {elemMatch: {name: {eq: "#AboutPage"}}}}
     ) {
       edges {
         node {

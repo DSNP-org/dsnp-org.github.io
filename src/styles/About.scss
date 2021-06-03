@@ -1,0 +1,14 @@
+.PageAbout__navBlock > * {
+    margin: 0 10px;
+}
+
+.PageAbout__fullHeightSection {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.PageAbout__whoWeAreBlock {
+    background-color: $navy;
+    color: $bg-gray !important;
+}

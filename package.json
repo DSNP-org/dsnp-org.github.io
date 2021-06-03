@@ -64,6 +64,7 @@
     "paper": "^0.12.15",
     "react": "^16.8.0",
     "react-alice-carousel": "^2.5.1",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-collapsible": "^2.8.3",
     "react-dom": "^16.8.0",
     "react-helmet": "6.1.0",
