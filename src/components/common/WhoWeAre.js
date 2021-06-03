@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import WhoWeAreProfiles from "./WhoWeAreProfiles"
 
+<<<<<<< HEAD
 const WhoWeArePostCard = ({ whoWeAreCards }) => {
     const whoWeAreTitle = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreTitle`))
     const whoWeAreStaffMembers = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreStaffMember`))
@@ -21,6 +22,15 @@ const WhoWeArePostCard = ({ whoWeAreCards }) => {
         </div>
     </div>
 }
+=======
+const WhoWeArePostCard = ({ whoWeAreCards }) => <>
+    {whoWeAreCards.map(whoWeAreCard => <div className="container" key={whoWeAreCard.node.id}>
+        <h2>{whoWeAreCard.node.title}</h2>
+        <section key={whoWeAreCard.node.id} dangerouslySetInnerHTML={{ __html: whoWeAreCard.node.html }} />
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam aspernatur, eaque eos facere illum nam nihil tempore veniam voluptatem. Cumque, deleniti, itaque! Delectus doloribus facilis libero nihil optio rem.</p>
+    </div>)}
+</>
+>>>>>>> 4192fcb (wip)
 
 WhoWeArePostCard.propTypes = {
     whoWeAreCards: PropTypes.any,

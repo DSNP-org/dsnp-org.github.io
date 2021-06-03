@@ -173,6 +173,10 @@
   }
 }
 
+.Header__parallax--front {
+  z-index: 20;
+}
+
 .site-logo {
   height: 50px;
   padding-left: 20px;
@@ -370,6 +374,7 @@
   text-align: left;
 }
 
+<<<<<<< HEAD
 .PageAbout__h1 {
   font-size: 26px;
   font-weight: 600;
@@ -379,6 +384,8 @@
   margin: 0;
 }
 
+=======
+>>>>>>> 4192fcb (wip)
 .PageAbout__navBlock {
   margin-bottom: 2em;
 }
@@ -419,6 +426,7 @@
   position: relative;
 }
 
+<<<<<<< HEAD
 .PageAbout__sectionHeader {
   font-size: 5rem;
   font-family: PlayfairDisplay;
@@ -484,4 +492,6 @@
   margin-bottom: 0;
 }
 
+=======
+>>>>>>> 4192fcb (wip)
 /*# sourceMappingURL=App.css.map */
