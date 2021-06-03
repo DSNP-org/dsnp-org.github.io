@@ -14,7 +14,14 @@
     padding-bottom: 20px;
 }
 
+.Header__parallax--front {
+    z-index: 20;
+    position: inherit;
+    width: 100vw;
+}
+
 .Header__parallax {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -23,10 +30,6 @@
     @media (max-width: 700px) {
         margin: 0 -95vw;
     }
-}
-
-.Header__parallax--front {
-    z-index: 20;
 }
 
 .site-logo {
