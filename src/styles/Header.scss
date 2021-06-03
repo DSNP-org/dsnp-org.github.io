@@ -18,8 +18,14 @@
     padding-bottom: 20px;
 }
 
+<<<<<<< HEAD
 .Header__parallaxBlock--front {
     z-index: 20;
+=======
+.Header__parallax--front {
+    z-index: 20;
+    position: inherit;
+>>>>>>> a9ec9df (parallax working as desired in who we are)
     width: 100vw;
 }
 
@@ -37,10 +43,6 @@
     @media (max-width: 700px) {
         gap: 96vw;
     }
-}
-
-.Header__parallax--front {
-    z-index: 20;
 }
 
 .site-logo {
