@@ -8,5 +8,8 @@ export { default as Ethos } from './Ethos'
 export { default as Governance } from './Governance'
 export { default as Mission } from './Mission'
 export { default as WhoWeAre } from './WhoWeAre'
+<<<<<<< HEAD
 export { default as Ecosystem } from './Ecosystem'
+=======
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 

@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import WhoWeAreProfiles from "./WhoWeAreProfiles"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 const WhoWeArePostCard = ({ whoWeAreCards }) => {
     const whoWeAreTitle = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreTitle`))
     const whoWeAreStaffMembers = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreStaffMember`))
@@ -15,13 +18,20 @@ const WhoWeArePostCard = ({ whoWeAreCards }) => {
         <div className="WhoWeAreProfiles__topBlock">
             <h3 className="WhoWeAreProfiles__blockSubtitle">Staff</h3>
             <WhoWeAreProfiles profiles={whoWeAreStaffMembers} />
+<<<<<<< HEAD
             <h3 className="WhoWeAreProfiles__blockSubtitle" >Advisory Board</h3>
             <WhoWeAreProfiles profiles={whoWeAreAdvisoryBoard} />
             <h3 className="WhoWeAreProfiles__blockSubtitle" >Partners</h3>
+=======
+            <h3 className="WhoWeAreProfiles__blockSubtitle">Advisory Board</h3>
+            <WhoWeAreProfiles profiles={whoWeAreAdvisoryBoard} />
+            <h3 className="WhoWeAreProfiles__blockSubtitle">Partners</h3>
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
             <WhoWeAreProfiles profiles={whoWeArePartners} />
         </div>
     </div>
 }
+<<<<<<< HEAD
 =======
 const WhoWeArePostCard = ({ whoWeAreCards }) => <>
     {whoWeAreCards.map(whoWeAreCard => <div className="container" key={whoWeAreCard.node.id}>
@@ -31,6 +41,8 @@ const WhoWeArePostCard = ({ whoWeAreCards }) => <>
     </div>)}
 </>
 >>>>>>> 4192fcb (wip)
+=======
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 
 WhoWeArePostCard.propTypes = {
     whoWeAreCards: PropTypes.any,

@@ -13,7 +13,11 @@
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 .WhoWeAreProfiles__imageBlock {
+=======
+.WhoWeAreProfiles__ImageBlock {
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
     position: relative;
 }
 
@@ -23,13 +27,19 @@
 
 .WhoWeAreProfiles__name {
     @include minor-title;
+<<<<<<< HEAD
     position: absolute;
     text-shadow: 1px 1px 8px #000;
+=======
+    text-shadow: 1px 1px 8px #000;
+    position: absolute;
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
     bottom: 5px;
     margin-left: 5px;
     max-width: 240px;
 }
 
+<<<<<<< HEAD
 .WhoWeAreProfiles__arrow {
     position: absolute;
     right: 0;
@@ -39,13 +49,23 @@
     transform: rotate(45deg);
 }
 
+=======
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 .WhoWeAreProfiles__description {
     margin-top: 15px;
     color: $navy;
     background-color: $bg-gray;
     padding: 40px;
+<<<<<<< HEAD
     height: 250px;
     overflow-y: auto;
+=======
+    display: none;
+}
+
+.WhoWeAreProfiles__description.visible {
+    display: block;
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 }
 
 .WhoWeAreProfiles__description > :last-child {

@@ -102,6 +102,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, isAbout }) => {
                     <div className="Header__parallax">
                         <Parallax y={[0, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
                     </div>
+<<<<<<< HEAD
                     {isAbout && <div className="Header__parallax--front">
 >>>>>>> 4192fcb (wip)
                         <div className="Header__parallax">
@@ -123,6 +124,21 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, isAbout }) => {
 =======
                     }
 >>>>>>> 4192fcb (wip)
+=======
+                    {/*{isAbout && <div className="Header__parallax--front">*/}
+                    {/*    <div className="Header__parallax">*/}
+                    {/*        <Parallax y={[0, 60]} x={[-30, -10]}><img src={SingleNode} alt="single-node"/></Parallax>*/}
+                    {/*        <Parallax y={[-50, 70]}><img src={MultiNode} alt="multi-node"/></Parallax>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="Header__parallax">*/}
+                    {/*        <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="Header__parallax">*/}
+                    {/*        <Parallax y={[50, 80]} x={[-15, 15]}><img src={Dots} alt="dots"/></Parallax>*/}
+                    {/*        <Parallax y={[200, 100]}><img src={Dots} alt="dots"/></Parallax>*/}
+                    {/*    </div></div>*/}
+                    {/*}*/}
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
                 </div>
             </div>
             <div className="viewport-bottom">
@@ -152,6 +168,7 @@ DefaultLayout.propTypes = {
         file: PropTypes.object,
         allGhostSettings: PropTypes.object.isRequired,
         allGhostPage: PropTypes.object.isRequired,
+        allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
 }
 

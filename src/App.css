@@ -377,6 +377,7 @@
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .PageAbout__h1 {
   font-size: 26px;
   font-weight: 600;
@@ -392,6 +393,8 @@
   margin-bottom: 2em;
 }
 
+=======
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 .PageAbout__navBlock > * {
   padding: 0 15px;
   border-left: 3px solid #9ed7e0;
@@ -408,7 +411,11 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+<<<<<<< HEAD
   padding-bottom: 50px;
+=======
+  padding-bottom: 4em;
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 }
 
 .PageAbout__whoWeAreTextBlock {
@@ -429,6 +436,9 @@
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 .PageAbout__sectionHeader {
   font-size: 5rem;
   font-family: PlayfairDisplay;
@@ -454,7 +464,11 @@
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .WhoWeAreProfiles__imageBlock {
+=======
+.WhoWeAreProfiles__ImageBlock {
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
   position: relative;
 }
 
@@ -465,13 +479,19 @@
 .WhoWeAreProfiles__name {
   font-size: 22px;
   font-weight: 600;
+<<<<<<< HEAD
   position: absolute;
   text-shadow: 1px 1px 8px #000;
+=======
+  text-shadow: 1px 1px 8px #000;
+  position: absolute;
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
   bottom: 5px;
   margin-left: 5px;
   max-width: 240px;
 }
 
+<<<<<<< HEAD
 .WhoWeAreProfiles__arrow {
   position: absolute;
   right: 0;
@@ -481,19 +501,32 @@
   transform: rotate(45deg);
 }
 
+=======
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 .WhoWeAreProfiles__description {
   margin-top: 15px;
   color: #142f3f;
   background-color: #f8f8f7;
   padding: 40px;
+<<<<<<< HEAD
   height: 250px;
   overflow-y: auto;
+=======
+  display: none;
+}
+
+.WhoWeAreProfiles__description.visible {
+  display: block;
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 }
 
 .WhoWeAreProfiles__description > :last-child {
   margin-bottom: 0;
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 4192fcb (wip)
+=======
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 /*# sourceMappingURL=App.css.map */

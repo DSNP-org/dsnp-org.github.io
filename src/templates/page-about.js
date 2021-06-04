@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useEffect } from 'react'
 =======
 import React, { useEffect, useState, useRef } from 'react'
@@ -6,11 +7,14 @@ import React, { useEffect, useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Ethos, Governance, Layout, Mission, Pagination, WhoWeAre, Ecosystem } from '../components/common'
+=======
+import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import { Ethos, Governance, Layout, Mission, Pagination, WhoWeAre } from '../components/common'
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 import { MetaData } from '../components/common/meta'
-import { Parallax } from "react-scroll-parallax"
-import SingleNode from "../images/parallax/single-node.svg"
-import MultiNode from "../images/parallax/multi-node.svg"
-import Dots from "../images/parallax/dots.svg"
 
 /**
  * About page
@@ -26,6 +30,7 @@ const PageAbout = ({ data, location, pageContext }) => {
     const missionPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageMission`))
     const whoWeArePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageWhoWeAre`))
 <<<<<<< HEAD
+<<<<<<< HEAD
     const governancePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageGovernance`))
     const ethosPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPagePrinciples`))
     const ecosystemPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageEcosystem`))
@@ -38,6 +43,10 @@ const PageAbout = ({ data, location, pageContext }) => {
 
     // const [activeSection, setActiveSection] = useState(`mission`)
 >>>>>>> 4192fcb (wip)
+=======
+    const governancePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageGovernance`))
+    const ethosPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPagePrinciples`))
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 
     useEffect(() => {
         const handleScroll = () => {}
@@ -83,20 +92,27 @@ const PageAbout = ({ data, location, pageContext }) => {
                     <AnchorLink href="#mission" >Mission</AnchorLink>
                     <AnchorLink href="#whoWeAre" >Who We Are</AnchorLink>
                     <AnchorLink href="#governance" >Governance</AnchorLink>
-                    <AnchorLink href="#ethos" >Ethos</AnchorLink>
+                    <AnchorLink href="#ethos" >Guiding Principles</AnchorLink>
                 </nav>
                 <div className="PageAbout__block">
-                    <h1 className="container content-title" data-aos="fade-right" data-aos-duration="1400">About</h1>
-
-                    <div id="mission" className="PageAbout__fullHeightSection" ref={missionRef}>
+                    <div id="mission" className="PageAbout__fullHeightSection">
                         <Mission missionCards={missionPosts} />
                     </div>
-                    <div id="whoWeAre" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" ref={whoWeAreRef}>
+                    <div id="whoWeAre" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" >
                         <WhoWeAre whoWeAreCards={whoWeArePosts} />
                     </div>
+<<<<<<< HEAD
                     <div id="governance" className="PageAbout__fullHeightSection" ref={governanceRef}>Governance</div>
                     <div id="ethos" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" ref={ethosRef}>Ethos</div>
 >>>>>>> 4192fcb (wip)
+=======
+                    <div id="governance" className="PageAbout__fullHeightSection">
+                        <Governance governanceCards={governancePosts} />
+                    </div>
+                    <div id="ethos" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" >
+                        <Ethos ethosCards={ethosPosts} />
+                    </div>
+>>>>>>> 309dd38 (toggle working on who we are and other additions)
 
                     <Pagination pageContext={pageContext} />
                 </div>
