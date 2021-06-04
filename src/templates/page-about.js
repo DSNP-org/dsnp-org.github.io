@@ -32,7 +32,7 @@ const PageAbout = ({ data, location, pageContext }) => {
     return (
         <>
             <MetaData location={location} />
-            <Layout isAbout={true}>
+            <Layout>
                 <nav className="PageAbout__navBlock container">
                     <AnchorLink href="#mission" >Mission</AnchorLink>
                     <AnchorLink href="#whoWeAre" >Who We Are</AnchorLink>

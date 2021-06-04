@@ -23,8 +23,6 @@ const Index = ({ data, location }) => {
     const [isCustomCursor, setIsCustomCursor] = useState(false)
     const [isHoveringLink, setIsHoveringLink] = useState(false)
 
-    const site = data.allGhostPage.edges[0].node
-    console.log(site)
     const posts = data.allGhostPost.nodes
 
     const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
@@ -210,14 +208,6 @@ export default Index
 // The `limit` and `skip` values are used for pagination
 export const pageQuery = graphql`
   query GhostIndexQuery {
-    allGhostPage(filter: {slug: {eq: "home"}}) {
-        edges {
-            node {
-                title
-                html
-            }
-        }
-    }
     allGhostPost(filter: {tags: {elemMatch: {name: {in: ["#HomePage", "#HomePagePartners"]}}}}) {
         nodes {
           title
