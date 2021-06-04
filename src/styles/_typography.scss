@@ -2,8 +2,13 @@
     font-family: PlayfairDisplay;
 }
 
-@mixin large-emphasized-font {
+@mixin large-subheader-font {
     font-size: 36px;
+    font-weight: $bold;
+}
+
+@mixin subheader-font {
+    font-size: 30px;
     font-weight: $bold;
 }
 

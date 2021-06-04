@@ -1,7 +1,3 @@
-.PageAbout__navBlock {
-    margin-bottom: 2em;
-}
-
 .PageAbout__navBlock > * {
     padding: 0 15px;
     border-left: 3px solid $light-blue;
@@ -18,6 +14,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-bottom: 4em;
 }
 
 .PageAbout__whoWeAreTextBlock {
@@ -35,4 +32,13 @@
     justify-content: space-between;
     margin: 0 -20vw;
     position: relative;
+}
+
+.PageAbout__sectionHeader {
+    font-size: 5rem;
+    @include serif-font;
+}
+
+.PageAbout__sectionHeader--orange {
+    color: $orange;
 }

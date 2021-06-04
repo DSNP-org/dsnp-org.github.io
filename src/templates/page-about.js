@@ -1,13 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import { Layout, Mission, Pagination, WhoWeAre } from '../components/common'
+import { Ethos, Governance, Layout, Mission, Pagination, WhoWeAre } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { Parallax } from "react-scroll-parallax"
-import SingleNode from "../images/parallax/single-node.svg"
-import MultiNode from "../images/parallax/multi-node.svg"
-import Dots from "../images/parallax/dots.svg"
 
 /**
  * About page
@@ -21,13 +17,8 @@ const PageAbout = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges
     const missionPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageMission`))
     const whoWeArePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageWhoWeAre`))
-
-    const missionRef = useRef(null)
-    const whoWeAreRef = useRef(null)
-    const governanceRef = useRef(null)
-    const ethosRef = useRef(null)
-
-    // const [activeSection, setActiveSection] = useState(`mission`)
+    const governancePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageGovernance`))
+    const ethosPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPagePrinciples`))
 
     useEffect(() => {
         const handleScroll = () => {}
@@ -46,19 +37,21 @@ const PageAbout = ({ data, location, pageContext }) => {
                     <AnchorLink href="#mission" >Mission</AnchorLink>
                     <AnchorLink href="#whoWeAre" >Who We Are</AnchorLink>
                     <AnchorLink href="#governance" >Governance</AnchorLink>
-                    <AnchorLink href="#ethos" >Ethos</AnchorLink>
+                    <AnchorLink href="#ethos" >Guiding Principles</AnchorLink>
                 </nav>
                 <div className="PageAbout__block">
-                    <h1 className="container content-title" data-aos="fade-right" data-aos-duration="1400">About</h1>
-
-                    <div id="mission" className="PageAbout__fullHeightSection" ref={missionRef}>
+                    <div id="mission" className="PageAbout__fullHeightSection">
                         <Mission missionCards={missionPosts} />
                     </div>
-                    <div id="whoWeAre" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" ref={whoWeAreRef}>
+                    <div id="whoWeAre" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" >
                         <WhoWeAre whoWeAreCards={whoWeArePosts} />
                     </div>
-                    <div id="governance" className="PageAbout__fullHeightSection" ref={governanceRef}>Governance</div>
-                    <div id="ethos" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" ref={ethosRef}>Ethos</div>
+                    <div id="governance" className="PageAbout__fullHeightSection">
+                        <Governance governanceCards={governancePosts} />
+                    </div>
+                    <div id="ethos" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" >
+                        <Ethos ethosCards={ethosPosts} />
+                    </div>
 
                     <Pagination pageContext={pageContext} />
                 </div>

@@ -34,6 +34,7 @@ import SingleNode from "../../images/parallax/single-node.svg"
 const DefaultLayout = ({ data, children, bodyClass, isHome, isAbout }) => {
     const site = data.allGhostSettings.edges[0]?.node
     const homePage = data.allGhostPage.edges[0]?.node
+
     return (
         <ParallaxProvider>
             <Helmet>
@@ -65,8 +66,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, isAbout }) => {
                                 { isHome ?
                                     <div className="site-banner">
                                         <h1 className="site-banner-title" data-aos="fade-right" data-aos-duration="1400">{homePage.title}</h1>
-                                        <section className="site-banner-desc" dangerouslySetInnerHTML={{ __html: homePage.html }} />
-                                        <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
                                     </div> :
                                     null
                                 }
@@ -100,19 +99,19 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, isAbout }) => {
                     <div className="Header__parallax">
                         <Parallax y={[0, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
                     </div>
-                    {isAbout && <div className="Header__parallax--front">
-                        <div className="Header__parallax">
-                            <Parallax y={[0, 60]} x={[-30, -10]}><img src={SingleNode} alt="single-node"/></Parallax>
-                            <Parallax y={[-50, 70]}><img src={MultiNode} alt="multi-node"/></Parallax>
-                        </div>
-                        <div className="Header__parallax">
-                            <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
-                        </div>
-                        <div className="Header__parallax">
-                            <Parallax y={[50, 80]} x={[-15, 15]}><img src={Dots} alt="dots"/></Parallax>
-                            <Parallax y={[200, 100]}><img src={Dots} alt="dots"/></Parallax>
-                        </div></div>
-                    }
+                    {/*{isAbout && <div className="Header__parallax--front">*/}
+                    {/*    <div className="Header__parallax">*/}
+                    {/*        <Parallax y={[0, 60]} x={[-30, -10]}><img src={SingleNode} alt="single-node"/></Parallax>*/}
+                    {/*        <Parallax y={[-50, 70]}><img src={MultiNode} alt="multi-node"/></Parallax>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="Header__parallax">*/}
+                    {/*        <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="Header__parallax">*/}
+                    {/*        <Parallax y={[50, 80]} x={[-15, 15]}><img src={Dots} alt="dots"/></Parallax>*/}
+                    {/*        <Parallax y={[200, 100]}><img src={Dots} alt="dots"/></Parallax>*/}
+                    {/*    </div></div>*/}
+                    {/*}*/}
                 </div>
             </div>
             <div className="viewport-bottom">
@@ -142,6 +141,7 @@ DefaultLayout.propTypes = {
         file: PropTypes.object,
         allGhostSettings: PropTypes.object.isRequired,
         allGhostPage: PropTypes.object.isRequired,
+        allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
 }
 

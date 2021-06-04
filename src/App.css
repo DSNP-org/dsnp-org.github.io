@@ -1,6 +1,5 @@
 .site-banner {
   max-width: 80%;
-  padding: 3vw 0;
   text-align: left;
 }
 
@@ -363,10 +362,6 @@
   text-align: left;
 }
 
-.PageAbout__navBlock {
-  margin-bottom: 2em;
-}
-
 .PageAbout__navBlock > * {
   padding: 0 15px;
   border-left: 3px solid #9ed7e0;
@@ -383,6 +378,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-bottom: 4em;
 }
 
 .PageAbout__whoWeAreTextBlock {
@@ -400,6 +396,65 @@
   justify-content: space-between;
   margin: 0 -20vw;
   position: relative;
+}
+
+.PageAbout__sectionHeader {
+  font-size: 5rem;
+  font-family: PlayfairDisplay;
+}
+
+.PageAbout__sectionHeader--orange {
+  color: #f6695d;
+}
+
+.WhoWeAreProfiles__blockSubtitle {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.WhoWeAreProfiles__block {
+  position: relative;
+  display: flex;
+  width: 70vw;
+}
+
+.WhoWeAreProfiles__block > * {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.WhoWeAreProfiles__ImageBlock {
+  position: relative;
+}
+
+.WhoWeAreProfiles__image {
+  filter: grayscale(100%);
+}
+
+.WhoWeAreProfiles__name {
+  font-size: 22px;
+  font-weight: 600;
+  text-shadow: 1px 1px 8px #000;
+  position: absolute;
+  bottom: 5px;
+  margin-left: 5px;
+  max-width: 240px;
+}
+
+.WhoWeAreProfiles__description {
+  margin-top: 15px;
+  color: #142f3f;
+  background-color: #f8f8f7;
+  padding: 40px;
+  display: none;
+}
+
+.WhoWeAreProfiles__description.visible {
+  display: block;
+}
+
+.WhoWeAreProfiles__description > :last-child {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=App.css.map */
