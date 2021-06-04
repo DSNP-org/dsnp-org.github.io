@@ -18,6 +18,10 @@ import '../../App.css'
 import Blob1 from "../../images/parallax/blob-1.svg"
 import Blob2 from "../../images/parallax/blob-2.svg"
 import Blob3 from "../../images/parallax/blob-3.svg"
+<<<<<<< HEAD
+=======
+// import UpArrow from "../../images/up-arrow-btn.svg"
+>>>>>>> 716206e (tags fixed)
 import Dots from "../../images/parallax/dots.svg"
 import MultiNode from "../../images/parallax/multi-node.svg"
 import SingleNode from "../../images/parallax/single-node.svg"
@@ -30,7 +34,7 @@ import SingleNode from "../../images/parallax/single-node.svg"
 * styles, and meta data for each page.
 *
 */
-const DefaultLayout = ({ data, children, bodyClass, isHome, isAbout }) => {
+const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const site = data.allGhostSettings.edges[0]?.node
     const homePage = data.allGhostPage.edges[0]?.node
 
@@ -103,8 +107,12 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, isAbout }) => {
                         <Parallax y={[0, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
                     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     {isAbout && <div className="Header__parallax--front">
 >>>>>>> 4192fcb (wip)
+=======
+                    <div className="Header__parallax--front">
+>>>>>>> 716206e (tags fixed)
                         <div className="Header__parallax">
                             <Parallax y={[0, 60]} x={[-30, -10]}><img src={SingleNode} alt="single-node"/></Parallax>
                             <Parallax y={[-50, 70]}><img src={MultiNode} alt="multi-node"/></Parallax>
@@ -112,14 +120,18 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, isAbout }) => {
                         <div className="Header__parallax">
                             <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
 =======
 >>>>>>> 4192fcb (wip)
+=======
+>>>>>>> 716206e (tags fixed)
                         </div>
                         <div className="Header__parallax">
                             <Parallax y={[50, 80]} x={[-15, 15]}><img src={Dots} alt="dots"/></Parallax>
                             <Parallax y={[200, 100]}><img src={Dots} alt="dots"/></Parallax>
                         </div></div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                     }
@@ -139,6 +151,8 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, isAbout }) => {
                     {/*    </div></div>*/}
                     {/*}*/}
 >>>>>>> 309dd38 (toggle working on who we are and other additions)
+=======
+>>>>>>> 716206e (tags fixed)
                 </div>
             </div>
             <div className="viewport-bottom">

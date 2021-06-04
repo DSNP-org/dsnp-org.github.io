@@ -61,6 +61,7 @@ const PageAbout = ({ data, location, pageContext }) => {
         <>
             <MetaData location={location} />
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Layout>
                 <div className="container">
                     <h1 className="PageAbout__h1">{page.title}</h1>
@@ -88,6 +89,9 @@ const PageAbout = ({ data, location, pageContext }) => {
                     </>}
 =======
             <Layout isAbout={true}>
+=======
+            <Layout>
+>>>>>>> 716206e (tags fixed)
                 <nav className="PageAbout__navBlock container">
                     <AnchorLink href="#mission" >Mission</AnchorLink>
                     <AnchorLink href="#whoWeAre" >Who We Are</AnchorLink>

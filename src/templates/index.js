@@ -24,12 +24,15 @@ const Index = ({ data, location }) => {
     const [isHoveringLink, setIsHoveringLink] = useState(false)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     const posts = data.allGhostPost.nodes
 
     const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
 =======
     const site = data.allGhostPage.edges[0].node
     console.log(site)
+=======
+>>>>>>> 716206e (tags fixed)
     const posts = data.allGhostPost.nodes
 
     const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
