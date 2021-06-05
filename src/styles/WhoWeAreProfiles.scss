@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-.WhoWeAreProfiles__ImageBlock {
+.WhoWeAreProfiles__imageBlock {
     position: relative;
 }
 
@@ -23,11 +23,20 @@
 
 .WhoWeAreProfiles__name {
     @include minor-title;
-    text-shadow: 1px 1px 8px #000;
     position: absolute;
+    text-shadow: 1px 1px 8px #000;
     bottom: 5px;
     margin-left: 5px;
     max-width: 240px;
+}
+
+.WhoWeAreProfiles__arrow {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 45px;
+    width: 45px;
+    transform: rotate(45deg);
 }
 
 .WhoWeAreProfiles__description {
@@ -35,11 +44,8 @@
     color: $navy;
     background-color: $bg-gray;
     padding: 40px;
-    display: none;
-}
-
-.WhoWeAreProfiles__description.visible {
-    display: block;
+    height: 250px;
+    overflow-y: auto;
 }
 
 .WhoWeAreProfiles__description > :last-child {

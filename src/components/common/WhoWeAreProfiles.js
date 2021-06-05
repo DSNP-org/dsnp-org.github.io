@@ -1,30 +1,37 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import UpArrow from "../../images/up-arrow-btn.svg"
 
 const WhoWeAreProfiles = ({ profiles }) => {
-    const [selectedProfiles, setSelectedProfiles] = useState([])
+    const [selectedProfile, setSelectedProfile] = useState(null)
 
     const toggleDisplayProfiles = (profile) => {
-        if (selectedProfiles.includes(profile)) {
-            const filterOpenQuestions = selectedProfiles.filter(item => item !== profile)
-            setSelectedProfiles(filterOpenQuestions)
+        if (selectedProfile === profile) {
+            setSelectedProfile(null)
         } else {
-            setSelectedProfiles([...selectedProfiles, profile])
+            setSelectedProfile(profile)
         }
     }
 
     return <>
         <div className="WhoWeAreProfiles__block">
-            {profiles.map((profile, index) => <div key={profile.node.id}>
-                <div className="WhoWeAreProfiles__imageBlock" onClick={() => toggleDisplayProfiles(profile.node.id, index)}>
-                    <img className="WhoWeAreProfiles__image" src={profile.node.feature_image} />
+            {profiles.map((profile, index) => <div
+                key={profile.node.id}
+                className="WhoWeAreProfiles__imageBlock"
+                onClick={() => toggleDisplayProfiles(profile.node, index)}>
+                <img className="WhoWeAreProfiles__image" src={profile.node.feature_image} />
+                <div className="WhoWeAreProfiles__imageOverlayBlock">
                     <div className="WhoWeAreProfiles__name">{profile.node.title}</div>
+                    <img className="WhoWeAreProfiles__arrow" src={UpArrow} alt="upArrow" />
                 </div>
-            </div>)}
+            </div>
+            )}
         </div>
-        <section
-            className={`WhoWeAreProfiles__description ${selectedProfiles.includes(profiles[0].node.id) ? `visible` : null}`}
-            dangerouslySetInnerHTML={{ __html: profiles[0].node.html }}/>
+        {selectedProfile && <section
+            className="WhoWeAreProfiles__description"
+            dangerouslySetInnerHTML={{ __html: selectedProfile.html }}
+        />
+        }
     </>
 }
 

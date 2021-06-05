@@ -1,3 +1,11 @@
+.PageAbout__h1 {
+    @include emphasized-font;
+    border-left: 3px solid $orange;
+    color: $navy;
+    padding-left: 15px;
+    margin: 0;
+}
+
 .PageAbout__navBlock {
     margin-bottom: 2em;
 }
@@ -18,6 +26,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-bottom: 50px;
 }
 
 .PageAbout__whoWeAreTextBlock {

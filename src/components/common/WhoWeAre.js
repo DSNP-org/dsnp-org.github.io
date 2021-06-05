@@ -14,9 +14,9 @@ const WhoWeArePostCard = ({ whoWeAreCards }) => {
         <div className="WhoWeAreProfiles__topBlock">
             <h3 className="WhoWeAreProfiles__blockSubtitle">Staff</h3>
             <WhoWeAreProfiles profiles={whoWeAreStaffMembers} />
-            <h3 className="WhoWeAreProfiles__blockSubtitle">Advisory Board</h3>
+            <h3 className="WhoWeAreProfiles__blockSubtitle" >Advisory Board</h3>
             <WhoWeAreProfiles profiles={whoWeAreAdvisoryBoard} />
-            <h3 className="WhoWeAreProfiles__blockSubtitle">Partners</h3>
+            <h3 className="WhoWeAreProfiles__blockSubtitle" >Partners</h3>
             <WhoWeAreProfiles profiles={whoWeArePartners} />
         </div>
     </div>

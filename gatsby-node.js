@@ -155,7 +155,7 @@ exports.createPages = async ({ graphql, actions }) => {
         if (node.slug === `faq`) {
             thisPageTemplate = faqPageTemplate
         }
-        if (node.slug === `about`) {
+        if (node.slug.includes(`about`)) {
             thisPageTemplate = aboutPageTemplate
         }
 
