@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 .PageAbout__h1 {
     @include emphasized-font;
     border-left: 3px solid $orange;
@@ -8,14 +6,10 @@
     margin: 0;
 }
 
-=======
->>>>>>> 4192fcb (wip)
 .PageAbout__navBlock {
     margin-bottom: 2em;
 }
 
-=======
->>>>>>> 309dd38 (toggle working on who we are and other additions)
 .PageAbout__navBlock > * {
     padding: 0 15px;
     border-left: 3px solid $light-blue;
@@ -32,11 +26,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-<<<<<<< HEAD
     padding-bottom: 50px;
-=======
-    padding-bottom: 4em;
->>>>>>> 309dd38 (toggle working on who we are and other additions)
 }
 
 .PageAbout__whoWeAreTextBlock {
@@ -55,10 +45,6 @@
     margin: 0 -20vw;
     position: relative;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 309dd38 (toggle working on who we are and other additions)
 
 .PageAbout__sectionHeader {
     font-size: 5rem;
@@ -68,8 +54,3 @@
 .PageAbout__sectionHeader--orange {
     color: $orange;
 }
-<<<<<<< HEAD
-=======
->>>>>>> 4192fcb (wip)
-=======
->>>>>>> 309dd38 (toggle working on who we are and other additions)

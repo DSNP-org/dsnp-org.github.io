@@ -3,12 +3,9 @@
     top: 0;
     width: 100vw;
     pointer-events: none;
-<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     align-items: center;
-=======
->>>>>>> 716206e (tags fixed)
 }
 
 .Header__block {
@@ -21,14 +18,8 @@
     padding-bottom: 20px;
 }
 
-<<<<<<< HEAD
 .Header__parallaxBlock--front {
     z-index: 20;
-=======
-.Header__parallax--front {
-    z-index: 20;
-    position: inherit;
->>>>>>> a9ec9df (parallax working as desired in who we are)
     width: 100vw;
 }
 

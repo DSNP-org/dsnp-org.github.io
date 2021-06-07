@@ -23,21 +23,9 @@ const Index = ({ data, location }) => {
     const [isCustomCursor, setIsCustomCursor] = useState(false)
     const [isHoveringLink, setIsHoveringLink] = useState(false)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     const posts = data.allGhostPost.nodes
 
     const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
-=======
-    const site = data.allGhostPage.edges[0].node
-    console.log(site)
-=======
->>>>>>> 716206e (tags fixed)
-    const posts = data.allGhostPost.nodes
-
-    const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
-    const relationToUnfinished = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageRelationToUnfinished`))
->>>>>>> 309dd38 (toggle working on who we are and other additions)
     const partnersCards = posts.filter(post => post.tags.some(tag => tag.name === `#HomePagePartners`))
     const ecosystemCards = posts.filter(card => card.tags.some(tag => tag.name === `#HomePageEcosystemCard`))
 
@@ -177,10 +165,6 @@ const Index = ({ data, location }) => {
                         </Parallax>
                     </div>
                     <div className="container">
-                        <div className="body-block">
-                            <h2 className="ContentCard__blockTitle">{relationToUnfinished[0].title}</h2>
-                            <section className="site-banner-desc" dangerouslySetInnerHTML={{ __html: relationToUnfinished[0].html }} />
-                        </div>
                         <div className="body-block">
                             <div className="ContentCard__blockTitle" data-aos="fade-right" data-aos-duration="1400">
                                 Our Partners

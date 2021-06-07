@@ -15,11 +15,7 @@ import { Link } from 'gatsby'
 const Navigation = ({ data, navClass }) => {
     const getClassName = (navItem) => {
         const currentPage = typeof window !== `undefined` ? window.location.pathname : null
-<<<<<<< HEAD
         if (currentPage === navItem.url) {
-=======
-        if ((currentPage === navItem.url && navClass === `site-nav-item`)) {
->>>>>>> a9ec9df (parallax working as desired in who we are)
             return `${navClass} selectedNavItem`
         }
         return navClass
