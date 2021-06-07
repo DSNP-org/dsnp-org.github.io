@@ -77,9 +77,9 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                         </main>
                     </div>
                 </div>
-                <div className="Parallax__block">
+                <div className="Header__parallaxBlock">
                     <div className="Header__parallax">
-                        <Parallax y={[0, 0]} tagOuter="figure"><img className="Index__blob1" src={Blob1} /></Parallax>
+                        <Parallax y={[0, 0]} x={[30, 30]} tagOuter="figure"><img className="Index__blob1" src={Blob1} /></Parallax>
                         <Parallax x={[-30, 30]} tagOuter="figure"><img className="Index__blob3" src={Blob3} /></Parallax>
                     </div>
                     <div className="Header__parallax">
@@ -87,7 +87,8 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                         <Parallax y={[20, 200]}><img src={Dots} alt="dots"/></Parallax>
                     </div>
                     <div className="Header__parallax">
-                        <Parallax y={[-40, 0]} styleOuter={{ position: `absolute`, left: -300 }}><img className="Index__blob2" src={Blob2} /></Parallax>
+                        <Parallax y={[-50, 0]} ><img className="Index__blob2" src={Blob2} /></Parallax>
+                        <Parallax y={[-80, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
                     </div>
                     {isHome &&
                     <div className="Header__parallax">
@@ -95,15 +96,13 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                         <Parallax y={[-65, 60]}><img src={MultiNode} alt="multi-node"/></Parallax>
                     </div>
                     }
-                    <div className="Header__parallax">
-                        <Parallax y={[0, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
-                    </div>
-                    <div className="Header__parallax--front">
+                    <div className="Header__parallaxBlock--front">
                         <div className="Header__parallax">
                             <Parallax y={[0, 60]} x={[-30, -10]}><img src={SingleNode} alt="single-node"/></Parallax>
                             <Parallax y={[-50, 70]}><img src={MultiNode} alt="multi-node"/></Parallax>
                         </div>
                         <div className="Header__parallax">
+                            <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
                             <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
                         </div>
                         <div className="Header__parallax">
