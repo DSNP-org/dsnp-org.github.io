@@ -134,12 +134,10 @@ DefaultLayout.propTypes = {
     children: PropTypes.node.isRequired,
     bodyClass: PropTypes.string,
     isHome: PropTypes.bool,
-    isAbout: PropTypes.bool,
     data: PropTypes.shape({
         file: PropTypes.object,
         allGhostSettings: PropTypes.object.isRequired,
         allGhostPage: PropTypes.object.isRequired,
-        allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
 }
 
