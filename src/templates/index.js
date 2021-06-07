@@ -210,6 +210,7 @@ export const pageQuery = graphql`
           tags {
             name
           }
+          excerpt
         }
     }
   }
