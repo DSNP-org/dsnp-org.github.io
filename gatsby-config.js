@@ -144,6 +144,7 @@ module.exports = {
                                 updated_at
                                 created_at
                                 feature_image
+                                excerpt
                             }
                         }
                     }
