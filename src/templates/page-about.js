@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-// import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { Ethos, Governance, Layout, Mission, Pagination, WhoWeAre, Ecosystem } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
@@ -38,12 +37,6 @@ const PageAbout = ({ data, location, pageContext }) => {
                 <div className="container">
                     <h1 className="PageAbout__h1">{page.title}</h1>
                 </div>
-                {/*<nav className="PageAbout__navBlock container">*/}
-                {/*    <AnchorLink href="#mission" >Mission</AnchorLink>*/}
-                {/*    <AnchorLink href="#whoWeAre" >Who We Are</AnchorLink>*/}
-                {/*    <AnchorLink href="#governance" >Governance</AnchorLink>*/}
-                {/*    <AnchorLink href="#ethos" >Guiding Principles</AnchorLink>*/}
-                {/*</nav>*/}
                 <div className="PageAbout__block">
                     {page.title === `Who We Are` && <>
                         <div id="mission" className="PageAbout__fullHeightSection">
@@ -65,7 +58,6 @@ const PageAbout = ({ data, location, pageContext }) => {
                     {page.title === `Ecosystem` && <>
                         <Ecosystem ecosystemPosts={ecosystemPosts} />
                     </>}
-
                     <Pagination pageContext={pageContext} />
                 </div>
             </Layout>

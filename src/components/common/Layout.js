@@ -18,6 +18,7 @@ import '../../App.css'
 import Blob1 from "../../images/parallax/blob-1.svg"
 import Blob2 from "../../images/parallax/blob-2.svg"
 import Blob3 from "../../images/parallax/blob-3.svg"
+// import UpArrow from "../../images/up-arrow-btn.svg"
 import Dots from "../../images/parallax/dots.svg"
 import MultiNode from "../../images/parallax/multi-node.svg"
 import SingleNode from "../../images/parallax/single-node.svg"
@@ -96,7 +97,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                         <Parallax y={[-65, 60]}><img src={MultiNode} alt="multi-node"/></Parallax>
                     </div>
                     }
-                    <div className="Header__parallaxBlock--front">
+                    <div className="Header__parallax--front">
                         <div className="Header__parallax">
                             <Parallax y={[0, 60]} x={[-30, -10]}><img src={SingleNode} alt="single-node"/></Parallax>
                             <Parallax y={[-50, 70]}><img src={MultiNode} alt="multi-node"/></Parallax>
@@ -133,7 +134,6 @@ DefaultLayout.propTypes = {
     children: PropTypes.node.isRequired,
     bodyClass: PropTypes.string,
     isHome: PropTypes.bool,
-    isAbout: PropTypes.bool,
     data: PropTypes.shape({
         file: PropTypes.object,
         allGhostSettings: PropTypes.object.isRequired,
