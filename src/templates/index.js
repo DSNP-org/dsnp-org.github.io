@@ -11,6 +11,7 @@ import * as paper from 'paper'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 import { generateKey } from "../utils/keyGenerator"
+import UpArrow from "../images/up-arrow-btn.svg"
 
 /**
 * Main index page (home page)
@@ -22,12 +23,12 @@ const Index = ({ data, location }) => {
     const [isCustomCursor, setIsCustomCursor] = useState(false)
     const [isHoveringLink, setIsHoveringLink] = useState(false)
 
-    const site = data.allGhostPage.edges[0]?.node
-    console.log(site)
-    const cards = data.allGhostPost.nodes
+    const posts = data.allGhostPost.nodes
 
-    const aboutCards = cards.filter(card => card.tags[0].name === `#HomePage`)
-    const partnersCards = cards.filter(card => card.tags[0].name === `#HomePagePartners`)
+    const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
+    const partnersCards = posts.filter(post => post.tags.some(tag => tag.name === `#HomePagePartners`))
+    const ecosystemCards = posts.filter(card => card.tags.some(tag => tag.name === `#HomePageEcosystemCard`))
+
     const partnersCardsContainer = typeof document !== `undefined` ? document.createElement(`div`) : null
     if (partnersCardsContainer) {
         partnersCardsContainer.innerHTML = partnersCards[0].html
@@ -37,17 +38,12 @@ const Index = ({ data, location }) => {
         let clientX = -100
         let clientY = -100
         const innerCursor = typeof document !== `undefined` ? document.querySelector(`.cursor--small`) : null
-
-        // add listener to track the current mouse position
         if (typeof document !== `undefined`) {
             document.addEventListener(`mousemove`, (e) => {
                 clientX = e.clientX
                 clientY = e.clientY
             })
         }
-
-        // transform the innerCursor to the current mouse position
-        // use requestAnimationFrame() for smooth performance
         const doRender = () => {
             innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`
             requestAnimationFrame(doRender)
@@ -80,16 +76,8 @@ const Index = ({ data, location }) => {
 
         const initCanvas = () => {
             group = new paper.Group([myPathLeft, myCircle, myPathRight])
-
-            // function for linear interpolation of values
             const lerp = (a, b, n) => (1 - n) * a + n * b
-
-            // the draw loop of Paper.js
-            // (60fps with requestAnimationFrame under the hood)
             paper.view.onFrame = () => {
-                // using linear interpolation, the circle will move 0.2 (20%)
-                // of the distance between its current position and the mouse
-                // coordinates per Frame
                 lastX = lerp(lastX, clientX, 0.2)
                 lastY = lerp(lastY, clientY, 0.2)
                 group.position = new paper.Point(lastX, lastY)
@@ -157,6 +145,11 @@ const Index = ({ data, location }) => {
                 <MetaData location={location}/>
                 <Layout isHome={true}>
                     <div className="container">
+                        <div>
+                            <h2 className="ContentCard__blockTitle">{whatWeDo[0].title}</h2>
+                            <section className="site-banner-desc" dangerouslySetInnerHTML={{ __html: whatWeDo[0].html }} />
+                            <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
+                        </div>
                         <div className="body-block">
                             <div className="ContentCard__blockTitle" data-aos="fade-right" data-aos-duration="1400">
                                 The Unfinished Ecosystem
@@ -167,11 +160,15 @@ const Index = ({ data, location }) => {
                         <Parallax>
                             <ScrollContainer className="ContentCard__block" >
                                 <img src={ClickDrag} alt="click-drag" className="ContentCard__clickDrag" />
-                                {aboutCards.map((cardData, index) => <ContentCard cardData={cardData} key={generateKey(cardData.title)} index={index + 1}/>)}
+                                {ecosystemCards.map((cardData, index) => <ContentCard cardData={cardData} key={generateKey(cardData.title)} index={index + 1}/>)}
                             </ScrollContainer>
                         </Parallax>
                     </div>
                     <div className="container">
+                        {/*<div className="body-block">*/}
+                        {/*    <h2 className="ContentCard__blockTitle">{relationToUnfinished[0].title}</h2>*/}
+                        {/*    <section className="site-banner-desc" dangerouslySetInnerHTML={{ __html: relationToUnfinished[0].html }} />*/}
+                        {/*</div>*/}
                         <div className="body-block">
                             <div className="ContentCard__blockTitle" data-aos="fade-right" data-aos-duration="1400">
                                 Our Partners
@@ -196,7 +193,6 @@ const Index = ({ data, location }) => {
 
 Index.propTypes = {
     data: PropTypes.shape({
-        allGhostPage: PropTypes.object.isRequired,
         allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
     location: PropTypes.shape({
@@ -210,14 +206,6 @@ export default Index
 // The `limit` and `skip` values are used for pagination
 export const pageQuery = graphql`
   query GhostIndexQuery {
-    allGhostPage(filter: {slug: {eq: "home"}}) {
-        edges {
-            node {
-                title
-                html
-            }
-        }
-    }
     allGhostPost(filter: {tags: {elemMatch: {name: {in: ["#HomePage", "#HomePagePartners"]}}}}) {
         nodes {
           title

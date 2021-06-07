@@ -1,0 +1,53 @@
+.WhoWeAreProfiles__blockSubtitle {
+    @include subheader-font;
+}
+
+.WhoWeAreProfiles__block {
+    position: relative;
+    display: flex;
+    width: 70vw;
+}
+
+.WhoWeAreProfiles__block > * {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.WhoWeAreProfiles__imageBlock {
+    position: relative;
+}
+
+.WhoWeAreProfiles__image {
+    filter: grayscale(100%);
+}
+
+.WhoWeAreProfiles__name {
+    @include minor-title;
+    position: absolute;
+    text-shadow: 1px 1px 8px #000;
+    bottom: 5px;
+    margin-left: 5px;
+    max-width: 240px;
+}
+
+.WhoWeAreProfiles__arrow {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 45px;
+    width: 45px;
+    transform: rotate(45deg);
+}
+
+.WhoWeAreProfiles__description {
+    margin-top: 15px;
+    color: $navy;
+    background-color: $bg-gray;
+    padding: 40px;
+    height: 250px;
+    overflow-y: auto;
+}
+
+.WhoWeAreProfiles__description > :last-child {
+    margin-bottom: 0;
+}

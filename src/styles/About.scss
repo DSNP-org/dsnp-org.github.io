@@ -1,0 +1,56 @@
+.PageAbout__h1 {
+    @include emphasized-font;
+    border-left: 3px solid $orange;
+    color: $navy;
+    padding-left: 15px;
+    margin: 0;
+}
+
+.PageAbout__navBlock {
+    margin-bottom: 2em;
+}
+
+.PageAbout__navBlock > * {
+    padding: 0 15px;
+    border-left: 3px solid $light-blue;
+    color: $navy;
+    font-weight: $bold;
+}
+
+.PageAbout__navBlock > :first-child {
+    border-left: none;
+    padding-left: 0;
+}
+
+.PageAbout__fullHeightSection {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+.PageAbout__whoWeAreTextBlock {
+    background-color: $navy;
+    color: $bg-gray !important;
+}
+
+.PageAbout__whoWeAreParallaxBlock {
+    position: relative;
+    bottom: 200vh;
+}
+
+.PageAbout__parallax {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -20vw;
+    position: relative;
+}
+
+.PageAbout__sectionHeader {
+    font-size: 5rem;
+    @include serif-font;
+}
+
+.PageAbout__sectionHeader--orange {
+    color: $orange;
+}

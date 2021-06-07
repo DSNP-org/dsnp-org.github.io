@@ -459,7 +459,6 @@ h4,
 h5,
 h6 {
     margin-top: 0;
-    color: var(--color-base);
     line-height: 1.15;
     font-weight: 700;
     text-rendering: optimizeLegibility;
@@ -477,7 +476,7 @@ h1 {
 }
 
 h2 {
-    margin: 1.5em 0 0.5em 0;
+    margin: 1em 0 0.5em 0;
     font-size: 2rem;
 }
 @media (max-width: 500px) {

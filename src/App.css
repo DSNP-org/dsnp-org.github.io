@@ -1,6 +1,5 @@
 .site-banner {
   max-width: 80%;
-  padding: 3vw 0;
   text-align: left;
 }
 
@@ -131,10 +130,14 @@
   display: none !important;
 }
 
-.Parallax__block {
+.Header__parallaxBlock {
   position: absolute;
   top: 0;
   width: 100vw;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Header__block {
@@ -147,15 +150,26 @@
   padding-bottom: 20px;
 }
 
+.Header__parallaxBlock--front {
+  z-index: 20;
+  width: 100vw;
+}
+
 .Header__parallax {
+  position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin: 0 -16vw;
+  justify-content: center;
+  gap: 1050px;
+}
+@media (max-width: 1119px) {
+  .Header__parallax {
+    gap: 90vw;
+  }
 }
 @media (max-width: 700px) {
   .Header__parallax {
-    margin: 0 -95vw;
+    gap: 96vw;
   }
 }
 
@@ -354,6 +368,120 @@
 
 .FaqPostCard__answer {
   text-align: left;
+}
+
+.PageAbout__h1 {
+  font-size: 26px;
+  font-weight: 600;
+  border-left: 3px solid #f6695d;
+  color: #142f3f;
+  padding-left: 15px;
+  margin: 0;
+}
+
+.PageAbout__navBlock {
+  margin-bottom: 2em;
+}
+
+.PageAbout__navBlock > * {
+  padding: 0 15px;
+  border-left: 3px solid #9ed7e0;
+  color: #142f3f;
+  font-weight: 600;
+}
+
+.PageAbout__navBlock > :first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.PageAbout__fullHeightSection {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.PageAbout__whoWeAreTextBlock {
+  background-color: #142f3f;
+  color: #f8f8f7 !important;
+}
+
+.PageAbout__whoWeAreParallaxBlock {
+  position: relative;
+  bottom: 200vh;
+}
+
+.PageAbout__parallax {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -20vw;
+  position: relative;
+}
+
+.PageAbout__sectionHeader {
+  font-size: 5rem;
+  font-family: PlayfairDisplay;
+}
+
+.PageAbout__sectionHeader--orange {
+  color: #f6695d;
+}
+
+.WhoWeAreProfiles__blockSubtitle {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.WhoWeAreProfiles__block {
+  position: relative;
+  display: flex;
+  width: 70vw;
+}
+
+.WhoWeAreProfiles__block > * {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.WhoWeAreProfiles__imageBlock {
+  position: relative;
+}
+
+.WhoWeAreProfiles__image {
+  filter: grayscale(100%);
+}
+
+.WhoWeAreProfiles__name {
+  font-size: 22px;
+  font-weight: 600;
+  position: absolute;
+  text-shadow: 1px 1px 8px #000;
+  bottom: 5px;
+  margin-left: 5px;
+  max-width: 240px;
+}
+
+.WhoWeAreProfiles__arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 45px;
+  width: 45px;
+  transform: rotate(45deg);
+}
+
+.WhoWeAreProfiles__description {
+  margin-top: 15px;
+  color: #142f3f;
+  background-color: #f8f8f7;
+  padding: 40px;
+  height: 250px;
+  overflow-y: auto;
+}
+
+.WhoWeAreProfiles__description > :last-child {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -93,6 +93,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const pageTemplate = path.resolve(`./src/templates/page.js`)
     const blogPageTemplate = path.resolve(`./src/templates/page-blog.js`)
     const faqPageTemplate = path.resolve(`./src/templates/page-faq.js`)
+    const aboutPageTemplate = path.resolve(`./src/templates/page-about.js`)
     const postTemplate = path.resolve(`./src/templates/post.js`)
 
     // Create tag pages
@@ -153,6 +154,9 @@ exports.createPages = async ({ graphql, actions }) => {
         }
         if (node.slug === `faq`) {
             thisPageTemplate = faqPageTemplate
+        }
+        if (node.slug.includes(`about`)) {
+            thisPageTemplate = aboutPageTemplate
         }
 
         createPage({
