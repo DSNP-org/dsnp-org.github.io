@@ -8,7 +8,7 @@
   padding: 20px 0 0 0;
   color: #142f3f;
   font-size: 6.5rem;
-  line-height: 1.1em;
+  line-height: 1em;
   width: 80%;
   font-family: PlayfairDisplay;
 }
@@ -40,7 +40,7 @@
 }
 
 .Layout__arrowButton {
-  transform: rotate(135deg);
+  transform: rotate(90deg);
   height: 75px;
   width: 75px;
   margin-top: 15px;
@@ -299,11 +299,8 @@
 }
 
 .ContentCard__item {
-  display: flex;
-  flex-direction: column;
   min-width: 275px;
   height: auto;
-  padding: 15px;
   margin: 0 15px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
@@ -336,6 +333,24 @@
   height: 100px;
   width: auto;
   align-self: center;
+}
+
+.ContentCard__link {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  height: 100%;
+}
+
+.ContentCard__link,
+.ContentCard__link p,
+.ContentCard__link:hover {
+  text-decoration: none;
+  color: #142f3f;
+}
+
+.ContentCard__link p {
+  flex-grow: 1;
 }
 
 .FaqPostCard__questionBlock {
