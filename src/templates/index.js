@@ -11,7 +11,7 @@ import * as paper from 'paper'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 import { generateKey } from "../utils/keyGenerator"
-import UpArrow from "../images/up-arrow-btn.svg"
+import UpArrow from "../images/arrow-btn-dark.svg"
 
 /**
 * Main index page (home page)
@@ -118,7 +118,7 @@ const Index = ({ data, location }) => {
     }
 
     const responsive = {
-        0: { items: 1.5 },
+        0: { items: 2 },
         600: { items: 2.5 },
         1000: { items: 3.5 },
         1400: { items: 4.5 },

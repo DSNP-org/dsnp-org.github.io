@@ -1,18 +1,18 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import UpArrow from "../../images/up-arrow-btn.svg"
+import ArrowDark from "../../images/arrow-btn-dark.svg"
 
 const IndexPostCard = ({ cardData, index }) => {
     const cardNumber = index < 10 ? `0${index}` : index
     const getLinkButton = () => {
         if (cardData.excerpt.includes(`http`)) {
             return <a href={cardData.excerpt} className="hoverLink" target="_blank" rel="noreferrer">
-                <img className="ContentCard__button" src={UpArrow} alt="up-arrow-button"/>
+                <img className="ContentCard__button" src={ArrowDark} alt="arrow-button"/>
             </a>
         } else {
             return <Link to={cardData.excerpt} className="hoverLink">
-                <img className="ContentCard__button" src={UpArrow} alt="up-arrow-button"/>
+                <img className="ContentCard__button" src={ArrowDark} alt="arrow-button"/>
             </Link>
         }
     }

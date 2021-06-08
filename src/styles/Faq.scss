@@ -1,6 +1,6 @@
 .FaqPostCard__questionBlock {
     cursor: pointer;
-    background-color: $text-light-gray;
+    background-color: $light-blue-transparent;
     padding: 1em;
     margin-top: 5px;
     display: flex;
@@ -24,6 +24,7 @@
 .FaqPostCard__dropdownIcon.isOpen {
     transform: rotate(-90deg);
     transition: transform 0.3s;
+    color: $orange;
 }
 
 .FaqPostCard__answer {
