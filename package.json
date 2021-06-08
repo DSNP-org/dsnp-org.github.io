@@ -68,6 +68,7 @@
     "react-collapsible": "^2.8.3",
     "react-dom": "^16.8.0",
     "react-helmet": "6.1.0",
+    "react-hover": "^2.0.0",
     "react-indiana-drag-scroll": "^2.0.1",
     "react-scroll-parallax": "^2.4.0",
     "sass": "^1.32.12"

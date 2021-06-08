@@ -18,7 +18,7 @@ import '../../App.css'
 import Blob1 from "../../images/parallax/blob-1.svg"
 import Blob2 from "../../images/parallax/blob-2.svg"
 import Blob3 from "../../images/parallax/blob-3.svg"
-// import UpArrow from "../../images/up-arrow-btn.svg"
+// import UpArrow from "../../images/arrow-btn-dark.svg"
 import Dots from "../../images/parallax/dots.svg"
 import MultiNode from "../../images/parallax/multi-node.svg"
 import SingleNode from "../../images/parallax/single-node.svg"

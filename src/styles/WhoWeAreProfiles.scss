@@ -2,14 +2,19 @@
     @include subheader-font;
 }
 
-.WhoWeAreProfiles__block {
-    position: relative;
+.WhoWeAreProfiles__topBlock {
     display: flex;
-    width: 70vw;
+    flex-direction: column;
+}
+
+.WhoWeAreProfiles__block {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
 }
 
 .WhoWeAreProfiles__block > * {
-    margin-right: 15px;
+    margin: 15px 15px 0 0;
     cursor: pointer;
 }
 
@@ -32,22 +37,48 @@
 
 .WhoWeAreProfiles__arrow {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 45px;
-    width: 45px;
-    transform: rotate(45deg);
+    right: 5px;
+    bottom: 5px;
+    height: 40px;
+    width: 40px;
+    transform: rotate(0deg);
+    transition: transform 0.3s linear;
+}
+
+.WhoWeAreProfiles__arrow.active {
+    transform: rotate(90deg);
+    transition: transform 0.3s linear;
+}
+
+.WhoWeAreProfiles__descriptionBlock {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: $navy;
+    background-color: $bg-gray-transparent;
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .WhoWeAreProfiles__description {
-    margin-top: 15px;
-    color: $navy;
-    background-color: $bg-gray;
     padding: 40px;
-    height: 250px;
-    overflow-y: auto;
+    background-color: $bg-gray-transparent;
 }
 
 .WhoWeAreProfiles__description > :last-child {
     margin-bottom: 0;
+}
+
+.WhoWeAreProfiles__closeIcon {
+    padding: 10px;
+    font-size: 25px;
+    font-weight: $bold;
+    text-align: right;
+    cursor: pointer;
+    justify-self: flex-end;
 }
