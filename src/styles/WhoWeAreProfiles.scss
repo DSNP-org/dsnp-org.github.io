@@ -7,6 +7,10 @@
     flex-direction: column;
 }
 
+.WhoWeAreProfiles__topBlock > :first-child {
+    margin-top: 0;
+}
+
 .WhoWeAreProfiles__block {
     display: flex;
     flex-wrap: wrap;
@@ -33,6 +37,7 @@
     bottom: 5px;
     margin-left: 5px;
     max-width: 240px;
+    color: $white;
 }
 
 .WhoWeAreProfiles__arrow {

@@ -54,7 +54,21 @@
 .container {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0 4vw
+    padding: 0 4vw;
+
+    ul {
+        list-style: none;
+    }
+
+    ul li::before {
+        color: $orange;
+        content: "\2022";
+        font-weight: 800 !important;
+        display: inline-block;
+        width: 30px;
+        font-size: 30px;
+        margin-left: -30px;
+    }
 }
 
 .body-block {

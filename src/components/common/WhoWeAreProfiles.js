@@ -24,7 +24,7 @@ const WhoWeAreProfiles = ({ profiles }) => {
                 <div className="WhoWeAreProfiles__imageOverlayBlock">
                     <div className="WhoWeAreProfiles__name">{profile.node.title}</div>
                     <img className={`WhoWeAreProfiles__arrow ${selectedProfile === profile.node ? `active` : null}`}
-                        src={selectedProfile === profile.node ? ArrowDark : ArrowLight}
+                        src={selectedProfile === profile.node ? ArrowLight : ArrowDark}
                         alt="upArrow"
                     />
                 </div>

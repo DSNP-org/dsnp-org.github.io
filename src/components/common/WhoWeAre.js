@@ -9,7 +9,7 @@ const WhoWeArePostCard = ({ whoWeAreCards }) => {
     const whoWeArePartners = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeArePartner`))
 
     return <div className="container">
-        <h2 className="PageAbout__sectionHeader PageAbout__sectionHeader--orange" data-aos="fade-right"
+        <h2 className="PageAbout__sectionHeader" data-aos="fade-right"
             data-aos-duration="1400">{whoWeAreTitle[0].node.title}</h2>
         <div className="WhoWeAreProfiles__topBlock">
             <h3 className="WhoWeAreProfiles__blockSubtitle">Staff</h3>
