@@ -33,11 +33,19 @@ const WhoWeAreProfiles = ({ profiles }) => {
         </div>
         {selectedProfile &&
             <div className="WhoWeAreProfiles__descriptionBlock">
-                <div className="WhoWeAreProfiles__closeIcon" onClick={() => toggleDisplayProfiles(selectedProfile.node)}>&#10005;</div>
-                <section
-                    className="WhoWeAreProfiles__description"
-                    dangerouslySetInnerHTML={{ __html: selectedProfile.html }}
-                />
+                <div className="WhoWeAreProfiles__descriptionBlock--inner container">
+                    <div className="WhoWeAreProfiles__closeIcon" onClick={() => toggleDisplayProfiles(selectedProfile.node)}>&#10005;</div>
+                    <div className="WhoWeAreProfiles__selectedProfileBlock">
+                        <img className="WhoWeAreProfiles__selectedProfileImage" src={selectedProfile.feature_image} />
+                        <div className="WhoWeAreProfiles__descriptionTextBlock">
+                            <div className="WhoWeAreProfiles__selectedProfileName">{selectedProfile.title}</div>
+                            <section
+                                className="WhoWeAreProfiles__description"
+                                dangerouslySetInnerHTML={{ __html: selectedProfile.html }}
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         }
     </>

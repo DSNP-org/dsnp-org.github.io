@@ -19,7 +19,13 @@
 
 .WhoWeAreProfiles__block > * {
     margin: 15px 15px 0 0;
+    box-shadow: 0 0 0 0 $box-shadow-black;
     cursor: pointer;
+    transition: box-shadow 0.3s linear;
+
+    &:hover {
+        box-shadow: 4px 4px 6px 0px $box-shadow-black-dark;
+    }
 }
 
 .WhoWeAreProfiles__imageBlock {
@@ -30,20 +36,24 @@
     filter: grayscale(100%);
 }
 
+.WhoWeAreProfiles__imageOverlayBlock {
+    position: absolute;
+    bottom: 5px;
+    margin: 0 5px;
+    width: calc(100% - 15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
 .WhoWeAreProfiles__name {
     @include minor-title;
-    position: absolute;
     text-shadow: 1px 1px 8px #000;
-    bottom: 5px;
-    margin-left: 5px;
-    max-width: 240px;
     color: $white;
+    padding-right: 10px;
 }
 
 .WhoWeAreProfiles__arrow {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
     height: 40px;
     width: 40px;
     transform: rotate(0deg);
@@ -70,13 +80,9 @@
     align-items: center;
 }
 
-.WhoWeAreProfiles__description {
+.WhoWeAreProfiles__descriptionBlock--inner {
     padding: 40px;
     background-color: $bg-gray-transparent;
-}
-
-.WhoWeAreProfiles__description > :last-child {
-    margin-bottom: 0;
 }
 
 .WhoWeAreProfiles__closeIcon {
@@ -86,4 +92,39 @@
     text-align: right;
     cursor: pointer;
     justify-self: flex-end;
+    color: $navy;
+    transition: color 0.3s linear;
+
+    &:hover {
+        color: $blue;
+    }
+}
+
+.WhoWeAreProfiles__selectedProfileBlock {
+    display: flex;
+}
+
+.WhoWeAreProfiles__selectedProfileImage {
+    filter: grayscale(100%);
+    margin-right: 30px;
+}
+
+.WhoWeAreProfiles__selectedProfileName {
+    @include subheader-font;
+    @include serif-font;
+    margin-bottom: 15px;
+    color: $orange;
+}
+
+.WhoWeAreProfiles__descriptionTextBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.WhoWeAreProfiles__description {
+    color: $navy;
+}
+
+.WhoWeAreProfiles__description > :last-child {
+    margin-bottom: 0;
 }

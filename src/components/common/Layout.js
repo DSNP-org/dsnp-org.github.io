@@ -113,10 +113,10 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                         </div>
                         }
                         <div className="Header__parallaxBlock--front">
-                            <div className="Header__parallax">
+                            {!isHome && <div className="Header__parallax">
                                 <Parallax y={[-20, 0]}><img src={SingleNode} alt="single-node"/></Parallax>
                                 <Parallax y={[-75, 70]}><img src={MultiNode} alt="multi-node"/></Parallax>
-                            </div>
+                            </div>}
                             <div className="Header__parallax">
                                 <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
                                 <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
