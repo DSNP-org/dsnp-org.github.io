@@ -1,3 +1,4 @@
+require(`dotenv`).config()
 const path = require(`path`)
 
 const config = require(`./src/utils/siteConfig`)
@@ -6,7 +7,7 @@ const generateRSSFeed = require(`./src/utils/rss/generate-feed`)
 let ghostConfig
 
 try {
-    ghostConfig = require(`./.ghost`)
+    ghostConfig = require(`.ghost.json`)
 } catch (e) {
     ghostConfig = {
         production: {
