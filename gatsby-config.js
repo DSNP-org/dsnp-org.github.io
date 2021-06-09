@@ -6,7 +6,7 @@ const generateRSSFeed = require(`./src/utils/rss/generate-feed`)
 let ghostConfig
 
 try {
-    ghostConfig = require(`./.ghost`)
+    ghostConfig = require(`.ghost.json`)
 } catch (e) {
     ghostConfig = {
         production: {
