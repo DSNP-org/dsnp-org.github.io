@@ -13,15 +13,12 @@
 @import "./styles/Blog";
 
 body {
-    background-color: #fff;
     max-width: 1800px;
     margin: 0 auto;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
-    -webkit-align-items: stretch;
-    align-items: stretch;
     box-shadow: 15px 0 20px -2px #c7c5c5,-15px 0 20px -2px #c7c5c5;
 }
 

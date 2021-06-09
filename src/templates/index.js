@@ -118,7 +118,7 @@ const Index = ({ data, location }) => {
     }
 
     const responsive = {
-        0: { items: 2 },
+        0: { items: 1.5 },
         600: { items: 2.5 },
         1000: { items: 3.5 },
         1400: { items: 4.5 },
@@ -177,7 +177,7 @@ const Index = ({ data, location }) => {
                         {items && <AliceCarousel
                             items={items}
                             responsive={responsive}
-                            autoPlayInterval={2000}
+                            autoPlayInterval={1500}
                             autoPlay={true}
                             fadeOutAnimation={true}
                             disableAutoPlayOnAction={true}

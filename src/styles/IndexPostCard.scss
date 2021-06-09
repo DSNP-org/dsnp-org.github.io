@@ -3,12 +3,17 @@
     flex-direction: row;
     padding: 10px 10px 10px 0;
     cursor: pointer;
-    margin-left: calc((100vw - 1120px)/2 + 4vw);
-    width: calc(96vw - (100vw - 1120px)/2);
+    margin-left: calc((1800px - 1120px)/2 + 4vw);
+    width: 1400px - calc((1800px - 1120px)/2 + 4vw);
+
+    @media (max-width: 1799px) {
+        margin-left: calc((100vw - 1120px)/2 + 4vw);
+        width: calc(96vw - (100vw - 1120px)/2);
+    }
 
     @media (max-width: 1119px) {
         margin-left: 4vw;
-        width: 95vw;
+        width: 96vw;
     }
 }
 
@@ -25,6 +30,10 @@
     margin: 0 15px;
     box-shadow: 0 3px 6px 0 $box-shadow-black;
     background-color: #ffffff;
+}
+
+.ContentCard__item--active {
+    box-shadow: 0 6px 8px 0 $box-shadow-black;
 }
 
 .ContentCard__cardNumber {

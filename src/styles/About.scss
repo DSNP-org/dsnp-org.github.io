@@ -1,5 +1,6 @@
 .PageAbout__h1 {
     @include emphasized-font;
+    @include sans-serif-font;
     border-left: 3px solid $orange;
     color: $navy;
     padding-left: 15px;

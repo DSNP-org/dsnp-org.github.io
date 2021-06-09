@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import ArrowDark from "../../images/arrow-btn-dark.svg"
 
 const IndexPostCard = ({ cardData, index }) => {
+    const [isHovering, setIsHovering] = useState(false)
     const cardNumber = index < 10 ? `0${index}` : index
     const postCard = <>
         <div className="ContentCard__cardNumber">{cardNumber}</div>
@@ -26,7 +27,10 @@ const IndexPostCard = ({ cardData, index }) => {
             </Link>
         }
     }
-    return <div className="ContentCard__item" >{getLinkButton()}</div>
+    return <div className={`ContentCard__item ${isHovering ? `ContentCard__item--active` : null}`}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+    >{getLinkButton()}</div>
 }
 
 IndexPostCard.propTypes = {
