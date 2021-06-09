@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .site-banner {
   max-width: 80%;
   text-align: left;
@@ -8,7 +9,7 @@
   padding: 20px 0 0 0;
   color: #142f3f;
   font-size: 6.5rem;
-  line-height: 1.1em;
+  line-height: 1em;
   width: 80%;
   font-family: PlayfairDisplay;
 }
@@ -40,7 +41,7 @@
 }
 
 .Layout__arrowButton {
-  transform: rotate(135deg);
+  transform: rotate(90deg);
   height: 75px;
   width: 75px;
   margin-top: 15px;
@@ -58,6 +59,18 @@
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 4vw;
+}
+.container ul {
+  list-style: none;
+}
+.container ul li::before {
+  color: #f6695d;
+  content: "•";
+  font-weight: 800 !important;
+  display: inline-block;
+  width: 30px;
+  font-size: 30px;
+  margin-left: -30px;
 }
 
 .body-block {
@@ -133,6 +146,7 @@
 .Header__parallaxBlock {
   position: absolute;
   top: 0;
+  max-width: 1800px;
   width: 100vw;
   pointer-events: none;
   display: flex;
@@ -152,6 +166,7 @@
 
 .Header__parallaxBlock--front {
   z-index: 20;
+  max-width: 1800px;
   width: 100vw;
 }
 
@@ -199,6 +214,7 @@
 .site-nav-top {
   display: flex;
   flex-direction: column;
+  width: 175px;
 }
 
 .site-nav-button {
@@ -237,6 +253,40 @@
 .selectedNavItem {
   color: #f6695d;
   border-left: 3px solid #f6695d;
+}
+
+.selectedNavItem--blue {
+  color: #469abd;
+  border-left: 3px solid #469abd;
+}
+
+.site-nav-item-dropdown-trigger-block {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.site-nav-item-dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 15px;
+  position: absolute;
+  z-index: 20;
+}
+
+.site-nav-item-dropdown-menu.isMobile {
+  background-color: #f8f8f7;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.16);
+}
+
+.site-nav__dropdownIcon {
+  transform: rotate(-90deg);
+  transition: transform 0.3s;
+}
+
+.site-nav__dropdownIcon--closed {
+  transform: rotate(90deg);
+  transition: transform 0.3s;
 }
 
 .site-mast-right .site-nav-item:last-child {
@@ -280,13 +330,19 @@
   flex-direction: row;
   padding: 10px 10px 10px 0;
   cursor: pointer;
-  margin-left: calc((100vw - 1120px)/2 + 4vw);
-  width: calc(96vw - (100vw - 1120px)/2);
+  margin-left: calc((1800px - 1120px)/2 + 4vw);
+  width: 1400px-calc((1800px - 1120px)/2 + 4vw);
+}
+@media (max-width: 1799px) {
+  .ContentCard__block {
+    margin-left: calc((100vw - 1120px)/2 + 4vw);
+    width: calc(96vw - (100vw - 1120px)/2);
+  }
 }
 @media (max-width: 1119px) {
   .ContentCard__block {
     margin-left: 4vw;
-    width: 95vw;
+    width: 96vw;
   }
 }
 
@@ -299,14 +355,15 @@
 }
 
 .ContentCard__item {
-  display: flex;
-  flex-direction: column;
   min-width: 275px;
   height: auto;
-  padding: 15px;
   margin: 0 15px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
+}
+
+.ContentCard__item--active {
+  box-shadow: 4px 6px 8px 0px rgba(0, 0, 0, 0.16);
 }
 
 .ContentCard__cardNumber {
@@ -336,6 +393,24 @@
   height: 100px;
   width: auto;
   align-self: center;
+}
+
+.ContentCard__link {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  height: 100%;
+}
+
+.ContentCard__link,
+.ContentCard__link p,
+.ContentCard__link:hover {
+  text-decoration: none;
+  color: #142f3f;
+}
+
+.ContentCard__link p {
+  flex-grow: 1;
 }
 
 .FaqPostCard__questionBlock {
@@ -374,6 +449,7 @@
 .PageAbout__h1 {
   font-size: 26px;
   font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   border-left: 3px solid #f6695d;
   color: #142f3f;
   padding-left: 15px;
@@ -399,7 +475,6 @@
 .PageAbout__fullHeightSection {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   padding-bottom: 50px;
 }
 
@@ -439,6 +514,10 @@
   flex-direction: column;
 }
 
+.WhoWeAreProfiles__topBlock > :first-child {
+  margin-top: 0;
+}
+
 .WhoWeAreProfiles__block {
   display: flex;
   flex-wrap: wrap;
@@ -466,6 +545,7 @@
   bottom: 5px;
   margin-left: 5px;
   max-width: 240px;
+  color: #fff;
 }
 
 .WhoWeAreProfiles__arrow {
@@ -514,6 +594,148 @@
   text-align: right;
   cursor: pointer;
   justify-self: flex-end;
+}
+
+.post-feed {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card {
+  padding: 16px;
+  margin-bottom: 16px;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16);
+  transition: box-shadow 0.3s linear;
+}
+
+.post-card:hover {
+  text-decoration: none;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.post-card-tags {
+  margin: 0 0 5px 0;
+  font-size: 1.4rem;
+  line-height: 1.15em;
+  color: #469abd;
+}
+
+.post-card-title-block {
+  display: flex;
+}
+
+.post-card-date {
+  margin-left: 15px;
+  font-size: 12px;
+}
+
+.post-card-title {
+  margin: 0 0 10px 0;
+  padding: 0;
+  color: #f6695d;
+}
+
+.post-card-excerpt {
+  font-size: 1.6rem;
+  line-height: 1.55em;
+}
+
+.post-card-image {
+  margin: 0 0 10px 0;
+  width: auto;
+  height: 200px;
+  background: #142f3f no-repeat center center;
+  background-size: cover;
+}
+
+.post-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0 0 0;
+  color: #142f3f;
+}
+
+.post-card-footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.post-card-footer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card-avatar {
+  width: 30px;
+  height: 30px;
+  margin: 0 7px 0 0;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-card-avatar .author-profile-image {
+  display: block;
+  width: 100%;
+  background: #142f3f;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.post-card-avatar .default-avatar {
+  width: 26px;
+}
+
+.post-full-content {
+  width: 100%;
+  padding: 5%;
+  margin: -2vw auto 0;
+  background: rgba(248, 248, 247, 0.8);
+}
+
+.post-feature-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.post-feature-image img {
+  width: 80vw;
+  height: 400px;
+  object-fit: cover;
+  margin-bottom: 30px;
+}
+
+.post-full-author-name {
+  display: flex;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.post-card-published-date {
+  font-size: 16px;
+}
+
+.post-card-separator-line {
+  border: 1px solid #f6695d;
+}
+
+body {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  box-shadow: 15px 0 20px -2px #c7c5c5, -15px 0 20px -2px #c7c5c5;
+}
+
+h1 {
+  font-family: PlayfairDisplay;
 }
 
 /*# sourceMappingURL=App.css.map */

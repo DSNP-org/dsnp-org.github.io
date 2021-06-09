@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
@@ -9,7 +9,6 @@ import "aos/dist/aos.css"
 if (typeof document !== `undefined`) {
     AOS.init()
 }
-
 import { Navigation } from '.'
 
 // Styles
@@ -34,6 +33,21 @@ import SingleNode from "../../images/parallax/single-node.svg"
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const site = data.allGhostSettings.edges[0]?.node
     const homePage = data.allGhostPage.edges[0]?.node
+    const getWidth = (typeof window !== `undefined` ? window.innerWidth : null)
+    const initialWidth = getWidth < 1300 ? true : false
+    const [isMobile, setIsMobile] = useState(initialWidth)
+
+    useEffect(() => {
+        if (typeof window !== `undefined`) {
+            window.addEventListener(`resize`, () => {
+                if (window.innerWidth < 1300) {
+                    setIsMobile(true)
+                } else {
+                    setIsMobile(false)
+                }
+            })
+        }
+    }, [])
 
     return (
         <ParallaxProvider>
@@ -79,37 +93,60 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     </div>
                 </div>
                 <div className="Header__parallaxBlock">
-                    <div className="Header__parallax">
-                        <Parallax y={[0, 0]} x={[30, 30]} tagOuter="figure"><img className="Index__blob1" src={Blob1} /></Parallax>
-                        <Parallax x={[-30, 30]} tagOuter="figure"><img className="Index__blob3" src={Blob3} /></Parallax>
-                    </div>
-                    <div className="Header__parallax">
-                        <Parallax y={[-5, -200]}><img src={Dots} alt="dots"/></Parallax>
-                        <Parallax y={[20, 200]}><img src={Dots} alt="dots"/></Parallax>
-                    </div>
-                    <div className="Header__parallax">
-                        <Parallax y={[-50, 0]} ><img className="Index__blob2" src={Blob2} /></Parallax>
-                        <Parallax y={[-80, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
-                    </div>
-                    {isHome &&
-                    <div className="Header__parallax">
-                        <Parallax y={[-25, -30]} x={[-30, 0]}><img src={SingleNode} alt="single-node"/></Parallax>
-                        <Parallax y={[-65, 60]}><img src={MultiNode} alt="multi-node"/></Parallax>
-                    </div>
+                    {!isMobile && <>
+                        <div className="Header__parallax">
+                            <Parallax y={[0, 0]} x={[30, 30]} tagOuter="figure"><img className="Index__blob1" src={Blob1}/></Parallax>
+                            <Parallax x={[-30, 20]} tagOuter="figure"><img className="Index__blob3" src={Blob3}/></Parallax>
+                        </div>
+                        <div className="Header__parallax">
+                            <Parallax y={[-5, -200]}><img src={Dots} alt="dots"/></Parallax>
+                            <Parallax y={[0, 100]}><img src={Dots} alt="dots"/></Parallax>
+                        </div>
+                        <div className="Header__parallax">
+                            <Parallax y={[-50, 0]} ><img className="Index__blob2" src={Blob2} /></Parallax>
+                            <Parallax y={[-80, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
+                        </div>
+                        {isHome &&
+                        <div className="Header__parallax">
+                            <Parallax y={[-100, 0]}><img src={SingleNode} alt="single-node"/></Parallax>
+                            <Parallax y={[-125, 0]}><img src={MultiNode} alt="multi-node"/></Parallax>
+                        </div>
+                        }
+                        <div className="Header__parallaxBlock--front">
+                            <div className="Header__parallax">
+                                <Parallax y={[-20, 0]}><img src={SingleNode} alt="single-node"/></Parallax>
+                                <Parallax y={[-75, 70]}><img src={MultiNode} alt="multi-node"/></Parallax>
+                            </div>
+                            <div className="Header__parallax">
+                                <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
+                                <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
+                            </div>
+                            <div className="Header__parallax">
+                                <Parallax y={[50, 80]} x={[-15, 15]}><img src={Dots} alt="dots"/></Parallax>
+                                <Parallax y={[200, 100]}><img src={Dots} alt="dots"/></Parallax>
+                            </div>
+                        </div>
+                    </>
                     }
-                    <div className="Header__parallax--front">
+                    {isMobile && <>
                         <div className="Header__parallax">
-                            <Parallax y={[0, 60]} x={[-30, -10]}><img src={SingleNode} alt="single-node"/></Parallax>
-                            <Parallax y={[-50, 70]}><img src={MultiNode} alt="multi-node"/></Parallax>
+                            <Parallax y={[0, 0]} x={[50, 50]} tagOuter="figure"><img className="Index__blob1" src={Blob1}/></Parallax>
+                            <Parallax y={[-75, 20]} x={[-30, -20]} tagOuter="figure"><img className="Index__blob3" src={Blob3}/></Parallax>
                         </div>
                         <div className="Header__parallax">
-                            <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
-                            <Parallax y={[50, 100]}><img src={Dots} alt="dots"/></Parallax>
+                            <Parallax y={[30, -100]}><img src={Dots} alt="dots"/></Parallax>
+                            <Parallax y={[0, 100]} x={[-30, 0]}><img src={Dots} alt="dots"/></Parallax>
                         </div>
                         <div className="Header__parallax">
-                            <Parallax y={[50, 80]} x={[-15, 15]}><img src={Dots} alt="dots"/></Parallax>
-                            <Parallax y={[200, 100]}><img src={Dots} alt="dots"/></Parallax>
-                        </div></div>
+                            <Parallax y={[-50, 0]} ><img className="Index__blob2" src={Blob2} /></Parallax>
+                            <Parallax y={[-80, -60]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
+                        </div>
+                        <div className="Header__parallax">
+                            <Parallax y={[-100, -100]} x={[-70, -40]} styleOuter={{ transform: `rotate(90deg)` }}><img src={Dots} alt="dots"/></Parallax>
+                            <Parallax y={[-50, 0]} x={[-25, -10]} ><img className="Index__blob2" src={Blob2} /></Parallax>
+                        </div>
+                    </>
+                    }
                 </div>
             </div>
             <div className="viewport-bottom">

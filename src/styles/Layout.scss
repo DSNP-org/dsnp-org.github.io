@@ -8,7 +8,7 @@
     padding: 20px 0 0 0;
     color: $navy;
     font-size: 6.5rem;
-    line-height: 1.1em;
+    line-height: 1em;
     width: 80%;
     @include serif-font;
 
@@ -37,7 +37,7 @@
 }
 
 .Layout__arrowButton {
-    transform: rotate(135deg);
+    transform: rotate(90deg);
     height: 75px;
     width: 75px;
     margin-top: 15px;
@@ -54,7 +54,21 @@
 .container {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0 4vw
+    padding: 0 4vw;
+
+    ul {
+        list-style: none;
+    }
+
+    ul li::before {
+        color: $orange;
+        content: "\2022";
+        font-weight: 800 !important;
+        display: inline-block;
+        width: 30px;
+        font-size: 30px;
+        margin-left: -30px;
+    }
 }
 
 .body-block {

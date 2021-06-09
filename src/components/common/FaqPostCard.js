@@ -26,7 +26,7 @@ const FaqPostCard = ({ faqCards }) => {
                         <div className={`FaqPostCard__dropdownIcon ${openQuestions.includes(faqCard.id) ? `isOpen` : `isClosed`}`}>❯</div>
                     </div>}
             >
-                <div className="FaqPostCard__answer">{faqCard.plaintext}</div>
+                <section className="FaqPostCard__answer" dangerouslySetInnerHTML={{ __html: faqCard.html }} />
             </Collapsible>)}
         </>
     )

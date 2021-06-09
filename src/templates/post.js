@@ -26,16 +26,25 @@ const Post = ({ data, location }) => {
                 <style type="text/css">{`${post.codeinjection_styles}`}</style>
             </Helmet>
             <Layout>
+                { post.feature_image ?
+                    <figure className="post-feature-image">
+                        <img src={ post.feature_image } alt={ post.title } />
+                    </figure> : null }
                 <div className="container">
                     <article className="content">
-                        { post.feature_image ?
-                            <figure className="post-feature-image">
-                                <img src={ post.feature_image } alt={ post.title } />
-                            </figure> : null }
                         <section className="post-full-content">
                             <h1 className="content-title">{post.title}</h1>
-
-                            {/* The main post content */ }
+                            <div className="post-full-author-name">
+                                <div className="post-card-avatar">
+                                    {post.primary_author.profile_image ?
+                                        <img className="author-profile-image" src={post.primary_author.profile_image} alt={post.primary_author.name}/> :
+                                        <img className="default-avatar" src="/images/icons/avatar.svg" alt={post.primary_author.name}/>
+                                    }
+                                </div>
+                                <span>{ post.primary_author.name }</span>
+                            </div>
+                            <p className="post-card-published-date">{post.published_at_pretty}</p>
+                            <hr className="post-card-separator-line"/>
                             <section
                                 className="content-body load-external-scripts"
                                 dangerouslySetInnerHTML={{ __html: post.html }}
@@ -55,6 +64,11 @@ Post.propTypes = {
             title: PropTypes.string.isRequired,
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
+            published_at_pretty: PropTypes.string.isRequired,
+            primary_author: PropTypes.shape({
+                name: PropTypes.string.isRequired,
+                profile_image: PropTypes.string,
+            }).isRequired,
         }).isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,

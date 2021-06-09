@@ -40,19 +40,19 @@ const PageAbout = ({ data, location, pageContext }) => {
                 <div className="PageAbout__block">
                     {page.title === `Who We Are` && <>
                         <div id="mission" className="PageAbout__fullHeightSection">
-                            <Mission missionCards={missionPosts} />
+                            <WhoWeAre whoWeAreCards={whoWeArePosts} />
                         </div>
                         <div id="whoWeAre" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" >
-                            <WhoWeAre whoWeAreCards={whoWeArePosts} />
+                            <Mission missionCards={missionPosts} />
                         </div>
                     </>
                     }
                     {page.title === `Guiding Principles` && <>
                         <div id="governance" className="PageAbout__fullHeightSection">
-                            <Governance governanceCards={governancePosts} />
+                            <Ethos ethosCards={ethosPosts} />
                         </div>
                         <div id="ethos" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" >
-                            <Ethos ethosCards={ethosPosts} />
+                            <Governance governanceCards={governancePosts} />
                         </div>
                     </>}
                     {page.title === `Ecosystem` && <>

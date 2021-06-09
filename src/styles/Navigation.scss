@@ -8,6 +8,7 @@
 .site-nav-top {
     display: flex;
     flex-direction: column;
+    width: 175px;
 }
 
 .site-nav-button {
@@ -46,6 +47,40 @@
 .selectedNavItem {
     color: $orange;
     border-left: 3px solid $orange;
+}
+
+.selectedNavItem--blue {
+    color: $blue;
+    border-left: 3px solid $blue;
+}
+
+.site-nav-item-dropdown-trigger-block {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.site-nav-item-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 15px;
+    position: absolute;
+    z-index: 20;
+}
+
+.site-nav-item-dropdown-menu.isMobile {
+    background-color: $bg-gray;
+    box-shadow: 0 8px 6px -6px $box-shadow-black;
+}
+
+.site-nav__dropdownIcon {
+    transform: rotate(-90deg);
+    transition: transform 0.3s;
+}
+
+.site-nav__dropdownIcon--closed {
+    transform: rotate(90deg);
+    transition: transform 0.3s;
 }
 
 .site-mast-right .site-nav-item:last-child {

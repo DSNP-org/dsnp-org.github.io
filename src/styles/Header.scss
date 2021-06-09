@@ -1,6 +1,7 @@
 .Header__parallaxBlock {
     position: absolute;
     top: 0;
+    max-width: 1800px;
     width: 100vw;
     pointer-events: none;
     display: flex;
@@ -20,6 +21,7 @@
 
 .Header__parallaxBlock--front {
     z-index: 20;
+    max-width: 1800px;
     width: 100vw;
 }
 
