@@ -5,8 +5,6 @@ import { Tags } from '@tryghost/helpers-gatsby'
 
 const PostCard = ({ post }) => {
     const url = `/${post.slug}/`
-    console.log(post)
-
     return (
         <Link to={url} className="post-card">
             <header className="post-card-header">

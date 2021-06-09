@@ -95,14 +95,12 @@ const Index = ({ data, location }) => {
             const handleMouseEnter = (e) => {
                 const navItem = e.currentTarget
                 const navItemBox = navItem.getBoundingClientRect()
-                console.log(navItemBox)
                 setIsHoveringLink(true)
             }
 
             const handleMouseLeave = (e) => {
                 const navItem = e.currentTarget
                 const navItemBox = navItem.getBoundingClientRect()
-                console.log(navItemBox)
                 setIsHoveringLink(false)
             }
 
@@ -177,7 +175,7 @@ const Index = ({ data, location }) => {
                         {items && <AliceCarousel
                             items={items}
                             responsive={responsive}
-                            autoPlayInterval={1500}
+                            autoPlayInterval={2000}
                             autoPlay={true}
                             fadeOutAnimation={true}
                             disableAutoPlayOnAction={true}

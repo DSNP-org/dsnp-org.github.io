@@ -35,16 +35,17 @@ const Navigation = ({ data, navClass }) => {
 
     const getClassName = (navItem) => {
         const currentPage = typeof window !== `undefined` ? window.location.pathname : null
-        if (currentPage === navItem.url) {
-            if (currentPage.includes(`about`)) {
-                return `${navClass} selectedNavItem--blue`
+        if (currentPage) {
+            if (currentPage === navItem.url) {
+                if (currentPage.includes(`about`)) {
+                    return `${navClass} selectedNavItem--blue`
+                }
+                return `${navClass} selectedNavItem`
+            } else if (navItem === `about` && currentPage.includes(`about`)) {
+                return `${navClass} selectedNavItem`
             }
-            return `${navClass} selectedNavItem`
-        } else if (navItem === `about` && currentPage.includes(`about`)) {
-            return `${navClass} selectedNavItem`
-        } else {
-            return `${navClass}`
         }
+        return `${navClass}`
     }
 
     const createHeaderNavLinks = () => {
