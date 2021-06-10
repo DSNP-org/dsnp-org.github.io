@@ -10,6 +10,10 @@ try {
     ghostConfig = require(`.ghost.json`)
 } catch (e) {
     ghostConfig = {
+        development: {
+            apiUrl: process.env.GHOST_API_URL,
+            contentApiKey: process.env.GHOST_CONTENT_API_KEY,
+        },
         production: {
             apiUrl: process.env.GHOST_API_URL,
             contentApiKey: process.env.GHOST_CONTENT_API_KEY,
