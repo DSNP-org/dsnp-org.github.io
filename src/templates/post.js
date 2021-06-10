@@ -35,12 +35,6 @@ const Post = ({ data, location }) => {
                         <section className="post-full-content">
                             <h1 className="content-title">{post.title}</h1>
                             <div className="post-full-author-name">
-                                <div className="post-card-avatar">
-                                    {post.primary_author.profile_image ?
-                                        <img className="author-profile-image" src={post.primary_author.profile_image} alt={post.primary_author.name}/> :
-                                        <img className="default-avatar" src="/images/icons/avatar.svg" alt={post.primary_author.name}/>
-                                    }
-                                </div>
                                 <span>{ post.primary_author.name }</span>
                             </div>
                             <p className="post-card-published-date">{post.published_at_pretty}</p>
