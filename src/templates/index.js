@@ -136,7 +136,6 @@ const Index = ({ data, location }) => {
                 <Layout isHome={true}>
                     <div className="container">
                         <div>
-                            <h2 className="ContentCard__blockTitle">{whatWeDo[0].title}</h2>
                             <section className="site-banner-desc" dangerouslySetInnerHTML={{ __html: whatWeDo[0].html }} />
                             <Link to="about-who-we-are">
                                 <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
