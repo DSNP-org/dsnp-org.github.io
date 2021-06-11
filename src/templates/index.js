@@ -26,13 +26,7 @@ const Index = ({ data, location }) => {
     const posts = data.allGhostPost.nodes
 
     const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
-    const partnersCards = posts.filter(post => post.tags.some(tag => tag.name === `#HomePagePartners`))
     const ecosystemCards = posts.filter(card => card.tags.some(tag => tag.name === `#HomePageEcosystemCard`))
-
-    const partnersCardsContainer = typeof document !== `undefined` ? document.createElement(`div`) : null
-    if (partnersCardsContainer) {
-        partnersCardsContainer.innerHTML = partnersCards[0].html
-    }
 
     const cursorIconSettings = () => {
         let clientX = -100
@@ -123,8 +117,6 @@ const Index = ({ data, location }) => {
         2000: { items: 5 },
     }
 
-    const items = partnersCardsContainer ? [...partnersCardsContainer.children].map((cardData, index) => <section data-value={`${ index + 1 }`} key={index} dangerouslySetInnerHTML={{ __html: cardData.innerHTML }}/>) : null
-
     useEffect(() => {
         if (isCustomCursor) {
             cursorIconSettings()
@@ -163,23 +155,6 @@ const Index = ({ data, location }) => {
                                 {ecosystemCards.map((cardData, index) => <ContentCard cardData={cardData} key={generateKey(cardData.title)} index={index + 1}/>)}
                             </ScrollContainer>
                         </Parallax>
-                    </div>
-                    <div className="container">
-                        <div className="body-block">
-                            <div className="ContentCard__blockTitle" data-aos="fade-right" data-aos-duration="1400">
-                                Our Partners
-                            </div>
-                        </div>
-                    </div>
-                    <div className="Index__partnersLogosBlock">
-                        {items && <AliceCarousel
-                            items={items}
-                            responsive={responsive}
-                            autoPlayInterval={2000}
-                            autoPlay={true}
-                            fadeOutAnimation={true}
-                            disableAutoPlayOnAction={true}
-                        />}
                     </div>
                 </Layout>
             </div>
