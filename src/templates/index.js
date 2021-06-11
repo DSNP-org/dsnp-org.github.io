@@ -143,7 +143,7 @@ const Index = ({ data, location }) => {
                         </div>
                         <div className="body-block">
                             <div className="ContentCard__blockTitle" data-aos="fade-right" data-aos-duration="1400">
-                                The Unfinished Ecosystem
+                                Get Started
                             </div>
                         </div>
                     </div>
