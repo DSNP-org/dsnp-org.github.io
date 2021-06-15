@@ -41,7 +41,7 @@ Checkout a local copy of the DSNP.org website source code:
 
 ### Node.js & NPM
 
-Gatsby runs on Node.js, so you will need to install it first. The Gatsby docs recommend installing version 14 or higher of Node.js, which is newer than many Linux distributions provide in their default packages. If you use Ubuntu with Snaps, you can install version 14, 15, or 16 of the [Node.js snap][https://snapcraft.io/node].
+Gatsby runs on Node.js, so you will need to install it first. The Gatsby docs recommend installing version 14 or higher of Node.js, which is newer than many Linux distributions provide in their default packages. If you use Ubuntu with Snaps, you can install version 14, 15, or 16 of the [Node.js snap](https://snapcraft.io/node).
 
 ```sh
   $ sudo snap install node --channel=14/stable --classic
@@ -49,7 +49,7 @@ Gatsby runs on Node.js, so you will need to install it first. The Gatsby docs re
 
 For other Linux distributions, Mac, or Windows, see the Node.js docs on [installing from a package manager](https://nodejs.org/en/download/package-manager/).
 
-As a last resort, if you can't find a recent version of Node.js any other way, you can install it with with `nvm` (the Node Version Manager). First install `nvm`:
+As a last resort, if you can't find a recent version of Node.js any other way, you can install it with `nvm` (the Node Version Manager). First install `nvm`:
 
 ```sh
  $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
