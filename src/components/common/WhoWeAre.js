@@ -13,7 +13,7 @@ const WhoWeArePostCard = ({ whoWeAreCards }) => {
         <div className="WhoWeAreProfiles__topBlock">
             <h3 className="WhoWeAreProfiles__blockSubtitle" >Advisors</h3>
             <WhoWeAreProfiles profiles={whoWeAreAdvisoryCouncil} />
-            <h3 className="WhoWeAreProfiles__blockSubtitle" >Staff</h3>
+            <h3 className="WhoWeAreProfiles__blockSubtitle" >Team</h3>
             <WhoWeAreProfiles profiles={whoWeAreStaff} />
         </div>
     </div>
