@@ -1,13 +1,13 @@
 {
-  "name": "gatsby-starter-ghost",
-  "description": "A starter template to build lightning fast websites with Ghost and Gatsby",
-  "homepage": "http://DSNP-org.gihub.io",
+  "name": "gatsby-dsnp-org",
+  "description": "DSNP.org is a non-profit organization supporting the Decentralized Social Network Protocol (DSNP)",
+  "homepage": "https://www.dsnp.org",
   "version": "1.0.0",
   "license": "MIT",
   "author": "Claire Olmstead",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tryghost/gatsby-starter-ghost.git"
+    "url": "git+https://github.com/DSNP-org/dsnp-org.github.io.git"
   },
   "resolutions": {
     "sharp": "0.27.1"
@@ -16,7 +16,7 @@
     "node": ">= 10.13.0"
   },
   "bugs": {
-    "url": "https://github.com/tryghost/gatsby-starter-ghost/issues"
+    "url": "https://github.com/DSNP-org/dsnp-org.github.io/issues"
   },
   "keywords": [
     "gatsby",
@@ -24,7 +24,7 @@
   ],
   "main": "n/a",
   "scripts": {
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy": "gatsby build && gh-pages -d public",
     "serve": "gatsby build && NODE_ENV=production gatsby serve",
     "build": "gatsby build",
     "dev": "gatsby develop",
@@ -46,6 +46,7 @@
     "cheerio": "1.0.0-rc.5",
     "gatsby": "2.32.12",
     "gatsby-awesome-pagination": "0.3.6",
+    "gatsby-cli": "^3.7.1",
     "gatsby-image": "2.11.0",
     "gatsby-plugin-advanced-sitemap": "1.6.0",
     "gatsby-plugin-catch-links": "2.10.0",

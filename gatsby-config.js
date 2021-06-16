@@ -38,7 +38,6 @@ module.exports = {
     siteMetadata: {
         siteUrl: process.env.SITEURL || config.siteUrl,
     },
-    pathPrefix: `/dsnp-web/`,
     plugins: [
         `gatsby-plugin-sass`,
         /**
