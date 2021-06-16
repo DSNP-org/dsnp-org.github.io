@@ -4,7 +4,6 @@ import WhoWeAreProfiles from "./WhoWeAreProfiles"
 
 const WhoWeArePostCard = ({ whoWeAreCards }) => {
     const whoWeAreTitle = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreTitle`))
-    const whoWeAreExecutiveBoard = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreExecutiveBoard`))
     const whoWeAreAdvisoryCouncil = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreAdvisoryCouncil`))
     const whoWeAreStaff = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreStaff`))
 
@@ -12,11 +11,9 @@ const WhoWeArePostCard = ({ whoWeAreCards }) => {
         <h2 className="PageAbout__sectionHeader" data-aos="fade-right"
             data-aos-duration="1400">{whoWeAreTitle[0].node.title}</h2>
         <div className="WhoWeAreProfiles__topBlock">
-            <h3 className="WhoWeAreProfiles__blockSubtitle">Executive Board</h3>
-            <WhoWeAreProfiles profiles={whoWeAreExecutiveBoard} />
-            <h3 className="WhoWeAreProfiles__blockSubtitle" >Advisory Council</h3>
+            <h3 className="WhoWeAreProfiles__blockSubtitle" >Advisors</h3>
             <WhoWeAreProfiles profiles={whoWeAreAdvisoryCouncil} />
-            <h3 className="WhoWeAreProfiles__blockSubtitle" >Staff</h3>
+            <h3 className="WhoWeAreProfiles__blockSubtitle" >Team</h3>
             <WhoWeAreProfiles profiles={whoWeAreStaff} />
         </div>
     </div>
