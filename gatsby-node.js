@@ -42,6 +42,9 @@ exports.createPages = async ({ graphql, actions }) => {
                 edges {
                     node {
                         slug
+                        tags {
+                            slug
+                        }
                     }
                 }
             }
@@ -92,8 +95,10 @@ exports.createPages = async ({ graphql, actions }) => {
     const authorTemplate = path.resolve(`./src/templates/author.js`)
     const pageTemplate = path.resolve(`./src/templates/page.js`)
     const blogPageTemplate = path.resolve(`./src/templates/page-blog.js`)
+    const blogPostTemplate = path.resolve(`./src/templates/post-blog.js`)
     const faqPageTemplate = path.resolve(`./src/templates/page-faq.js`)
     const aboutPageTemplate = path.resolve(`./src/templates/page-about.js`)
+    const bioPostTemplate = path.resolve(`./src/templates/post-bio.js`)
     const postTemplate = path.resolve(`./src/templates/post.js`)
 
     // Create tag pages
@@ -176,9 +181,27 @@ exports.createPages = async ({ graphql, actions }) => {
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`
 
+        // Customize the page template by tags.
+        // The tag names are lower-case and have special
+        // characters substituted, so you match "#BlogPost"
+        // with `hash-blogpost`.
+        let thisPageTemplate = postTemplate
+        let tags = node.tags
+        for (id in tags) {
+            let tag = tags[id].slug
+            if (tag === `hash-blogpost`) {
+                thisPageTemplate = blogPostTemplate
+            }
+            if (tag === `hash-whowearestaff` ||
+                tag === `hash-whoweareadvisorycouncil` ||
+                tag === `hash-whoweareexecutiveboard`) {
+                thisPageTemplate = bioPostTemplate
+            }
+        }
+
         createPage({
             path: node.url,
-            component: postTemplate,
+            component: thisPageTemplate,
             context: {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
