@@ -102,6 +102,7 @@
 
 .WhoWeAreProfiles__selectedProfileBlock {
     display: flex;
+    max-height: 500px;
 }
 
 .WhoWeAreProfiles__selectedProfileImage {
@@ -121,6 +122,7 @@
 .WhoWeAreProfiles__descriptionTextBlock {
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
 
 .WhoWeAreProfiles__description {

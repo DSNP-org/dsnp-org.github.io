@@ -30,6 +30,11 @@ const Post = ({ data, location }) => {
                     <article className="content">
                         <section className="post-full-content">
                             <h1 className="content-title">{post.title}</h1>
+                            <hr className="post-card-separator-line"/>
+                            { post.feature_image ?
+                                <img className="post-card-profile-image" src={post.feature_image} alt = { post.title } />
+                                : null
+                            }
                             <section
                                 className="content-body load-external-scripts"
                                 dangerouslySetInnerHTML={{ __html: post.html }}
