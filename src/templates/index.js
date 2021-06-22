@@ -8,7 +8,6 @@ import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import ClickDrag from "../images/ClickDrag.svg"
 import ScrollContainer from 'react-indiana-drag-scroll'
 import * as paper from 'paper'
-import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 import { generateKey } from "../utils/keyGenerator"
 import UpArrow from "../images/arrow-btn-dark.svg"
@@ -86,15 +85,15 @@ const Index = ({ data, location }) => {
         const initHovers = () => {
             // find the center of the link element and set stuckX and stuckY
             // these are needed to set the position of the noisy circle
-            const handleMouseEnter = (e) => {
-                const navItem = e.currentTarget
-                const navItemBox = navItem.getBoundingClientRect()
+            const handleMouseEnter = () => {
+                // const navItem = e.currentTarget
+                // const navItemBox = navItem.getBoundingClientRect()
                 setIsHoveringLink(true)
             }
 
-            const handleMouseLeave = (e) => {
-                const navItem = e.currentTarget
-                const navItemBox = navItem.getBoundingClientRect()
+            const handleMouseLeave = () => {
+                // const navItem = e.currentTarget
+                // const navItemBox = navItem.getBoundingClientRect()
                 setIsHoveringLink(false)
             }
 
@@ -107,14 +106,6 @@ const Index = ({ data, location }) => {
         }
 
         initHovers()
-    }
-
-    const responsive = {
-        0: { items: 1.5 },
-        600: { items: 2.5 },
-        1000: { items: 3.5 },
-        1400: { items: 4.5 },
-        2000: { items: 5 },
     }
 
     useEffect(() => {
@@ -178,13 +169,13 @@ export const pageQuery = graphql`
   query GhostIndexQuery {
     allGhostPost(filter: {tags: {elemMatch: {name: {in: ["#HomePage", "#HomePagePartners"]}}}}) {
         nodes {
-          title
-          html
-          id
-          tags {
-            name
-          }
-          excerpt
+            title
+            html
+            id
+            tags {
+                name
+            }
+            excerpt
         }
     }
   }

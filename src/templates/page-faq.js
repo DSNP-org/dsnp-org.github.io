@@ -54,9 +54,9 @@ export const faqQuery = graphql`
         }
         allGhostPost(filter: {tags: {elemMatch: {name: {eq: "#FAQ"}}}}) {
             nodes {
-              html
-              title
-              id
+                html
+                title
+                id
             }
         }
     }

@@ -75,6 +75,7 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
             ) {
                 edges {
                     node {
+
                         # Main fields
                         id
                         title

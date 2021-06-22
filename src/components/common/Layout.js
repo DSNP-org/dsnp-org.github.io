@@ -16,10 +16,10 @@ import '../../App.css'
 import Blob1 from "../../images/parallax/blob-1.svg"
 import Blob2 from "../../images/parallax/blob-2.svg"
 import Blob3 from "../../images/parallax/blob-3.svg"
+// import UpArrow from "../../images/arrow-btn-dark.svg"
 import Dots from "../../images/parallax/dots.svg"
 import MultiNode from "../../images/parallax/multi-node.svg"
 import SingleNode from "../../images/parallax/single-node.svg"
-import Logo from "../../images/cms-images/DSNP_Logo@2x.png"
 
 /**
 * Main layout component
@@ -63,7 +63,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                         <header className="site-head">
                             <div className="site-mast">
                                 <Link to="/">
-                                    <img className="site-logo" src={Logo} alt={site.title} />
+                                    <img className="site-logo" src={site.logo} alt={site.title} />
                                 </Link>
                             </div>
                             <div className="container">
@@ -182,13 +182,6 @@ const DefaultLayoutSettingsQuery = props => (
                     edges {
                         node {
                             ...GhostSettingsFields
-                        }
-                    }
-                }
-                file(relativePath: {eq: "ghost-icon.png"}) {
-                    childImageSharp {
-                        fixed(width: 30, height: 30) {
-                            ...GatsbyImageSharpFixed
                         }
                     }
                 }

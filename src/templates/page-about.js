@@ -15,6 +15,7 @@ import { MetaData } from '../components/common/meta'
 const PageAbout = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges
     const page = data.ghostPage
+    console.log(posts)
     const missionPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageMission`))
     const whoWeArePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageWhoWeAre`))
     const governancePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageGovernance`))
