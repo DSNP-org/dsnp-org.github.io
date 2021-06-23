@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import AOS from "aos"
 import "aos/dist/aos.css"
@@ -17,10 +16,10 @@ import '../../App.css'
 import Blob1 from "../../images/parallax/blob-1.svg"
 import Blob2 from "../../images/parallax/blob-2.svg"
 import Blob3 from "../../images/parallax/blob-3.svg"
-// import UpArrow from "../../images/arrow-btn-dark.svg"
 import Dots from "../../images/parallax/dots.svg"
 import MultiNode from "../../images/parallax/multi-node.svg"
 import SingleNode from "../../images/parallax/single-node.svg"
+import Logo from "../../images/cms-images/DSNP_Logo@2x.png"
 
 /**
 * Main layout component
@@ -64,10 +63,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                         <header className="site-head">
                             <div className="site-mast">
                                 <Link to="/">
-                                    {site.logo ?
-                                        <img className="site-logo" src={site.logo} alt={site.title} />
-                                        : <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
-                                    }
+                                    <img className="site-logo" src={Logo} alt={site.title} />
                                 </Link>
                             </div>
                             <div className="container">
