@@ -30,7 +30,7 @@ const Tag = ({ data, location, pageContext }) => {
                     </header>
                     <section className="post-feed">
                         {posts.map(({ node }) => (
-                            // The tag below includes the markup for each post - components/common/PostCard.js
+                            // The tag below includes the markup for each post - components/common/About.js
                             <PostCard key={node.id} post={node} />
                         ))}
                     </section>

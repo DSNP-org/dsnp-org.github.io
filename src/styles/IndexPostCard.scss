@@ -1,4 +1,4 @@
-.ContentCard__block {
+.IndexPostCard__block {
     display: flex;
     flex-direction: row;
     padding: 10px 10px 10px 0;
@@ -17,14 +17,14 @@
     }
 }
 
-.ContentCard__blockTitle {
+.IndexPostCard__blockTitle {
     @include large-subheader-font;
     @include serif-font;
     margin: 0;
     line-height: 1;
 }
 
-.ContentCard__item {
+.IndexPostCard__item {
     min-width: 275px;
     height: auto;
     margin: 0 15px;
@@ -32,51 +32,51 @@
     background-color: #ffffff;
 }
 
-.ContentCard__item--active {
+.IndexPostCard__item--active {
     box-shadow: 4px 6px 8px 0px $box-shadow-black;
 }
 
-.ContentCard__cardNumber {
+.IndexPostCard__cardNumber {
     text-align: right;
     color: $text-light-gray;
     @include serif-font;
     @include emphasized-font;
 }
 
-.ContentCard__title {
+.IndexPostCard__title {
     color: $blue;
     @include minor-title;
 }
 
-.ContentCard__text {
+.IndexPostCard__text {
     @include serif-font;
     flex-grow: 1;
 }
 
-.ContentCard__button {
+.IndexPostCard__button {
     align-self: flex-end;
 }
 
-.ContentCard__clickDrag {
+.IndexPostCard__clickDrag {
     height: 100px;
     width: auto;
     align-self: center;
 }
 
-.ContentCard__link {
+.IndexPostCard__link {
     display: flex;
     flex-direction: column;
     padding: 15px;
     height: 100%;
 }
 
-.ContentCard__link,
-.ContentCard__link p,
-.ContentCard__link:hover, {
+.IndexPostCard__link,
+.IndexPostCard__link p,
+.IndexPostCard:hover, {
     text-decoration: none;
     color: $navy;
 }
 
-.ContentCard__link p {
+.IndexPostCard p {
     flex-grow: 1;
 }

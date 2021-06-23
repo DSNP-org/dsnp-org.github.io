@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
-import ArrowDark from "../../images/arrow-btn-dark.svg"
-import ArrowLight from "../../images/arrow-button-light.svg"
+import ArrowDark from "../../../images/arrow-btn-dark.svg"
+import ArrowLight from "../../../images/arrow-button-light.svg"
 
 const WhoWeAreProfiles = ({ profiles }) => {
     const [selectedProfile, setSelectedProfile] = useState(null)

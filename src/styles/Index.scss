@@ -1,22 +1,17 @@
-.cursor {
-    position: fixed;
-    left: 0;
-    top: 0;
-    pointer-events: none;
+.Index__arrowButton {
+    transform: rotate(90deg);
+    height: 75px;
+    width: 75px;
+    margin-top: 15px;
+    margin-left: -12px;
 }
-.cursor--small {
-    width: 10px;
-    height: 10px;
-    left: -5px;
-    top: -5px;
-    border-radius: 50%;
-    z-index: 11000;
-    background: $blue;
-}
-.cursor--canvas {
-    width: 100vw;
-    height: 100vh;
-    z-index: 12000;
+
+.Index__bodyBlock {
+    padding: 3em 0;
+
+    @media (max-width: 768px) {
+        padding: 1.5em 0;
+    }
 }
 
 .Index__blockCustomCursor,
@@ -29,10 +24,4 @@
     background-color: $white;
     box-shadow: 0 3px 6px 0 $box-shadow-black;
     margin-bottom: 100px;
-}
-
-.alice-carousel__dots,
-.alice-carousel__prev-btn,
-.alice-carousel__next-btn {
-    display: none !important;
 }

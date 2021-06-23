@@ -19,12 +19,12 @@ const WhoWeArePostCard = ({ whoWeAreCards, whoWeAreHeadshots }) => {
     getHeadshots()
 
     return <div className="container">
-        <h2 className="PageAbout__sectionHeader" data-aos="fade-right"
+        <h2 className="PostCard__title" data-aos="fade-right"
             data-aos-duration="1400">{whoWeAreTitle[0].node.title}</h2>
-        <div className="WhoWeAreProfiles__topBlock">
-            <h3 className="WhoWeAreProfiles__blockSubtitle" >Advisors</h3>
+        <div className="WhoWeArePostCard__topBlock">
+            <h3 className="WhoWeArePostCard__blockSubtitle" >Advisors</h3>
             <WhoWeAreProfiles profiles={whoWeAreAdvisoryCouncil} />
-            <h3 className="WhoWeAreProfiles__blockSubtitle" >Team</h3>
+            <h3 className="WhoWeArePostCard__blockSubtitle" >Team</h3>
             <WhoWeAreProfiles profiles={whoWeAreStaff} />
         </div>
     </div>

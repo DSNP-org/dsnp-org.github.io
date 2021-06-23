@@ -45,12 +45,3 @@
     margin: 0 -20vw;
     position: relative;
 }
-
-.PageAbout__sectionHeader {
-    font-size: 5rem;
-    @include serif-font;
-}
-
-.PageAbout__sectionHeader--orange {
-    color: $orange;
-}

@@ -7,27 +7,27 @@ const IndexPostCard = ({ cardData, index }) => {
     const [isHovering, setIsHovering] = useState(false)
     const cardNumber = index < 10 ? `0${index}` : index
     const postCard = <>
-        <div className="ContentCard__cardNumber">{cardNumber}</div>
-        <h3 className="ContentCard__title">{cardData.title}</h3>
+        <div className="IndexPostCard__cardNumber">{cardNumber}</div>
+        <h3 className="IndexPostCard__title">{cardData.title}</h3>
         <div
-            className="ContentCard__text"
+            className="IndexPostCard__text"
             dangerouslySetInnerHTML={{ __html: cardData.html }}
         />
-        <img className="ContentCard__button" src={ArrowDark} alt="arrow-button"/>
+        <img className="IndexPostCard__button" src={ArrowDark} alt="arrow-button"/>
     </>
 
     const getLinkButton = () => {
         if (cardData.excerpt.includes(`http`)) {
-            return <a href={cardData.excerpt} className="ContentCard__link hoverLink" target="_blank" rel="noreferrer">
+            return <a href={cardData.excerpt} className="IndexPostCard__link hoverLink" target="_blank" rel="noreferrer">
                 {postCard}
             </a>
         } else {
-            return <Link to={cardData.excerpt} className="ContentCard__link hoverLink">
+            return <Link to={cardData.excerpt} className="IndexPostCard__link hoverLink">
                 {postCard}
             </Link>
         }
     }
-    return <div className={`ContentCard__item ${isHovering ? `ContentCard__item--active` : null}`}
+    return <div className={`IndexPostCard__item ${isHovering ? `IndexPostCard__item--active` : null}`}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
     >{getLinkButton()}</div>

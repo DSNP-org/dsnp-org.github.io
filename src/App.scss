@@ -1,16 +1,16 @@
 @import "./styles/colors";
 @import "./styles/typography";
+@import "./styles/base";
 @import "./styles/Layout";
 @import "./styles/Index";
-@import "./styles/Header";
-@import "./styles/Navigation";
 @import "./styles/Footer";
-@import "./styles/FooterNavigation";
 @import "./styles/IndexPostCard";
-@import "./styles/Faq";
-@import "./styles/About";
+@import "./styles/FaqPostCard";
+@import "./styles/PageAbout";
 @import "./styles/WhoWeAreProfiles";
-@import "./styles/Blog";
+@import "./styles/WhoWeArePostCard";
+@import "./styles/PostCard";
+@import "./styles/PostBio";
 
 body {
     max-width: 1800px;

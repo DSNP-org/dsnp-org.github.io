@@ -1,9 +1,27 @@
-.site-banner {
+.Layout__viewport {
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.Layout__viewport--top {
+    position: relative;
+    z-index: 2;
+}
+
+.Layout__contentContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.Layout__banner {
     max-width: 80%;
     text-align: left;
 }
 
-.site-banner-title {
+.Layout__bannerTitle {
     margin: 0;
     padding: 20px 0 0 0;
     color: $navy;
@@ -22,79 +40,156 @@
     }
 }
 
-.site-banner-desc {
-    margin: 15px 0 0 0;
-    padding: 0;
-    font-size: 2.0rem;
-    line-height: 1.4em;
-    color: $navy;
-    opacity: 0.7;
-    width: 70%;
-
-    @media (max-width: 768px) {
-        width: 100%;
-    }
+.Layout__headerBlock {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-.Layout__arrowButton {
-    transform: rotate(90deg);
-    height: 75px;
-    width: 75px;
-    margin-top: 15px;
-    margin-left: -12px;
-}
-
-.content-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.container {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 4vw;
-
-    ul {
-        list-style: none;
-    }
-
-    ul li::before {
-        color: $orange;
-        content: "\2022";
-        font-weight: 800 !important;
-        display: inline-block;
-        width: 30px;
-        font-size: 30px;
-        margin-left: -30px;
-    }
-}
-
-.body-block {
-    padding: 3em 0;
-
-    @media (max-width: 768px) {
-        padding: 1.5em 0;
-    }
-}
-
-.site-main {
+.Layout__main {
     padding: 3vw 0;
 }
 
-.site-main-home {
+.Layout__main--home {
     margin-top: 0;
     padding: 0;
 }
 
-.viewport {
-    min-height: 100vh;
-    overflow: hidden;
-    position: relative;
+.Layout__headerLogo {
+    height: 70px;
+    padding-left: 20px;
 }
 
-.viewport-top {
+.Layout__mast {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -50px;
+}
+
+.Layout__footer {
+    padding: 20px 0 40px 0;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.3rem;
+    background: var(--color-base);
+}
+
+.Layout__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.Layout__navigationItem--selected {
+    color: $orange;
+    border-left: 3px solid $orange;
+}
+
+.Layout__navigationItem--selected--blue {
+    color: $blue;
+    border-left: 3px solid $blue;
+}
+
+.Layout__navigationItemDropdownTriggerBlock {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.Layout__navigationItemDropdownMenu {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 15px;
+    position: absolute;
+    z-index: 20;
+}
+
+.Layout__navigationItemDropdownMenu.isMobile {
+    background-color: $bg-gray;
+    box-shadow: 0 8px 6px -6px $box-shadow-black;
+}
+
+.Layout__navigationDropdownIcon {
+    transform: rotate(-90deg);
+    transition: transform 0.3s;
+}
+
+.Layout__navigationDropdownIcon--closed {
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+}
+
+.Layout__topNavigation {
+    display: flex;
+    flex-direction: column;
+    width: 175px;
+}
+
+.Layout__topNavigationItem {
+    display: inline-block;
+    padding: 5px 10px;
+    color: $navy;
+    opacity: 0.8;
+    font-weight: $bold;
+}
+
+.Layout__topNavigationItem:hover {
+    text-decoration: none;
+    opacity: 1;
+}
+
+.Layout__footerNavigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Layout__footerNavigation a {
+    color: rgba(255,255,255,0.7);
+}
+
+.Layout__footerNavigation a:hover {
+    text-decoration: none;
+    color: rgba(255,255,255,1);
+}
+
+.Layout__footerNavigation--right a {
+    display: inline-block;
+    padding: 2px 5px;
+}
+
+.Layout__footerNavigation--right a:last-child {
+    padding-right: 0;
+}
+
+.Layout__parallaxBlock {
+    position: absolute;
+    top: 0;
+    max-width: 1800px;
+    width: 100vw;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Layout__parallaxBlock--front {
+    z-index: 20;
+    max-width: 1800px;
+    width: 100vw;
+}
+
+.Layout__parallax {
     position: relative;
-    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1050px;
+
+    @media (max-width: 1119px) {
+        gap: 90vw;
+    }
+
+    @media (max-width: 700px) {
+        gap: 96vw;
+    }
 }
