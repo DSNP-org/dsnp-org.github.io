@@ -115,6 +115,7 @@
 .WhoWeAreProfiles__selectedProfileName {
     @include subheader-font;
     @include serif-font;
+    padding-top: 10px;
     margin-bottom: 15px;
     color: $orange;
 }
