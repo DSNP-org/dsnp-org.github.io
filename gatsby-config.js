@@ -169,18 +169,6 @@ module.exports = {
             options: {
                 query: `
                 {
-                    allFile {
-                        edges {
-                            node {
-                                childImageSharp {
-                                    fixed {
-                                        src
-                                    }
-                                    id
-                                }
-                            }
-                        }
-                    }
                     allGhostPost {
                         edges {
                             node {

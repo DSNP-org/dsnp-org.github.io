@@ -107,6 +107,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+            slug
           ...GhostPostFields
           featureImageSharp
         }
