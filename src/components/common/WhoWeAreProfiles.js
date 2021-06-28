@@ -39,7 +39,7 @@ const WhoWeAreProfiles = ({ profiles }) => {
                 <div className="WhoWeAreProfiles__descriptionBlock--inner container">
                     <div className="WhoWeAreProfiles__closeIcon" onClick={() => toggleDisplayProfiles(selectedProfile)}>&#10005;</div>
                     <div className="WhoWeAreProfiles__selectedProfileBlock">
-                        <Img className="WhoWeAreProfiles__image"
+                        <Img className="WhoWeAreProfiles__selectedProfileImage"
                             fixed={selectedProfile.headshot}
                             objectFit="cover"
                             alt={`${selectedProfile.node.title} image`} />
