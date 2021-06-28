@@ -10,7 +10,6 @@ if (typeof document !== `undefined`) {
 }
 import { Navigation } from '.'
 
-// Styles
 import '../../styles/app.css'
 import '../../App.css'
 import Blob1 from "../../images/parallax/blob-1.svg"
@@ -182,13 +181,6 @@ const DefaultLayoutSettingsQuery = props => (
                     edges {
                         node {
                             ...GhostSettingsFields
-                        }
-                    }
-                }
-                file(relativePath: {eq: "ghost-icon.png"}) {
-                    childImageSharp {
-                        fixed(width: 30, height: 30) {
-                            ...GatsbyImageSharpFixed
                         }
                     }
                 }

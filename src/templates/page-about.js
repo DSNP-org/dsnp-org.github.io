@@ -15,6 +15,7 @@ import { MetaData } from '../components/common/meta'
 const PageAbout = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges
     const page = data.ghostPage
+    const imageSrc = data.allFile.edges
     const missionPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageMission`))
     const whoWeArePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageWhoWeAre`))
     const governancePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageGovernance`))
@@ -40,7 +41,7 @@ const PageAbout = ({ data, location, pageContext }) => {
                 <div className="PageAbout__block">
                     {page.title === `Who We Are` && <>
                         <div id="mission" className="PageAbout__fullHeightSection">
-                            <WhoWeAre whoWeAreCards={whoWeArePosts} />
+                            <WhoWeAre whoWeAreCards={whoWeArePosts} whoWeAreHeadshots={imageSrc} />
                         </div>
                         <div id="whoWeAre" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" >
                             <Mission missionCards={missionPosts} />
@@ -67,6 +68,7 @@ const PageAbout = ({ data, location, pageContext }) => {
 
 PageAbout.propTypes = {
     data: PropTypes.shape({
+        allFile: PropTypes.object.isRequired,
         allGhostPost: PropTypes.object.isRequired,
         ghostPage: PropTypes.object.isRequired,
     }).isRequired,
@@ -82,6 +84,18 @@ export default PageAbout
 // The `limit` and `skip` values are used for pagination
 export const pageQuery = graphql`
   query GhostAboutQuery($limit: Int, $skip: Int, $slug: String!) {
+    allFile {
+        edges {
+            node {
+                childImageSharp {
+                    fixed(width: 250, height: 300) {
+                        ...GatsbyImageSharpFixed
+                    }
+                }
+                id
+            }
+        }
+    }
     ghostPage(slug: { eq: $slug }) {
             ...GhostPageFields
     }
@@ -94,6 +108,7 @@ export const pageQuery = graphql`
       edges {
         node {
           ...GhostPostFields
+          featureImageSharp
         }
       }
     }
