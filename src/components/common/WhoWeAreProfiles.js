@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Img from "gatsby-image"
 import PropTypes from 'prop-types'
 import ArrowDark from "../../images/arrow-btn-dark.svg"
 import ArrowLight from "../../images/arrow-button-light.svg"
@@ -15,21 +15,19 @@ const WhoWeAreProfiles = ({ profiles }) => {
         }
     }
 
-    console.log(profiles[0].node)
-    // console.log(getImage(profiles[0].node.featureImageSharp.childImageSharp.fluid))
-    // console.log(profiles[0].node.feature_image)
-
     return <>
         <div className="WhoWeAreProfiles__block">
             {profiles.map(profile => <div
                 key={profile.node.id}
                 className="WhoWeAreProfiles__imageBlock"
-                onClick={() => toggleDisplayProfiles(profile.node)}>
-                <img className="WhoWeAreProfiles__image" src={profile.node.feature_image} alt={`${profile} image`} />
+                onClick={() => toggleDisplayProfiles(profile)}>
+                <Img className="WhoWeAreProfiles__image"
+                    fixed={profile.headshot}
+                    alt={`${profile} image`} />
                 <div className="WhoWeAreProfiles__imageOverlayBlock">
                     <div className="WhoWeAreProfiles__name">{profile.node.title}</div>
-                    <img className={`WhoWeAreProfiles__arrow ${selectedProfile === profile.node ? `active` : null}`}
-                        src={selectedProfile === profile.node ? ArrowLight : ArrowDark}
+                    <img className={`WhoWeAreProfiles__arrow ${selectedProfile === profile ? `active` : null}`}
+                        src={selectedProfile === profile ? ArrowLight : ArrowDark}
                         alt="upArrow"
                     />
                 </div>
@@ -39,14 +37,17 @@ const WhoWeAreProfiles = ({ profiles }) => {
         {selectedProfile &&
             <div className="WhoWeAreProfiles__descriptionBlock">
                 <div className="WhoWeAreProfiles__descriptionBlock--inner container">
-                    <div className="WhoWeAreProfiles__closeIcon" onClick={() => toggleDisplayProfiles(selectedProfile.node)}>&#10005;</div>
+                    <div className="WhoWeAreProfiles__closeIcon" onClick={() => toggleDisplayProfiles(selectedProfile)}>&#10005;</div>
                     <div className="WhoWeAreProfiles__selectedProfileBlock">
-                        <img className="WhoWeAreProfiles__selectedProfileImage" src={selectedProfile.feature_image} alt={`${selectedProfile} image`}/>
+                        <Img className="WhoWeAreProfiles__image"
+                            fixed={selectedProfile.headshot}
+                            objectFit="cover"
+                            alt={`${selectedProfile.node.title} image`} />
                         <div className="WhoWeAreProfiles__descriptionTextBlock">
-                            <div className="WhoWeAreProfiles__selectedProfileName">{selectedProfile.title}</div>
+                            <div className="WhoWeAreProfiles__selectedProfileName">{selectedProfile.node.title}</div>
                             <section
                                 className="WhoWeAreProfiles__description"
-                                dangerouslySetInnerHTML={{ __html: selectedProfile.html }}
+                                dangerouslySetInnerHTML={{ __html: selectedProfile.node.html }}
                             />
                         </div>
                     </div>

@@ -187,7 +187,7 @@ exports.createPages = async ({ graphql, actions }) => {
         // with `hash-blogpost`.
         let thisPageTemplate = postTemplate
         let tags = node.tags
-        for (id in tags) {
+        for (let id in tags) {
             let tag = tags[id].slug
             if (tag === `hash-blogpost`) {
                 thisPageTemplate = blogPostTemplate

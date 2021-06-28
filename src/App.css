@@ -536,10 +536,15 @@
 
 .WhoWeAreProfiles__imageBlock {
   position: relative;
+  width: 250px;
+  height: 300px;
 }
 
 .WhoWeAreProfiles__image {
   filter: grayscale(100%);
+  min-width: 250px;
+  min-height: 300px;
+  margin-right: 16px;
 }
 
 .WhoWeAreProfiles__imageOverlayBlock {

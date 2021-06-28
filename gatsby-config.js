@@ -65,9 +65,8 @@ module.exports = {
         },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
-        `gatsby-plugin-image`,
         {
-            resolve: `gatsby-plugin-ghost-images`,
+            resolve: `dsnp-ghost-images`,
             options: {
                 lookup: [
                     {
@@ -94,6 +93,7 @@ module.exports = {
                 disable: false,
             },
         },
+        `gatsby-plugin-image`,
         {
             resolve: `gatsby-source-ghost`,
             options:
@@ -169,6 +169,18 @@ module.exports = {
             options: {
                 query: `
                 {
+                    allFile {
+                        edges {
+                            node {
+                                childImageSharp {
+                                    fixed {
+                                        src
+                                    }
+                                    id
+                                }
+                            }
+                        }
+                    }
                     allGhostPost {
                         edges {
                             node {
@@ -177,6 +189,7 @@ module.exports = {
                                 updated_at
                                 created_at
                                 feature_image
+                                featureImageSharp
                                 excerpt
                             }
                         }
