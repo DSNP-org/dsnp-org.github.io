@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
@@ -12,9 +12,17 @@ import { MetaData } from '../components/common/meta'
 * This file renders a single post and loads all the content.
 *
 */
-const Post = ({ data, location, postType }) => {
-    console.log(data)
+const Post = ({ data, location }) => {
     const post = data.ghostPost
+    const [postType, setPostType] = useState(``)
+
+    useEffect(() => {
+        post.tags.map((tag) => {
+            if (tag.name === `#BlogPost`) {
+                setPostType(`blog`)
+            }
+        })
+    }, [post])
 
     return (
         <>
@@ -29,24 +37,15 @@ const Post = ({ data, location, postType }) => {
             <Layout>
                 <div className="container">
                     <article className="content">
-                        <section className="post-full-content">
+                        <section className="Post__contentBlock">
                             <h1 className="content-title">{post.title}</h1>
                             {(postType === `blog`) &&
                                 <>
-                                    <div className="post-full-author-name">
+                                    <div className="Post__author">
                                         <span>{ post.primary_author.name }</span>
                                     </div>
-                                    <p className="post-card-published-date">{post.published_at_pretty}</p>
-                                    <hr className="post-card-separator-line"/>
-                                </>
-                            }
-                            {(postType === `bio`) &&
-                                <>
-                                    <hr className="post-card-separator-line"/>
-                                    { post.feature_image ?
-                                        <img className="post-card-profile-image" src={post.feature_image} alt = { post.title } />
-                                        : null
-                                    }
+                                    <p className="Post__publishedDate">{post.published_at_pretty}</p>
+                                    <hr className="Post__separatorLine"/>
                                 </>
                             }
                             <section
@@ -69,6 +68,7 @@ Post.propTypes = {
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
             published_at_pretty: PropTypes.string.isRequired,
+            tags: PropTypes.array.isRequired,
             primary_author: PropTypes.shape({
                 name: PropTypes.string.isRequired,
                 profile_image: PropTypes.string,
@@ -76,7 +76,6 @@ Post.propTypes = {
         }).isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
-    postType: PropTypes.string,
 }
 
 export default Post

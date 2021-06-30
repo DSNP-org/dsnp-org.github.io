@@ -38,11 +38,11 @@ const Navigation = ({ data, navClass }) => {
         if (currentPage) {
             if (currentPage === navItem.url) {
                 if (currentPage.includes(`about`)) {
-                    return `${navClass} selectedNavItem--blue`
+                    return `${navClass} Navigation__navigationItem--selected--blue`
                 }
-                return `${navClass} selectedNavItem`
+                return `${navClass} Navigation__navigationItem--selected`
             } else if (navItem === `about` && currentPage.includes(`about`)) {
-                return `${navClass} selectedNavItem`
+                return `${navClass} Navigation__navigationItem--selected`
             }
         }
         return `${navClass}`
@@ -72,13 +72,13 @@ const Navigation = ({ data, navClass }) => {
             <div onMouseEnter={() => setShowTopNavDropdown(true)}
                 onMouseLeave={() => setShowTopNavDropdown(false)}
             >
-                <div className={`site-nav-item-dropdown-trigger-block ${getClassName(`about`)}`}>
+                <div className={`Navigation__navigationItemDropdownTriggerBlock ${getClassName(`about`)}`}>
                     <div onClick={() => setShowTopNavDropdown(!showTopNavDropdown)}>About</div>
                     <div
                         className={
                             showTopNavDropdown
-                                ? `site-nav__dropdownIcon`
-                                : `site-nav__dropdownIcon--closed`
+                                ? `Navigation__navigationDropdownIcon`
+                                : `Navigation__navigationDropdownIcon--closed`
                         }
                         style={{ marginLeft: 10, fontSize: 16 }}
                     >
@@ -86,7 +86,7 @@ const Navigation = ({ data, navClass }) => {
                     </div>
                 </div>
                 {showTopNavDropdown &&
-                    <div className={`site-nav-item-dropdown-menu ${isMobile && `isMobile`}`}>
+                    <div className={`Navigation__navigationItemDropdownMenu ${isMobile && `isMobile`}`}>
                         {aboutNavItemElements}
                     </div>
                 }
@@ -106,7 +106,7 @@ const Navigation = ({ data, navClass }) => {
     </>
 
     return <>
-        {navClass === `site-nav-item` ?
+        {navClass === `Navigation__topNavigationItem` ?
             createHeaderNavLinks() :
             createFooterNavLinks()
         }

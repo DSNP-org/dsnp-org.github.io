@@ -79,62 +79,10 @@
     margin: 0;
 }
 
-.Layout__navigationItem--selected {
-    color: $orange;
-    border-left: 3px solid $orange;
-}
-
-.Layout__navigationItem--selected--blue {
-    color: $blue;
-    border-left: 3px solid $blue;
-}
-
-.Layout__navigationItemDropdownTriggerBlock {
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-}
-
-.Layout__navigationItemDropdownMenu {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 10px 10px 15px;
-    position: absolute;
-    z-index: 20;
-}
-
-.Layout__navigationItemDropdownMenu.isMobile {
-    background-color: $bg-gray;
-    box-shadow: 0 8px 6px -6px $box-shadow-black;
-}
-
-.Layout__navigationDropdownIcon {
-    transform: rotate(-90deg);
-    transition: transform 0.3s;
-}
-
-.Layout__navigationDropdownIcon--closed {
-    transform: rotate(90deg);
-    transition: transform 0.3s;
-}
-
 .Layout__topNavigation {
     display: flex;
     flex-direction: column;
     width: 175px;
-}
-
-.Layout__topNavigationItem {
-    display: inline-block;
-    padding: 5px 10px;
-    color: $navy;
-    opacity: 0.8;
-    font-weight: $bold;
-}
-
-.Layout__topNavigationItem:hover {
-    text-decoration: none;
-    opacity: 1;
 }
 
 .Layout__footerNavigation {

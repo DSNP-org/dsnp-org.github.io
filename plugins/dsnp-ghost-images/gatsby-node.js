@@ -75,7 +75,7 @@ exports.onCreateNode = async function ({
   } // foreign-key linking
   fileNodes.map((fileNode, i) => {
     const id = `${_.camelCase(`${allImgTags[i]}${ext}`)}`;
-    node[id] = fileNode.id;
+    node[id + "___NODE"] = fileNode.id;
   });
   return {};
 };

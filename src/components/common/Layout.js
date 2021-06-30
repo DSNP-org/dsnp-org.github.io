@@ -69,7 +69,7 @@ const Layout = ({ data, children, bodyClass, isHome }) => {
                                 <nav className="Layout__navigation">
                                     <div className="Layout__topNavigation">
                                         {/* The navigation items as setup in Ghost */}
-                                        <Navigation data={site.navigation} navClass="Layout__topNavigationItem" />
+                                        <Navigation data={site.navigation} navClass="Navigation__topNavigationItem" />
                                     </div>
                                 </nav>
                                 { isHome ?

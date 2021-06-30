@@ -119,15 +119,15 @@ const Index = ({ data, location }) => {
             <div className={!isCustomCursor ? `Index__block` : `Index__block Index__blockCustomCursor`}>
                 {isCustomCursor &&
                     <>
-                        <div className="cursor cursor--small"></div>
-                        <canvas className="cursor cursor--canvas"></canvas>
+                        <div className="Index__cursor Index__cursor--small"></div>
+                        <canvas className="Index__cursor Index__cursor--canvas"></canvas>
                     </>
                 }
                 <MetaData location={location}/>
                 <Layout isHome={true}>
                     <div className="container">
                         <div>
-                            <section className="site-banner-desc" dangerouslySetInnerHTML={{ __html: whatWeDo[0].html }} />
+                            <section className="Index__banner" dangerouslySetInnerHTML={{ __html: whatWeDo[0].html }} />
                             <Link to="about-who-we-are">
                                 <img className="Index__arrowButton" src={UpArrow} alt="up-arrow-button"/>
                             </Link>

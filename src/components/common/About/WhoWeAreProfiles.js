@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import PropTypes from 'prop-types'
 import ArrowDark from "../../../images/arrow-btn-dark.svg"
 import ArrowLight from "../../../images/arrow-button-light.svg"
@@ -21,8 +21,8 @@ const WhoWeAreProfiles = ({ profiles }) => {
                 key={profile.node.id}
                 className="WhoWeAreProfiles__imageBlock"
                 onClick={() => toggleDisplayProfiles(profile)}>
-                <Img className="WhoWeAreProfiles__image"
-                    fixed={profile.headshot}
+                <GatsbyImage className="WhoWeAreProfiles__image"
+                    image={profile.node.featureImageSharp.childImageSharp.gatsbyImageData}
                     alt={`${profile} image`} />
                 <div className="WhoWeAreProfiles__imageOverlayBlock">
                     <div className="WhoWeAreProfiles__name">{profile.node.title}</div>
@@ -39,8 +39,8 @@ const WhoWeAreProfiles = ({ profiles }) => {
                 <div className="WhoWeAreProfiles__descriptionBlock--inner container">
                     <div className="WhoWeAreProfiles__closeIcon" onClick={() => toggleDisplayProfiles(selectedProfile)}>&#10005;</div>
                     <div className="WhoWeAreProfiles__selectedProfileBlock">
-                        <Img className="WhoWeAreProfiles__selectedProfileImage"
-                            fixed={selectedProfile.headshot}
+                        <GatsbyImage className="WhoWeAreProfiles__selectedProfileImage"
+                            image={selectedProfile.node.featureImageSharp.childImageSharp.gatsbyImageData}
                             objectFit="cover"
                             alt={`${selectedProfile.node.title} image`} />
                         <div className="WhoWeAreProfiles__descriptionTextBlock">

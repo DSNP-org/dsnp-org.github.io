@@ -154,24 +154,6 @@ exports.createPages = async ({ graphql, actions }) => {
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`
 
-        // Customize the page template by tags.
-        // The tag names are lower-case and have special
-        // characters substituted, so you match "#BlogPost"
-        // with `hash-blogpost`.
-        let thisPostType = `post`
-        let tags = node.tags
-        for (let id in tags) {
-            let tag = tags[id].slug
-            if (tag === `hash-blogpost`) {
-                thisPostType = `blog`
-            }
-            if (tag === `hash-whowearestaff` ||
-                tag === `hash-whoweareadvisorycouncil` ||
-                tag === `hash-whoweareexecutiveboard`) {
-                thisPostType = `bio`
-            }
-        }
-
         createPage({
             path: node.url,
             component: postTemplate,
@@ -179,7 +161,6 @@ exports.createPages = async ({ graphql, actions }) => {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
                 slug: node.slug,
-                postType: thisPostType,
             },
         })
     })

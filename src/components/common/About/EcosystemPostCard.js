@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const EcosystemPostCard = ({ ecosystemPosts }) => <div className="container">
-    <h2 className="PostCard__title" data-aos="fade-right"
+    <h2 className="TemplatePostCard__title" data-aos="fade-right"
         data-aos-duration="1400">{ecosystemPosts[0].node.title}</h2>
     <section dangerouslySetInnerHTML={{ __html: ecosystemPosts[0].node.html }}/>
 </div>

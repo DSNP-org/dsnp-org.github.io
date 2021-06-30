@@ -10,7 +10,7 @@ const PostCard = ({ post }) => {
             <header>
                 {post.tags && <div className="PostCard__tags"> <Tags post={post} visibility="public" autolink={false} /></div>}
                 <div className="PostCard__titleBlock">
-                    <h2 className="PostCard__title">{post.title}</h2>
+                    <h2 className="PostCard__title" >{post.title}</h2>
                     <p className="PostCard__date">{post.published_at_pretty}</p>
                 </div>
             </header>

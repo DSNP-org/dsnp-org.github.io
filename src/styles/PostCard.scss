@@ -1,11 +1,3 @@
-.PostCard__title {
-    @include section-header;
-}
-
-.PostCard__title--orange {
-    color: $orange;
-}
-
 .PostCard__block {
     padding: 16px;
     margin-bottom: 16px;
@@ -32,8 +24,7 @@
 }
 
 .PostCard__title {
-    margin: 0 0 10px 0;
-    padding: 0;
+    margin: 0;
     color: $orange;
 }
 

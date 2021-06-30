@@ -1,3 +1,17 @@
+.Index__banner {
+    margin: 15px 0 0 0;
+    padding: 0;
+    font-size: 2.0rem;
+    line-height: 1.4em;
+    color: $navy;
+    opacity: 0.7;
+    width: 70%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
 .Index__arrowButton {
     transform: rotate(90deg);
     height: 75px;
@@ -16,12 +30,59 @@
 
 .Index__blockCustomCursor,
 .Index__blockCustomCursor a,
-.Index__blockCustomCursor .ContentCard__block {
+.Index__blockCustomCursor .Index__postCardBlock {
     cursor: none;
 }
 
-.Index__partnersLogosBlock {
-    background-color: $white;
-    box-shadow: 0 3px 6px 0 $box-shadow-black;
-    margin-bottom: 100px;
+.Index__PostCardBlockTitle {
+    @include large-subheader-font;
+    @include serif-font;
+    margin: 0;
+    line-height: 1;
+}
+
+.Index__postCardBlock {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px 10px 0;
+    cursor: pointer;
+    margin-left: calc((1800px - 1120px)/2 + 4vw);
+    width: 1400px - calc((1800px - 1120px)/2 + 4vw);
+
+    @media (max-width: 1799px) {
+        margin-left: calc((100vw - 1120px)/2 + 4vw);
+        width: calc(96vw - (100vw - 1120px)/2);
+    }
+
+    @media (max-width: 1119px) {
+        margin-left: 4vw;
+        width: 96vw;
+    }
+}
+
+.Index__clickDragBlock {
+    align-self: center;
+    height: 100px;
+    width: auto;
+}
+
+.Index__cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+.Index__cursor--small {
+    width: 10px;
+    height: 10px;
+    left: -5px;
+    top: -5px;
+    border-radius: 50%;
+    z-index: 11000;
+    background: $blue;
+}
+.Index__cursor--canvas {
+    width: 100vw;
+    height: 100vh;
+    z-index: 12000;
 }

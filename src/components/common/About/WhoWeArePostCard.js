@@ -2,24 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import WhoWeAreProfiles from "./WhoWeAreProfiles"
 
-const WhoWeArePostCard = ({ whoWeAreCards, whoWeAreHeadshots }) => {
+const WhoWeArePostCard = ({ whoWeAreCards }) => {
     const whoWeAreTitle = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreTitle`))
     const whoWeAreAdvisoryCouncil = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreAdvisoryCouncil`))
     const whoWeAreStaff = whoWeAreCards.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreStaff`))
 
-    const getHeadshots = () => {
-        for (let i in whoWeAreCards) {
-            for (let j in whoWeAreHeadshots) {
-                if (whoWeAreCards[i].node.featureImageSharp === whoWeAreHeadshots[j].node.id && typeof whoWeAreHeadshots[j]?.node !== `undefined`) {
-                    whoWeAreCards[i].headshot = whoWeAreHeadshots[j].node.childImageSharp.fixed
-                }
-            }
-        }
-    }
-    getHeadshots()
-
     return <div className="container">
-        <h2 className="PostCard__title" data-aos="fade-right"
+        <h2 className="TemplatePostCard__title" data-aos="fade-right"
             data-aos-duration="1400">{whoWeAreTitle[0].node.title}</h2>
         <div className="WhoWeArePostCard__topBlock">
             <h3 className="WhoWeArePostCard__blockSubtitle" >Advisors</h3>
@@ -32,7 +21,6 @@ const WhoWeArePostCard = ({ whoWeAreCards, whoWeAreHeadshots }) => {
 
 WhoWeArePostCard.propTypes = {
     whoWeAreCards: PropTypes.any,
-    whoWeAreHeadshots: PropTypes.any,
 }
 
 export default WhoWeArePostCard
