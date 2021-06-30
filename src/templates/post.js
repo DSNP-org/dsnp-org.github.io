@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
@@ -14,6 +14,15 @@ import { MetaData } from '../components/common/meta'
 */
 const Post = ({ data, location }) => {
     const post = data.ghostPost
+    const [postType, setPostType] = useState(``)
+
+    useEffect(() => {
+        post.tags.map((tag) => {
+            if (tag.name === `#BlogPost`) {
+                setPostType(`blog`)
+            }
+        })
+    }, [post])
 
     return (
         <>
@@ -28,8 +37,17 @@ const Post = ({ data, location }) => {
             <Layout>
                 <div className="container">
                     <article className="content">
-                        <section className="post-full-content">
+                        <section className="Post__contentBlock">
                             <h1 className="content-title">{post.title}</h1>
+                            {(postType === `blog`) &&
+                                <>
+                                    <div className="Post__author">
+                                        <span>{ post.primary_author.name }</span>
+                                    </div>
+                                    <p className="Post__publishedDate">{post.published_at_pretty}</p>
+                                    <hr className="Post__separatorLine"/>
+                                </>
+                            }
                             <section
                                 className="content-body load-external-scripts"
                                 dangerouslySetInnerHTML={{ __html: post.html }}
@@ -50,6 +68,7 @@ Post.propTypes = {
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
             published_at_pretty: PropTypes.string.isRequired,
+            tags: PropTypes.array.isRequired,
             primary_author: PropTypes.shape({
                 name: PropTypes.string.isRequired,
                 profile_image: PropTypes.string,

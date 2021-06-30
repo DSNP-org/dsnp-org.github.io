@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import ContentCard from "../components/common/IndexPostCard"
+import IndexPostCard from "../components/common/IndexPostCard"
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import ClickDrag from "../images/ClickDrag.svg"
 import ScrollContainer from 'react-indiana-drag-scroll'
@@ -119,30 +119,30 @@ const Index = ({ data, location }) => {
             <div className={!isCustomCursor ? `Index__block` : `Index__block Index__blockCustomCursor`}>
                 {isCustomCursor &&
                     <>
-                        <div className="cursor cursor--small"></div>
-                        <canvas className="cursor cursor--canvas"></canvas>
+                        <div className="Index__cursor Index__cursor--small"></div>
+                        <canvas className="Index__cursor Index__cursor--canvas"></canvas>
                     </>
                 }
                 <MetaData location={location}/>
                 <Layout isHome={true}>
                     <div className="container">
                         <div>
-                            <section className="site-banner-desc" dangerouslySetInnerHTML={{ __html: whatWeDo[0].html }} />
+                            <section className="Index__banner" dangerouslySetInnerHTML={{ __html: whatWeDo[0].html }} />
                             <Link to="about-who-we-are">
-                                <img className="Layout__arrowButton" src={UpArrow} alt="up-arrow-button"/>
+                                <img className="Index__arrowButton" src={UpArrow} alt="up-arrow-button"/>
                             </Link>
                         </div>
-                        <div className="body-block">
-                            <div className="ContentCard__blockTitle" data-aos="fade-right" data-aos-duration="1400">
+                        <div className="Index__bodyBlock">
+                            <div className="Index__PostCardBlockTitle" data-aos="fade-right" data-aos-duration="1400">
                                 Get Started
                             </div>
                         </div>
                     </div>
                     <div onMouseEnter={() => setIsCustomCursor(true)} onMouseLeave={() => setIsCustomCursor(false)}>
                         <Parallax>
-                            <ScrollContainer className="ContentCard__block" >
-                                <img src={ClickDrag} alt="click-drag" className="ContentCard__clickDrag" />
-                                {ecosystemCards.map((cardData, index) => <ContentCard cardData={cardData} key={generateKey(cardData.title)} index={index + 1}/>)}
+                            <ScrollContainer className="Index__postCardBlock" >
+                                <img src={ClickDrag} alt="click-drag" className="Index__clickDragBlock" />
+                                {ecosystemCards.map((cardData, index) => <IndexPostCard cardData={cardData} key={generateKey(cardData.title)} index={index + 1}/>)}
                             </ScrollContainer>
                         </Parallax>
                     </div>

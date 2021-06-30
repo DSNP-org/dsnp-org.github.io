@@ -85,20 +85,16 @@ exports.createPages = async ({ graphql, actions }) => {
 
     // Extract query results
     const tags = result.data.allGhostTag.edges
-    const authors = result.data.allGhostAuthor.edges
     const pages = result.data.allGhostPage.edges
     const posts = result.data.allGhostPost.edges
 
     // Load templates
     const indexTemplate = path.resolve(`./src/templates/index.js`)
     const tagsTemplate = path.resolve(`./src/templates/tag.js`)
-    const authorTemplate = path.resolve(`./src/templates/author.js`)
     const pageTemplate = path.resolve(`./src/templates/page.js`)
     const blogPageTemplate = path.resolve(`./src/templates/page-blog.js`)
-    const blogPostTemplate = path.resolve(`./src/templates/post-blog.js`)
     const faqPageTemplate = path.resolve(`./src/templates/page-faq.js`)
     const aboutPageTemplate = path.resolve(`./src/templates/page-about.js`)
-    const bioPostTemplate = path.resolve(`./src/templates/post-bio.js`)
     const postTemplate = path.resolve(`./src/templates/post.js`)
 
     // Create tag pages
@@ -117,29 +113,6 @@ exports.createPages = async ({ graphql, actions }) => {
             items: items,
             itemsPerPage: postsPerPage,
             component: tagsTemplate,
-            pathPrefix: ({ pageNumber }) => ((pageNumber === 0) ? url : `${url}/page`),
-            context: {
-                slug: node.slug,
-            },
-        })
-    })
-
-    // Create author pages
-    authors.forEach(({ node }) => {
-        const totalPosts = node.postCount !== null ? node.postCount : 0
-
-        // This part here defines, that our author pages will use
-        // a `/author/:slug/` permalink.
-        const url = `/author/${node.slug}`
-
-        const items = Array.from({ length: totalPosts })
-
-        // Create pagination
-        paginate({
-            createPage,
-            items: items,
-            itemsPerPage: postsPerPage,
-            component: authorTemplate,
             pathPrefix: ({ pageNumber }) => ((pageNumber === 0) ? url : `${url}/page`),
             context: {
                 slug: node.slug,
@@ -181,27 +154,9 @@ exports.createPages = async ({ graphql, actions }) => {
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`
 
-        // Customize the page template by tags.
-        // The tag names are lower-case and have special
-        // characters substituted, so you match "#BlogPost"
-        // with `hash-blogpost`.
-        let thisPageTemplate = postTemplate
-        let tags = node.tags
-        for (let id in tags) {
-            let tag = tags[id].slug
-            if (tag === `hash-blogpost`) {
-                thisPageTemplate = blogPostTemplate
-            }
-            if (tag === `hash-whowearestaff` ||
-                tag === `hash-whoweareadvisorycouncil` ||
-                tag === `hash-whoweareexecutiveboard`) {
-                thisPageTemplate = bioPostTemplate
-            }
-        }
-
         createPage({
             path: node.url,
-            component: thisPageTemplate,
+            component: postTemplate,
             context: {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.

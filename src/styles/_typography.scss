@@ -25,3 +25,8 @@
     font-size: 22px;
     font-weight: $bold;
 }
+
+@mixin section-header {
+    font-size: 5rem;
+    @include serif-font;
+}

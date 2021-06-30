@@ -1,0 +1,19 @@
+.Post__contentBlock {
+    width: 100%;
+    padding: 5%;
+    margin: -2vw auto 0;
+    background: $bg-gray-transparent;
+}
+
+.Post__author {
+    display: flex;
+    @include minor-title;
+}
+
+.Post__publishedDate {
+    font-size: 16px;
+}
+
+.Post__separatorLine {
+    border: 1px solid $orange;
+}

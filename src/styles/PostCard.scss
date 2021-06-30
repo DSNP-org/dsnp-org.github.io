@@ -1,0 +1,61 @@
+.PostCard__block {
+    padding: 16px;
+    margin-bottom: 16px;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 0 0 0 $box-shadow-black;
+    transition: box-shadow 0.3s linear;
+}
+
+.PostCard__block:hover {
+    text-decoration: none;
+    box-shadow: 0 3px 6px 0 $box-shadow-black;
+}
+
+.PostCard__tags {
+    margin: 0 0 5px 0;
+    font-size: 1.4rem;
+    line-height: 1.15em;
+    color: $blue;
+}
+
+.PostCard__titleBlock {
+    display: flex;
+}
+
+.PostCard__title {
+    margin: 0;
+    color: $orange;
+}
+
+.PostCard__date {
+    margin-left: 15px;
+    font-size: 12px;
+}
+
+.PostCard__excerpt {
+    font-size: 1.6rem;
+    line-height: 1.55em;
+}
+
+.PostCard__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0 0 0;
+    color: $navy;
+}
+
+.PostCard__footer--left {
+    display: flex;
+    align-items: center;
+}
+
+.PostCard__author{
+    font-size: 12px;
+}
+
+.PostCard__footer--right {
+    display: flex;
+    flex-direction: column;
+}
