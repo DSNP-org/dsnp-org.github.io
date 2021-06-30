@@ -30,7 +30,7 @@ const Index = ({ data, location }) => {
     const cursorIconSettings = () => {
         let clientX = -100
         let clientY = -100
-        const innerCursor = typeof document !== `undefined` ? document.querySelector(`.cursor--small`) : null
+        const innerCursor = typeof document !== `undefined` ? document.querySelector(`.Index__cursor--small`) : null
         if (typeof document !== `undefined`) {
             document.addEventListener(`mousemove`, (e) => {
                 clientX = e.clientX
@@ -46,7 +46,7 @@ const Index = ({ data, location }) => {
         let lastX = 0
         let lastY = 0
         let group
-        const canvas = typeof document !== `undefined` ? document.querySelector(`.cursor--canvas`) : null
+        const canvas = typeof document !== `undefined` ? document.querySelector(`.Index__cursor--canvas`) : null
         paper.setup(canvas)
 
         const myPathLeft = new paper.Path()
