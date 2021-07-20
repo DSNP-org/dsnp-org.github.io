@@ -4,7 +4,7 @@ module.exports = {
     postsPerPage: 12, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
 
     siteTitleMeta: `DSNP.org`, // This allows an alternative site title for meta data for pages.
-    siteDescriptionMeta: `DSNP.org is a non-profit organization supporting the Decentralized Social Network Protocol (DSNP)`, // This allows an alternative site description for meta data for pages.
+    siteDescriptionMeta: ``, // This allows an alternative site description for meta data for pages, with a blank description as default for SEO.
 
     shareImageWidth: 1000, // Change to the width of your default share image
     shareImageHeight: 523, // Change to the height of your default share image

@@ -14,7 +14,7 @@ const AuthorMeta = ({ data, settings, canonical }) => {
     const author = getAuthorProperties(data)
     const shareImage = author.image || _.get(settings, `cover_image`, null)
     const title = `${data.name} - ${settings.title}`
-    const description = data.bio || config.siteDescriptionMeta || settings.description
+    const description = data.bio || ""
 
     const jsonLd = {
         "@context": `https://schema.org/`,

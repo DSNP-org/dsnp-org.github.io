@@ -15,13 +15,18 @@ import { MetaData } from '../components/common/meta'
  */
 const PageBlog = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges
+    const page = data.ghostPage
 
     return (
         <>
-            <MetaData location={location} />
+            <MetaData
+                data={data}
+                location={location}
+                type="website"
+            />
             <Layout>
                 <div className="container">
-                    <h1 className="content-title" data-aos="fade-right" data-aos-duration="1400">Blog</h1>
+                    <h1 className="content-title" data-aos="fade-right" data-aos-duration="1400">{page.title}</h1>
                     <section className="post-feed">
                         {posts.map(({ node }) => (
                             <PostCard key={node.id} post={node} />
@@ -50,6 +55,9 @@ export default PageBlog
 // The `limit` and `skip` values are used for pagination
 export const pageQuery = graphql`
   query GhostBlogQuery($limit: Int, $skip: Int) {
+    ghostPage(slug: { eq: "blog" }) {
+            ...GhostPageFields
+    }
     allGhostPost(
         sort: { order: DESC, fields: [published_at] },
         limit: $limit,
