@@ -544,10 +544,12 @@ h6 {
     margin: 0;
     font-size: 5rem;
     padding-bottom: 15px;
+    max-width: 80%;
 }
 @media (max-width: 500px) {
     .content-title {
         font-size: 3.4rem;
+        max-width: 100%;
     }
     .content {
         font-size: 1.8rem;
