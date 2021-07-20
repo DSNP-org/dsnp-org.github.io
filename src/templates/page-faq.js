@@ -18,7 +18,11 @@ const PageFaq = ({ data, location, pageContext }) => {
 
     return (
         <>
-            <MetaData location={location} />
+            <MetaData
+                data={data}
+                location={location}
+                type="website"
+            />
             <Layout>
                 <div className="container">
                     <h1 className="content-title" data-aos="fade-right" data-aos-duration="1400">{page.title}</h1>

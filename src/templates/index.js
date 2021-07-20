@@ -123,7 +123,11 @@ const Index = ({ data, location }) => {
                         <canvas className="Index__cursor Index__cursor--canvas"></canvas>
                     </>
                 }
-                <MetaData location={location}/>
+                <MetaData
+                    data={data}
+                    location={location}
+                    type="website"
+                />
                 <Layout isHome={true}>
                     <div className="container">
                         <div>
@@ -167,6 +171,9 @@ export default Index
 // The `limit` and `skip` values are used for pagination
 export const pageQuery = graphql`
   query GhostIndexQuery {
+    ghostPage(slug: { eq: "home" }) {
+            ...GhostPageFields
+    }
     allGhostPost(filter: {tags: {elemMatch: {name: {in: ["#HomePage", "#HomePagePartners"]}}}}) {
         nodes {
             title

@@ -32,7 +32,11 @@ const PageAbout = ({ data, location, pageContext }) => {
 
     return (
         <>
-            <MetaData location={location} />
+            <MetaData
+                data={data}
+                location={location}
+                type="website"
+            />
             <Layout>
                 <div className="container">
                     <h1 className="PageAbout__h1">{page.title}</h1>
@@ -47,7 +51,7 @@ const PageAbout = ({ data, location, pageContext }) => {
                         </div>
                     </>
                     }
-                    {page.title === `Guiding Principles` && <>
+                    {page.title === `DSNP Guiding Principles` && <>
                         <div id="governance" className="PageAbout__fullHeightSection">
                             <Ethos ethosCards={ethosPosts} />
                         </div>

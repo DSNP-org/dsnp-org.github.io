@@ -51,7 +51,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
                 height: 60,
             },
         },
-        description: ghostPost.meta_description || ghostPost.excerpt,
+        description: ghostPost.meta_description || "",
         mainEntityOfPage: {
             "@type": `WebPage`,
             "@id": config.siteUrl,
@@ -62,7 +62,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
         <>
             <Helmet>
                 <title>{ghostPost.meta_title || ghostPost.title}</title>
-                <meta name="description" content={ghostPost.meta_description || ghostPost.excerpt} />
+                <meta name="description" content={ghostPost.meta_description || ""} />
                 <link rel="canonical" href={canonical} />
 
                 <meta property="og:site_name" content={settings.title} />
@@ -77,8 +77,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
                 <meta property="og:description"
                     content={
                         ghostPost.og_description ||
-                        ghostPost.excerpt ||
-                        ghostPost.meta_description
+                        ghostPost.meta_description || ""
                     }
                 />
                 <meta property="og:url" content={canonical} />
@@ -97,8 +96,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
                 <meta name="twitter:description"
                     content={
                         ghostPost.twitter_description ||
-                        ghostPost.excerpt ||
-                        ghostPost.meta_description
+                        ghostPost.meta_description || ""
                     }
                 />
                 <meta name="twitter:url" content={canonical} />
