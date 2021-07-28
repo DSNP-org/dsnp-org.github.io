@@ -25,6 +25,7 @@ const Index = ({ data, location }) => {
     const posts = data.allGhostPost.nodes
 
     const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
+    const mission = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageMission`))
     const ecosystemCards = posts.filter(card => card.tags.some(tag => tag.name === `#HomePageEcosystemCard`))
 
     const cursorIconSettings = () => {
@@ -149,6 +150,16 @@ const Index = ({ data, location }) => {
                                 {ecosystemCards.map((cardData, index) => <IndexPostCard cardData={cardData} key={generateKey(cardData.title)} index={index + 1}/>)}
                             </ScrollContainer>
                         </Parallax>
+                    </div>
+                    <div className="container">
+                        <div className="Index__bodyBlock">
+                            <div className="Index__PostCardBlockTitle">
+                                {mission[0].title}
+                            </div>
+                        </div>
+                        <div>
+                            <section className="Index__banner" dangerouslySetInnerHTML={{ __html: mission[0].html }} />
+                        </div>
                     </div>
                 </Layout>
             </div>
