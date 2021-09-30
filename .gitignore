@@ -60,6 +60,7 @@ typings/
 .env
 .env.development
 .env.production
+.envrc
 
 # IDE
 .idea/*
