@@ -25,6 +25,7 @@ const Index = ({ data, location }) => {
     const posts = data.allGhostPost.nodes
 
     const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
+    console.log(whatWeDo)
     const ecosystemCards = posts.filter(card => card.tags.some(tag => tag.name === `#HomePageEcosystemCard`))
 
     const cursorIconSettings = () => {
@@ -131,9 +132,10 @@ const Index = ({ data, location }) => {
                 <Layout isHome={true}>
                     <div className="container">
                         <div>
-                            <section className="Index__banner" dangerouslySetInnerHTML={{ __html: whatWeDo[0].html }} />
-                            <Link to="about-who-we-are">
+                            <section className="Index__banner" dangerouslySetInnerHTML={{ __html: whatWeDo[1].html }} />
+                            <Link to="https://spec.dsnp.org/" target="_blank" className="Index__arrowButtonBlock">
                                 <img className="Index__arrowButton" src={UpArrow} alt="up-arrow-button"/>
+                                <div>Read more about the DSNP.</div>
                             </Link>
                         </div>
                         <div className="Index__bodyBlock">
