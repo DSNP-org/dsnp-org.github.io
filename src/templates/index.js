@@ -25,7 +25,6 @@ const Index = ({ data, location }) => {
     const posts = data.allGhostPost.nodes
 
     const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
-    console.log(whatWeDo)
     const ecosystemCards = posts.filter(card => card.tags.some(tag => tag.name === `#HomePageEcosystemCard`))
 
     const cursorIconSettings = () => {
