@@ -1,0 +1,37 @@
+.PageDevPortal__header {
+    color: $blue;
+    line-height: 1;
+    padding-bottom: 16px;
+}
+
+.PageDevPortal__title {
+    margin-bottom: 0;
+    @include minor-title;
+}
+
+.PageDevPortal__subTitle {
+    font-size: 15px;
+}
+
+.PageDevPortal__button {
+    background-color: $blue;
+    padding: 1px 46px 1px 11px;
+    color: $white;
+    font-weight: bold;
+    font-size: 18px;
+    width: fit-content;
+    margin-bottom: 16px;
+
+    background-image: url("../images/arrow-btn-dark.svg");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 11px);
+    background-size: 25px;
+    text-underline: none;
+
+    transition: background-color 0.2s linear;
+
+    &:hover {
+        text-decoration: none;
+        background-color: $dark-blue;
+    }
+}
