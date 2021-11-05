@@ -364,7 +364,8 @@ ol,
 dl,
 blockquote {
     font-size: 18px;
-    margin: 0 0 1.5em 0;
+    margin: 0 0 1.2em 0;
+    line-height: 1.75;
 }
 
 ol,
@@ -526,7 +527,7 @@ h6 {
 .content-body {
     display: flex;
     flex-direction: column;
-    font-family: var(--font-serif);
+    font-family: var(--font-sans-serif);
 }
 
 .content-body h1 {
@@ -541,6 +542,7 @@ h6 {
 }
 
 .content-title {
+    @include serif-font;
     margin: 0;
     font-size: 5rem;
     padding-bottom: 15px;

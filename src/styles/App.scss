@@ -1,0 +1,31 @@
+@import "./colors";
+@import "./typography";
+@import "./base";
+@import "./GhostOverrides";
+@import "./Layout";
+@import "./Index";
+@import "./Footer";
+@import "./IndexPostCard";
+@import "./FaqPostCard";
+@import "./PageAbout";
+@import "./PageDevPortal";
+@import "./WhoWeAreProfiles";
+@import "./WhoWeArePostCard";
+@import "./PostCard";
+@import "./PostBio";
+@import "./Navigation";
+@import "./Tag";
+
+body {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    box-shadow: 15px 0 20px -2px #c7c5c5,-15px 0 20px -2px #c7c5c5;
+}
+
+h1 {
+    @include serif-font;
+}

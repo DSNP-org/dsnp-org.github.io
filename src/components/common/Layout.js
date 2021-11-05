@@ -11,7 +11,7 @@ if (typeof document !== `undefined`) {
 import { Navigation } from '.'
 
 // Styles
-import '../../App.scss'
+import '../../styles/App.scss'
 import Blob1 from "../../images/parallax/blob-1.svg"
 import Blob2 from "../../images/parallax/blob-2.svg"
 import Blob3 from "../../images/parallax/blob-3.svg"
@@ -30,7 +30,6 @@ import Logo from "../../images/cms-images/DSNP_Logo@2x.png"
 */
 const Layout = ({ data, children, bodyClass, isHome }) => {
     const site = data.allGhostSettings.edges[0]?.node
-    const homePage = data.allGhostPage.edges[0]?.node
     const getWidth = (typeof window !== `undefined` ? window.innerWidth : null)
     const initialWidth = getWidth < 1300 ? true : false
     const [isMobile, setIsMobile] = useState(initialWidth)
@@ -74,7 +73,7 @@ const Layout = ({ data, children, bodyClass, isHome }) => {
                                 </nav>
                                 { isHome ?
                                     <div className="Layout__banner">
-                                        <h1 className="Layout__bannerTitle" data-aos="fade-right" data-aos-duration="1400">{homePage.title}</h1>
+                                        <h1 className="Layout__bannerTitle" data-aos="fade-right" data-aos-duration="1400">The next generation of the internet</h1>
                                     </div> :
                                     null
                                 }
