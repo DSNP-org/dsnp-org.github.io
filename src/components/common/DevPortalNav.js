@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const DevPortalNav = () => {
     let navItems = [
         {
             name: `Introduction`,
-            href: `../dev-portal-introduction`,
+            href: `../dev-portal-introduction/`,
             class: `DevPortalNav__link`,
         },
         {
@@ -15,33 +15,41 @@ const DevPortalNav = () => {
         },
         {
             name: `Testnet`,
-            href: `../dev-portal-testnet`,
+            href: `../dev-portal-testnet/`,
             class: `DevPortalNav__link`,
         },
         {
             name: `SDK`,
-            href: `../dev-portal-sdk`,
+            href: `../dev-portal-sdk/`,
             class: `DevPortalNav__link`,
         },
         {
             name: `Example Client`,
-            href: `../dev-portal-example-client`,
+            href: `../dev-portal-example-client/`,
             class: `DevPortalNav__link`,
         },
         {
             name: `Community`,
-            href: `../dev-portal-community`,
+            href: `../dev-portal-community/`,
             class: `DevPortalNav__link`,
         },
         {
             name: `Conduct`,
-            href: `../dev-portal-conduct`,
+            href: `../dev-portal-conduct/`,
             class: `DevPortalNav__link`,
         },
     ];
 
+    const [currentPage, setCurrentPage] = useState();
+
+    useEffect(() => {
+        setCurrentPage(window.location.pathname);
+    }, [window.location.pathname]);
+
     const nav = navItems.map((navItem, index) => {
-        if (navItem.href.includes(window.location.pathname)) {
+        console.log(navItem.href);
+        console.log(currentPage);
+        if (navItem.href.includes(currentPage)) {
             navItems[
                 index
             ].class = `DevPortalNav__link DevPortalNav__link--active`;
