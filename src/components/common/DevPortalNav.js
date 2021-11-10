@@ -43,8 +43,8 @@ const DevPortalNav = () => {
     const [currentPage, setCurrentPage] = useState()
 
     useEffect(() => {
-        setCurrentPage(window.location.pathname)
-    }, [window.location.pathname])
+        setCurrentPage(typeof window !== `undefined` && window.location.pathname)
+    }, [typeof window !== `undefined` && window.location.pathname])
 
     const nav = navItems.map((navItem, index) => {
         if (navItem.href.includes(currentPage)) {

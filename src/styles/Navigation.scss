@@ -12,7 +12,7 @@
 }
 
 .Navigation__navigationItem--selected {
-    color: $orange;
+    color: $orange !important;
     border-left: 3px solid $orange;
 }
 
