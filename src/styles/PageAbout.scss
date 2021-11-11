@@ -1,3 +1,8 @@
+.PageAbout__container {
+    display: flex;
+    flex-direction: column;
+}
+
 .PageAbout__navBlock {
     margin-bottom: 2em;
 }
@@ -48,6 +53,14 @@
 .PageAbout__principlesImg {
     height: 130px;
     margin: 10px 0;
+
+    @media screen and (max-width: 580px) {
+        height: 100px;
+    }
+
+    @media screen and (max-width: 420px) {
+        height: 85px;
+    }
 }
 
 .PageAbout__principlesImgWrapper {

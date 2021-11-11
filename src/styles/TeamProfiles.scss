@@ -1,10 +1,10 @@
-.WhoWeAreProfiles__block {
+.TeamProfiles__block {
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
 }
 
-.WhoWeAreProfiles__block > * {
+.TeamProfiles__block > * {
     margin: 15px 15px 0 0;
     box-shadow: 0 0 0 0 $box-shadow-black;
     cursor: pointer;
@@ -15,20 +15,20 @@
     }
 }
 
-.WhoWeAreProfiles__imageBlock {
+.TeamProfiles__imageBlock {
     position: relative;
     width: 250px;
     height: 300px;
 }
 
-.WhoWeAreProfiles__image {
+.TeamProfiles__image {
     filter: grayscale(100%);
     min-width: 250px;
     min-height: 300px;
     margin-right: 16px;
 }
 
-.WhoWeAreProfiles__imageOverlayBlock {
+.TeamProfiles__imageOverlayBlock {
     position: absolute;
     bottom: 5px;
     margin: 0 5px;
@@ -38,26 +38,25 @@
     align-items: flex-end;
 }
 
-.WhoWeAreProfiles__name {
+.TeamProfiles__name {
     @include minor-title;
     text-shadow: 1px 1px 8px #000;
     color: $white;
     padding-right: 10px;
 }
 
-.WhoWeAreProfiles__arrow {
+.TeamProfiles__arrow {
     height: 40px;
     width: 40px;
     transform: rotate(0deg);
     transition: transform 0.3s linear;
 }
 
-.WhoWeAreProfiles__arrow.active {
-    transform: rotate(90deg);
+.TeamProfiles__arrow.active {
     transition: transform 0.3s linear;
 }
 
-.WhoWeAreProfiles__descriptionBlock {
+.TeamProfiles__descriptionBlock {
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -72,7 +71,7 @@
     align-items: center;
 }
 
-.WhoWeAreProfiles__descriptionBlock--inner {
+.TeamProfiles__descriptionBlock--inner {
     padding: 40px;
     background-color: $bg-gray-transparent;
 
@@ -82,7 +81,7 @@
     }
 }
 
-.WhoWeAreProfiles__closeIcon {
+.TeamProfiles__closeIcon {
     padding: 10px;
     font-size: 25px;
     font-weight: $bold;
@@ -97,7 +96,7 @@
     }
 }
 
-.WhoWeAreProfiles__selectedProfileBlock {
+.TeamProfiles__selectedProfileBlock {
     display: flex;
     max-height: 500px;
 
@@ -107,7 +106,7 @@
     }
 }
 
-.WhoWeAreProfiles__selectedProfileImage {
+.TeamProfiles__selectedProfileImage {
     filter: grayscale(100%);
     min-width: 250px;
     min-height: 300px;
@@ -123,7 +122,7 @@
     }
 }
 
-.WhoWeAreProfiles__selectedProfileName {
+.TeamProfiles__selectedProfileName {
     @include subheader-font;
     @include serif-font;
     padding-top: 10px;
@@ -131,7 +130,7 @@
     color: $orange;
 }
 
-.WhoWeAreProfiles__descriptionTextBlock {
+.TeamProfiles__descriptionTextBlock {
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -142,10 +141,10 @@
     }
 }
 
-.WhoWeAreProfiles__description {
+.TeamProfiles__description {
     color: $navy;
 }
 
-.WhoWeAreProfiles__description > :last-child {
+.TeamProfiles__description > :last-child {
     margin-bottom: 0;
 }

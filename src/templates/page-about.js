@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout, Pagination, WhoWeAre } from '../components/common'
+import { Layout, Pagination, Team } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import Emergent from "../images/Emergent.png"
 import Heritage from "../images/Heritage.png"
@@ -17,7 +17,7 @@ import Heritage from "../images/Heritage.png"
 const PageAbout = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges
     const page = data.ghostPage
-    const whoWeArePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageWhoWeAre`))
+    const teamProfiles = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageTeam`))
 
     useEffect(() => {
         const handleScroll = () => {}
@@ -36,12 +36,12 @@ const PageAbout = ({ data, location, pageContext }) => {
                 type="website"
             />
             <Layout>
-                <div className="container" dangerouslySetInnerHTML={{ __html: page.html }}>
+                <div className="container PageAbout__container" dangerouslySetInnerHTML={{ __html: page.html }}>
                 </div>
                 <div className="PageAbout__block">
                     {page.title === `Team` && <>
                         <div id="mission" className="PageAbout__fullHeightSection">
-                            <WhoWeAre whoWeAreCards={whoWeArePosts} />
+                            <Team teamProfiles={teamProfiles} />
                         </div>
                     </>
                     }
