@@ -465,36 +465,25 @@ h6 {
 }
 
 h1 {
+    @include large-subheader-font;
+    @include serif-font;
     margin: 0 0 0.5em 0;
-    font-size: 4rem;
-    font-weight: 700;
-}
-@media (max-width: 500px) {
-    h1 {
-        font-size: 2rem;
-    }
 }
 
 h2 {
+    @include subheader-font;
+    @include serif-font;
     margin: 1em 0 0.5em 0;
-    font-size: 2rem;
-}
-@media (max-width: 500px) {
-    h2 {
+
+    @media screen and (max-width: 500px) {
         margin: 0.5em 0 0.25em 0;
-        font-size: 1.8rem;
     }
 }
 
 h3 {
+    @include emphasized-font;
+    @include serif-font;
     margin: 1.5em 0 0.5em 0;
-    font-size: 1.8rem;
-    font-weight: 500;
-}
-@media (max-width: 500px) {
-    h3 {
-        font-size: 1.7rem;
-    }
 }
 
 h4 {

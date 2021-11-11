@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Ethos, Governance, Layout, Mission, Pagination, WhoWeAre, Ecosystem } from '../components/common'
+import { Layout, Pagination, Team } from '../components/common'
 import { MetaData } from '../components/common/meta'
+import Emergent from "../images/Emergent.png"
+import Heritage from "../images/Heritage.png"
 
 /**
  * About page
@@ -15,11 +17,7 @@ import { MetaData } from '../components/common/meta'
 const PageAbout = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges
     const page = data.ghostPage
-    const missionPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageMission`))
-    const whoWeArePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageWhoWeAre`))
-    const governancePosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageGovernance`))
-    const ethosPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPagePrinciples`))
-    const ecosystemPosts = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageEcosystem`))
+    const teamProfiles = posts.filter(post => post.node.tags.some(tag => tag.name === `#AboutPageTeam`))
 
     useEffect(() => {
         const handleScroll = () => {}
@@ -38,30 +36,27 @@ const PageAbout = ({ data, location, pageContext }) => {
                 type="website"
             />
             <Layout>
-                <div className="container">
-                    <h1 className="PageAbout__h1">{page.title}</h1>
+                <div className="container PageAbout__container" dangerouslySetInnerHTML={{ __html: page.html }}>
                 </div>
                 <div className="PageAbout__block">
-                    {page.title === `Who We Are` && <>
+                    {page.title === `Team` && <>
                         <div id="mission" className="PageAbout__fullHeightSection">
-                            <WhoWeAre whoWeAreCards={whoWeArePosts} />
-                        </div>
-                        <div id="whoWeAre" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" >
-                            <Mission missionCards={missionPosts} />
+                            <Team teamProfiles={teamProfiles} />
                         </div>
                     </>
                     }
-                    {page.title === `DSNP Guiding Principles` && <>
-                        <div id="governance" className="PageAbout__fullHeightSection">
-                            <Ethos ethosCards={ethosPosts} />
+                    {page.title === `Mission & Purpose` && <>
+                        <div className="container PageAbout__principlesImages">
+                            <div className="PageAbout__principlesImgWrapper">
+                                <img className="PageAbout__principlesImg" src={Emergent} alt="Emergent"/>
+                            </div>
+                            <div className="PageAbout__principlesImgWrapper">
+                                <img className="PageAbout__principlesImg" src={Heritage} alt="Heritage"/>
+
+                            </div>
                         </div>
-                        <div id="ethos" className="PageAbout__whoWeAreTextBlock PageAbout__fullHeightSection" >
-                            <Governance governanceCards={governancePosts} />
-                        </div>
-                    </>}
-                    {page.title === `Ecosystem` && <>
-                        <Ecosystem ecosystemPosts={ecosystemPosts} />
-                    </>}
+                    </>
+                    }
                     <Pagination pageContext={pageContext} />
                 </div>
             </Layout>

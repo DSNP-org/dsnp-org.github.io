@@ -9,13 +9,14 @@
 @import "./FaqPostCard";
 @import "./PageAbout";
 @import "./PageDevPortal";
-@import "./WhoWeAreProfiles";
-@import "./WhoWeArePostCard";
+@import "TeamProfiles";
+@import "Team";
 @import "./PostCard";
 @import "./PostBio";
 @import "./Navigation";
 @import "./Tag";
 @import "./DevPortalNav";
+@import "./MissionAndPurpose";
 
 body {
     max-width: 1800px;

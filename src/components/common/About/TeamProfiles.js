@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import ArrowDark from "../../../images/arrow-btn-dark.svg"
 import ArrowLight from "../../../images/arrow-button-light.svg"
 
-const WhoWeAreProfiles = ({ profiles }) => {
+const TeamProfiles = ({ profiles }) => {
     const [selectedProfile, setSelectedProfile] = useState(null)
 
     const toggleDisplayProfiles = (profile) => {
@@ -16,17 +16,17 @@ const WhoWeAreProfiles = ({ profiles }) => {
     }
 
     return <>
-        <div className="WhoWeAreProfiles__block">
+        <div className="TeamProfiles__block">
             {profiles.map(profile => <div
                 key={profile.node.id}
-                className="WhoWeAreProfiles__imageBlock"
+                className="TeamProfiles__imageBlock"
                 onClick={() => toggleDisplayProfiles(profile)}>
-                <GatsbyImage className="WhoWeAreProfiles__image"
+                <GatsbyImage className="TeamProfiles__image"
                     image={profile.node.featureImageSharp.childImageSharp.gatsbyImageData}
                     alt={`${profile} image`} />
-                <div className="WhoWeAreProfiles__imageOverlayBlock">
-                    <div className="WhoWeAreProfiles__name">{profile.node.title}</div>
-                    <img className={`WhoWeAreProfiles__arrow ${selectedProfile === profile ? `active` : null}`}
+                <div className="TeamProfiles__imageOverlayBlock">
+                    <div className="TeamProfiles__name">{profile.node.title}</div>
+                    <img className={`TeamProfiles__arrow ${selectedProfile === profile ? `active` : null}`}
                         src={selectedProfile === profile ? ArrowLight : ArrowDark}
                         alt="upArrow"
                     />
@@ -35,18 +35,18 @@ const WhoWeAreProfiles = ({ profiles }) => {
             )}
         </div>
         {selectedProfile &&
-            <div className="WhoWeAreProfiles__descriptionBlock">
-                <div className="WhoWeAreProfiles__descriptionBlock--inner container">
-                    <div className="WhoWeAreProfiles__closeIcon" onClick={() => toggleDisplayProfiles(selectedProfile)}>&#10005;</div>
-                    <div className="WhoWeAreProfiles__selectedProfileBlock">
-                        <GatsbyImage className="WhoWeAreProfiles__selectedProfileImage"
+            <div className="TeamProfiles__descriptionBlock">
+                <div className="TeamProfiles__descriptionBlock--inner container">
+                    <div className="TeamProfiles__closeIcon" onClick={() => toggleDisplayProfiles(selectedProfile)}>&#10005;</div>
+                    <div className="TeamProfiles__selectedProfileBlock">
+                        <GatsbyImage className="TeamProfiles__selectedProfileImage"
                             image={selectedProfile.node.featureImageSharp.childImageSharp.gatsbyImageData}
                             objectFit="cover"
                             alt={`${selectedProfile.node.title} image`} />
-                        <div className="WhoWeAreProfiles__descriptionTextBlock">
-                            <div className="WhoWeAreProfiles__selectedProfileName">{selectedProfile.node.title}</div>
+                        <div className="TeamProfiles__descriptionTextBlock">
+                            <div className="TeamProfiles__selectedProfileName">{selectedProfile.node.title}</div>
                             <section
-                                className="WhoWeAreProfiles__description"
+                                className="TeamProfiles__description"
                                 dangerouslySetInnerHTML={{ __html: selectedProfile.node.html }}
                             />
                         </div>
@@ -57,8 +57,8 @@ const WhoWeAreProfiles = ({ profiles }) => {
     </>
 }
 
-WhoWeAreProfiles.propTypes = {
+TeamProfiles.propTypes = {
     profiles: PropTypes.any,
 }
 
-export default WhoWeAreProfiles
+export default TeamProfiles

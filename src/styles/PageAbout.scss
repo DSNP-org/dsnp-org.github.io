@@ -1,10 +1,6 @@
-.PageAbout__h1 {
-    @include emphasized-font;
-    @include sans-serif-font;
-    border-left: 3px solid $orange;
-    color: $navy;
-    padding-left: 15px;
-    margin: 0;
+.PageAbout__container {
+    display: flex;
+    flex-direction: column;
 }
 
 .PageAbout__navBlock {
@@ -44,4 +40,29 @@
     justify-content: space-between;
     margin: 0 -20vw;
     position: relative;
+}
+
+.PageAbout__principlesImages {
+    display: flex;
+
+    @media screen and (max-width: 1040px) {
+        flex-direction: column;
+    }
+}
+
+.PageAbout__principlesImg {
+    height: 130px;
+    margin: 10px 0;
+
+    @media screen and (max-width: 580px) {
+        height: 100px;
+    }
+
+    @media screen and (max-width: 420px) {
+        height: 85px;
+    }
+}
+
+.PageAbout__principlesImgWrapper {
+    width: 50%;
 }

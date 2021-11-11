@@ -1,0 +1,12 @@
+.Team__topBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.Team__topBlock > :first-child {
+    margin-top: 0;
+}
+
+.Team__blockSubtitle {
+    @include section-header;
+}

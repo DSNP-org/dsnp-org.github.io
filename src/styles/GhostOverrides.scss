@@ -2,3 +2,12 @@
     @include serif-font;
     @include subheader-font;
 }
+
+#mission, #governance, #guiding-principles, #what-is-dsnp {
+    @include section-header;
+}
+
+#the-problem, #the-question, #the-solution {
+    @include sans-serif-font;
+    color: $orange;
+}
