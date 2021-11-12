@@ -7,9 +7,9 @@ const Team = ({ teamProfiles }) => {
     const team = teamProfiles.filter(post => post.node.tags.some(tag => tag.name === `#WhoWeAreStaff`))
 
     return <div className="container Team__topBlock">
-        <h3 className="Team__blockSubtitle" >Advisors</h3>
+        <h2 className="Team__blockSubtitle" >Advisors</h2>
         <TeamProfiles profiles={advisors} />
-        <h3 className="Team__blockSubtitle" >Team</h3>
+        <h2 className="Team__blockSubtitle" >Team</h2>
         <TeamProfiles profiles={team} />
     </div>
 }

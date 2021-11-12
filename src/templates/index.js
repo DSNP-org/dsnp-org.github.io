@@ -25,7 +25,8 @@ const Index = ({ data, location }) => {
     const posts = data.allGhostPost.nodes
 
     const whatWeDo = posts.filter(post => post.tags.some(tag => tag.name === `#HomePageWhatWeDo`))
-    const ecosystemCards = posts.filter(card => card.tags.some(tag => tag.name === `#HomePageEcosystemCard`))
+    const cards = posts.filter(card => card.tags.some(tag => tag.name === `#HomePageEcosystemCard`))
+    const ecosystemCards = [cards[2], cards[1], cards[3], cards[0]]
 
     const cursorIconSettings = () => {
         let clientX = -100
@@ -132,7 +133,7 @@ const Index = ({ data, location }) => {
                     <div className="container">
                         <div>
                             <section className="Index__banner" dangerouslySetInnerHTML={{ __html: whatWeDo[1].html }} />
-                            <Link to="https://spec.dsnp.org/" target="_blank" className="Index__arrowButtonBlock">
+                            <Link to="/about-what-is-dsnp/" target="_blank" className="Index__arrowButtonBlock">
                                 <img className="Index__arrowButton" src={UpArrow} alt="up-arrow-button"/>
                                 <div>Read more about the DSNP.</div>
                             </Link>

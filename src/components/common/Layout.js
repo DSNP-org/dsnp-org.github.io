@@ -73,7 +73,7 @@ const Layout = ({ data, children, bodyClass, isHome }) => {
                                 </nav>
                                 { isHome ?
                                     <div className="Layout__banner">
-                                        <h1 className="Layout__bannerTitle" data-aos="fade-right" data-aos-duration="1400">The next generation of the internet</h1>
+                                        <h1 className="Layout__bannerTitle" data-aos="fade-right" data-aos-duration="1400">DSNP.org— supporting the next generation of the internet</h1>
                                     </div> :
                                     null
                                 }

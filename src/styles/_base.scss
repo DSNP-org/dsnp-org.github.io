@@ -476,30 +476,30 @@ h2 {
     margin: 1em 0 0.5em 0;
 
     @media screen and (max-width: 500px) {
-        margin: 0.5em 0 0.25em 0;
+        margin: 0 0 0.25em 0;
     }
 }
 
 h3 {
     @include emphasized-font;
     @include serif-font;
-    margin: 1.5em 0 0.5em 0;
+    margin: 0.5em 0 0.5em 0;
 }
 
 h4 {
-    margin: 1.5em 0 0.5em 0;
+    margin: 0.5em 0 0.5em 0;
     font-size: 1.6rem;
     font-weight: 500;
 }
 
 h5 {
-    margin: 1.5em 0 0.5em 0;
+    margin: 0.5em 0 0.5em 0;
     font-size: 1.4rem;
     font-weight: 500;
 }
 
 h6 {
-    margin: 1.5em 0 0.5em 0;
+    margin: 0.5em 0 0.5em 0;
     font-size: 1.4rem;
     font-weight: 500;
 }
@@ -815,6 +815,11 @@ h6 {
         width: 30px;
         font-size: 30px;
         margin-left: -30px;
+    }
+
+    h2:first-child, h3:first-child {
+        padding-top: 0;
+        margin-top: 0;
     }
 }
 
