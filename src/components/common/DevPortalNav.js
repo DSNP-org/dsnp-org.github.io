@@ -4,7 +4,7 @@ const DevPortalNav = () => {
     let navItems = [
         {
             name: `Introduction`,
-            href: `../dev-portal-introduction/`,
+            href: `../developer-portal/`,
             class: `DevPortalNav__link`,
         },
         {

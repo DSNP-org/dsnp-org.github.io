@@ -140,6 +140,9 @@ exports.createPages = async ({ graphql, actions }) => {
         if (node.slug.includes(`dev-portal`)) {
             thisPageTemplate = devPortalTemplate
         }
+        if (node.slug.includes(`developer-portal`)) {
+            thisPageTemplate = devPortalTemplate
+        }
 
         createPage({
             path: node.url,
