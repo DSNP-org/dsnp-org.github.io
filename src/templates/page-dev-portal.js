@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
-import { Helmet } from "react-helmet";
+import React from "react"
+import PropTypes from "prop-types"
+import { graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 
-import { DevPortalNav, Layout } from "../components/common";
-import { MetaData } from "../components/common/meta";
+import { DevPortalNav, Layout } from "../components/common"
+import { MetaData } from "../components/common/meta"
 
 /**
  * Single page (/:slug)
@@ -13,7 +13,7 @@ import { MetaData } from "../components/common/meta";
  *
  */
 const DevPortal = ({ data, location }) => {
-    const page = data.ghostPage;
+    const page = data.ghostPage
 
     return (
         <>
@@ -50,8 +50,8 @@ const DevPortal = ({ data, location }) => {
                 </div>
             </Layout>
         </>
-    );
-};
+    )
+}
 
 DevPortal.propTypes = {
     data: PropTypes.shape({
@@ -63,9 +63,9 @@ DevPortal.propTypes = {
         }).isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
-};
+}
 
-export default DevPortal;
+export default DevPortal
 
 export const postQuery = graphql`
     query ($slug: String!) {
@@ -73,4 +73,4 @@ export const postQuery = graphql`
             ...GhostPageFields
         }
     }
-`;
+`

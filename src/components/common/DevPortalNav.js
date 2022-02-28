@@ -19,13 +19,19 @@ const DevPortalNav = () => {
             external: true,
         },
         {
-            name: `Community`,
-            href: `../dev-portal-community/`,
+            name: `Contribute + Community`,
+            href: `../developer-portal-community/`,
             class: `DevPortalNav__link`,
         },
         {
-            name: `Conduct`,
-            href: `../dev-portal-conduct/`,
+            name: `Code of Conduct`,
+            href: `../code-of-conduct/`,
+            class: `DevPortalNav__link`,
+            external: true,
+        },
+        {
+            name: `Security Vulnerabilities`,
+            href: `../developer-portal-security-vulnerabilities/`,
             class: `DevPortalNav__link`,
         },
     ]
