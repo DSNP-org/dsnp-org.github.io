@@ -8,25 +8,15 @@ const DevPortalNav = () => {
             class: `DevPortalNav__link`,
         },
         {
+            name: `Getting Started`,
+            href: `../developer-portal-getting-started/`,
+            class: `DevPortalNav__link`,
+        },
+        {
             name: `Spec ↗`,
             href: `https://spec.dsnp.org/`,
             class: `DevPortalNav__link`,
             external: true,
-        },
-        {
-            name: `Testnet`,
-            href: `../dev-portal-testnet/`,
-            class: `DevPortalNav__link`,
-        },
-        {
-            name: `SDK`,
-            href: `../dev-portal-sdk/`,
-            class: `DevPortalNav__link`,
-        },
-        {
-            name: `Example Client`,
-            href: `../dev-portal-example-client/`,
-            class: `DevPortalNav__link`,
         },
         {
             name: `Community`,
@@ -43,7 +33,9 @@ const DevPortalNav = () => {
     const [currentPage, setCurrentPage] = useState()
 
     useEffect(() => {
-        setCurrentPage(typeof window !== `undefined` && window.location.pathname)
+        setCurrentPage(
+            typeof window !== `undefined` && window.location.pathname
+        )
     }, [typeof window !== `undefined` && window.location.pathname])
 
     const nav = navItems.map((navItem, index) => {
