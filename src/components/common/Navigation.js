@@ -43,7 +43,7 @@ const Navigation = ({ data, navClass }) => {
                 return `${navClass} Navigation__navigationItem--selected`
             } else if (navItem === `about` && currentPage.includes(`about`)) {
                 return `${navClass} Navigation__navigationItem--selected`
-            } else if ((navItem.label === `Developer Portal` || navItem.label === `Dev Portal`) && currentPage.includes(`dev-portal`)) {
+            } else if ((navItem.label === `Developer Portal` || navItem.label === `Dev Portal`) && currentPage.includes(`dev-portal` || `developer-portal`)) {
                 return `${navClass} Navigation__navigationItem--selected`
             }
         }
