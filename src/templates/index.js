@@ -47,7 +47,7 @@ const Index = ({ data, location }) => {
                         </div>
                     </div>
                     <Parallax>
-                        <ScrollContainer className="Index__postCardBlock" >
+                        <ScrollContainer className="Index__postCardBlock container" >
                             {ecosystemCards.map((cardData, index) => <IndexPostCard cardData={cardData} key={generateKey(cardData.title)} index={index + 1}/>)}
                         </ScrollContainer>
                     </Parallax>

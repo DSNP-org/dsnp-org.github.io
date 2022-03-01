@@ -33,6 +33,12 @@
     }
 }
 
+.Index__postCardBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .Index__PostCardBlockTitle {
     @include large-subheader-font;
     @include serif-font;

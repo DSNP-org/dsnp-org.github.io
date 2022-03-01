@@ -44,7 +44,9 @@ const DevPortalNav = () => {
     }, [typeof window !== `undefined` && window.location.pathname])
 
     const nav = navItems.map((navItem, index) => {
-        if (navItem.href.includes(currentPage)) {
+        const navItemLink = navItem.href.substr(2)
+
+        if (navItemLink === currentPage) {
             navItems[
                 index
             ].class = `DevPortalNav__link DevPortalNav__link--active`
@@ -54,7 +56,7 @@ const DevPortalNav = () => {
             <a
                 className={navItem.class}
                 key={index}
-                href={navItem.href}
+                href={navItemLink}
                 target={navItem.external && `_blank`}
             >
                 {navItem.name}
