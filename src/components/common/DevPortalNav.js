@@ -27,7 +27,6 @@ const DevPortalNav = () => {
             name: `Code of Conduct`,
             href: `../code-of-conduct/`,
             class: `DevPortalNav__link`,
-            external: true,
         },
         {
             name: `Security Vulnerabilities`,
