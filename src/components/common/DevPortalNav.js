@@ -44,7 +44,10 @@ const DevPortalNav = () => {
     }, [typeof window !== `undefined` && window.location.pathname])
 
     const nav = navItems.map((navItem, index) => {
-        const navItemLink = navItem.href.substr(2)
+        let navItemLink = navItem.href
+        if (navItem.external !== true) {
+            navItemLink = navItem.href.substr(2)
+        }
 
         if (navItemLink === currentPage) {
             navItems[
